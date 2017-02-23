@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script src="a.js" defer="defer"></script> 延迟加载这个js，在onload之前加载
+		<script src="b.js"></script>
+		<script src="c.js"></script>-->
+		<script>
+			window.onload = function(){
+				var box = document.getElementById("box");
+				//alert(box.dataset.che);
+				alert(box.dataset.cheShuang);
+			};
+			/*defer:延迟加载,会按顺序执行,在onload执行前被触发
+			async:异步加载,加载完就触发,有顺序问题*/
+		</script>
+	</head>
+	<body>
+		<div id="box" data-che = "车" data-che-shuang = "车爽"></div>
+	</body>
+</html>

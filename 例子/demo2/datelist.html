@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<input type="text" list="vaList"/>
+		<datalist id="vaList">
+			<option value="javascript"></option>
+			<option value="html"></option>
+			<option value="css"></option>
+		</datalist>
+		<details open>
+			<summary>妙味课堂</summary>
+			<p>天梭心媛系列腕表从内到外都散发着女性魅力。内部精心打造的自动机芯可透过可爱表盘上12点钟位置的窗口一览无遗。无微不至的细节处理（例如某些款式上光芒四射的钻石或饰品以及优雅的表带）也进一步诠释了女性化的设计理念。该系列手表适合那些希望与挚爱亲密接触的淑女佩戴...</p>
+		</details>
+		<details>
+			<summary>妙味课堂</summary>
+			<p>天梭心媛系列腕表从内到外都散发着女性魅力。内部精心打造的自动机芯可透过可爱表盘上12点钟位置的窗口一览无遗。无微不至的细节处理（例如某些款式上光芒四射的钻石或饰品以及优雅的表带）也进一步诠释了女性化的设计理念。该系列手表适合那些希望与挚爱亲密接触的淑女佩戴...</p>
+		</details>
+		<details>
+			<summary>妙味课堂</summary>
+			<p>天梭心媛系列腕表从内到外都散发着女性魅力。内部精心打造的自动机芯可透过可爱表盘上12点钟位置的窗口一览无遗。无微不至的细节处理（例如某些款式上光芒四射的钻石或饰品以及优雅的表带）也进一步诠释了女性化的设计理念。该系列手表适合那些希望与挚爱亲密接触的淑女佩戴...</p>
+		</details>
+		<dialog open>
+			<dt>老师</dt>
+			<dd>同学们好</dd>
+			<dt>同学</dt>
+			<dd>老师好好</dd>
+			<dt>老师</dt>
+			<dd>1</dd>
+			<dt>同学</dt>
+			<dd>2</dd>
+		</dialog>
+		<progress max="200" value="76">
+			<span>76%</span>
+		</progress>-->
+		<form>
+			<input type="email" id="text" />
+			<input type="submit" />
+		</form>
+		
+		<script>
+			var oText = document.getElementById("text");
+			oText.addEventListener("invalid",fn,false);
+			function fn(ev){
+				alert(this.validity.typeMismatch);
+				ev.preventDefault();
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

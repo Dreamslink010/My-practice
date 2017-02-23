@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title>解决禁止缩放</title>
+		<style>
+			#box1{
+				width: 200px;
+				height: 200px;
+				background: mediumpurple;
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: .5;
+			}
+			#box2{
+				width: 3000px;
+				height: 50px;
+				background: orangered;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<a href="http://www.miaov.com" id="a">点我呀！！！</a>
+		<div id="box1"></div>
+		<div id="box2"></div>-->
+		<input type="text" id="ipt" />
+	</body>
+	<script>
+		/*
+			1、IOS下设置meta禁止用户缩放是不可行的 
+			2、解决ios10下已出隐藏的问题
+			3、禁止系统默认的滚动条   阻止橡皮筋效果（回弹）
+			4、禁止长按选中文字，选中图片、系统默认菜单
+			5、解决点透问题
+			6、也阻止了焦点元素的焦点行为 (要正常的使用，ev.preventDefault() 阻止冒泡)
+			解决：可以使用阻止pc事件，就可以在ios10下，禁止用户缩放
+			document.addEventListener('touchstart',function(ev){
+				ev.preventDefault()
+			})；
+			
+			
+			
+		*/
+		document.addEventListener('touchstart',function(ev){
+			ev.preventDefault()
+		});
+
+		var ipt = document.getElementById('ipt');
+		
+		ipt.addEventListener('touchstart',function(ev){
+			ev.stopPropagation();
+		})
+		
+	</script>
+</html>

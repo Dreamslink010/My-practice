@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title>tramsform动画</title>
+		<style>
+			@-webkit-keyframes rotate{
+				0%{transform: rotateY(0deg);}
+				100%{transform: rotateY(360deg)}
+			}
+			@keyframes rotate{
+				0%{transform: rotateY(0deg);}
+				100%{transform: rotateY(360deg)}
+			}
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			body,html{
+				height: 100%;
+				position: relative;
+				perspective: 300px;
+				-webkit-perspective: 300px;
+			}
+			#load{
+				height: 100%;
+			}
+			#logo2,#logo3{
+				position: absolute;
+				top: 40%;
+				width: 40%;
+				left: 30%;
+				-webkit-transform-style:preserve-3d ;
+				transform-style:preserve-3d ;
+				display: none;
+			}
+			#load img{
+				display: block;
+				width: 100%;
+				-webkit-animation: 3s infinite linear rotate;
+				animation: 3s infinite linear rotate;
+			}
+		</style>
+		<script src="js/m.Tween.js"></script>
+		<script>
+			window.onload = function(){
+				var logo2 = document.querySelector("#logo2");
+				var logo3 = document.querySelector("#logo3");
+				css(logo2,'translateZ',-1000);
+				css(logo3,'translateZ',-1000);
+				anmte1();
+				function anmte1(){
+					logo2.style.display = "block";
+					MTween({
+						el:logo2,
+						target:{
+							translateZ:0
+						},
+						time:340,
+						type:"easeIn",
+						callBack:anmte2
+					});
+				}
+				function anmte2(){
+					setTimeout(function(){
+						MTween({
+							el:logo2,
+							target:{
+								translateZ:-1000
+							},
+							time:1200,
+							type:"easeOut",
+							callBack:function(){
+								anmte3();
+								logo2.style.display = "none";
+							}
+						});
+					},2000);
+				};
+				function anmte3(){
+					logo3.style.display = "block";
+					MTween({
+						el:logo3,
+						target:{
+							translateZ:0
+						},
+						time:240,
+						type:"easeIn",
+						callBack:anmte4
+					});
+				};
+				function anmte4(){
+					setTimeout(function(){
+						MTween({
+							el:logo3,
+							target:{
+								translateZ:-1000
+							},
+							time:1200,
+							type:"easeOut",
+							callBack:function(){
+								anmte1();
+								logo3.style.display = "none";
+							}
+						});
+					},2000);
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<div id="load">
+			<div id="logo2">
+				<img src="img/logo2.png" />
+			</div>
+			<div id="logo3">
+				<img src="img/logo3.png" />
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title>多指操作</title>
+		<style>
+			#box{
+				width: 200px;
+				height: 200px;
+				background: red;
+				color: #fff;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+		document.addEventListener('touchstart',function(e){
+			e.preventDefault();
+		})
+			window.onload = function(){
+				var box = document.querySelector("#box");
+				var startScale = 0;
+				var startRotate = 0;
+				//gesture 相关事件，只有ios下有，安卓没有这个事件
+				/*当手指触摸元素，当屏幕上有两根或两根以上的手指*/
+				box.addEventListener("gesturestart",function(e){
+					//this.style.background = "blue";
+					//startScale = css(box."scale");
+					startRotate = css(box,rotate);
+					
+				});
+				/* 触发了 gesturestart时，然后抬起手指，这时屏幕上的手指少于两个或者屏幕上没有手指了就会触发gestureend */
+				box.addEventListener("gestureend",function(e){
+					this.style.background = "red";
+				});
+				/*
+					e.scale:缩放比：change时两根手指之间的距离和start时两根手指之间距离比值
+					e.rotation 旋转差：change时两根手指行形成的直线和start时两根手指形成的直线，中间形成的夹角
+				*/
+				/*触发了 gesturestart时，手指位置发生变化的时候执行*/，
+				box.addEventListener("gesturechange",function(e){
+					//this.innerHTML = e.scale;
+					//this.innerHTML = e.rotation;
+					//css(box."scale",e.scale*startScale);
+					css(box,'rotate',e.rotate+startRotate);
+				})
+				
+			}
+		</script>
+	</body>
+</html>

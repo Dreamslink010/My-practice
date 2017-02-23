@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../angular.min.js"></script>
+		<script>
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope','$filter',function($scope,$filter){
+				/*
+					$scope.name = $filter('uppercase')('hello'); 
+				*/
+				$scope.name = $filter('number')('2345678');
+			}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			<!--
+				<p>{{name|limitTo:2 | uppercase}}</p>
+			-->
+			<p>{{name}}</p>
+		</div>
+	</body>
+</html>

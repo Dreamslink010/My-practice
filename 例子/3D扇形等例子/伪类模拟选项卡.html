@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			a{
+				font-size: 20px;
+				color: #333;
+			}
+			div{
+				display: none;
+				width: 300px;
+				height: 300px;
+				background: orangered;
+				color: #fff;
+				font: 30px/300px "微软雅黑";
+				text-align: center;
+			}
+			div:target{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#div1">你好div1</a>
+		<a href="#div2">你好div2</a>
+		<a href="#div3">你好div3</a>
+		<div id="div1">我是div1</div>
+		<div id="div2">我是div2</div>
+		<div id="div3">我是div3</div>
+	</body>
+</html>

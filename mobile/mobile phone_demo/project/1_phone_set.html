@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>手机端基本信息设置</title>
+		<!--设置视口 宽等于设备宽 禁止手指缩放-->
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<!--强制x5内核的浏览器竖屏或横屏显示，x5内核的浏览器有QQ浏览器，微信自带浏览器-->
+		<meta name="x5-orientation" content="portrait|landspace" />
+		<!--强制x5内核浏览器全屏显示-->
+		<meta name="x5-fullscreen" content="true" />
+		<!--强制UC内核的浏览器竖屏或横屏显示-->
+		<meta name="screen-orientation" content="portrait|landspace" />
+		<!--强制UC内核浏览器全屏显示-->
+		<meta name="full-screen" content="yes" />
+		<!--禁止浏览器对电话号码和邮箱的识别-->
+		<meta name="format-detection" content="telephone=no,email=no" />
+	</head>
+	<style>
+		body{
+			font-family: helvetica;
+		}
+		/*去除按钮点击时的高亮颜色*/
+		a,input,button{
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		/*禁止页面文字进行缩放，但是之兼容苹果，安卓不好使，事件章节会讲到*/
+		body * {
+			-webkit-text-size-adjust:100%;
+		}
+		/*清除掉在苹果浏览器里按钮边框变成的半圆形*/
+		input,button{
+			-webkit-appearance: none;
+			border-radius: 0;
+		}
+	</style>
+	<body>
+		<p>13888888888</p>
+		<a href="tel:18888888888">请拨打电话18888888888</a>
+		<a href="mailto:624848223@qq.com">请发送邮件</a>
+		<a href="#">华采找鱼-我是车爽</a>
+		<input type="button" value="按钮" />
+	</body>
+</html>

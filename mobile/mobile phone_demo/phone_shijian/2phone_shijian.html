@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title></title>
+		<style>
+			#box1{
+				width: 200px;
+				height: 200px;
+				background: mediumpurple;
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: .5;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<p id="p1">点我呀！！！</p>-->
+		<a href="http://www.miaov.com" id="a">点我呀！！！</a>
+		<div id="box1"></div>
+		<script>
+			/*
+				移动端三大事件
+					手指按下：ontouchstart
+					手指移动：ontouchmove
+					手指移开：ontouchend
+					
+				注意：在移动端开发的时候，浏览器的模拟器时好时坏，一般不用on的方式绑定事件函数，要用事件绑定的方式（addEventListener）
+				
+				pc上的事件比移动端的事件略慢，大概是在300ms左右
+				
+				移动端的点透：
+					当上层元素发生点击的时候，下层元素也有点击（焦点）特性，在300ms之后，如果上层元素消失或者隐藏，目标点就会漂移到下层元素身上，就会触发点击行为
+					
+				解决：
+					1、下层不要用有点击（焦点）特性的元素
+					2、阻止pc事件
+			*/
+			
+			/*var div = document.getElementById('box1');
+			div.ontouchstart = function(){
+				alert(1);
+			}*/
+			document.addEventListener('touchstart',function(ev){
+				ev.preventDefault();
+			});
+			var div = document.getElementById('box1');
+			var a1 = document.getElementById('a');
+			div.addEventListener('touchend',end);
+			a1.addEventListener("touchstart",function(){
+				window.location.href = "http://www.miaov.com";
+			})
+			function end(){
+				this.style.display = "none";
+			};
+			
+		</script>
+	</body>
+</html>

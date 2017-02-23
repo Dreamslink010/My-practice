@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			 * 
+			var str = 'function show(){alert(123)}';
+			eval(str);
+			show(); 
+			
+			eval : 可以解析任何字符串变成js
+			
+			parse : 只能解析JSON形式的字符串变成js（安全性更高）
+			
+			*/
+			/*var str = '{"name":"che","age":"20"}' //一定是严格的json形式，key，value都要加上引号
+			var json = JSON.parse(str);
+			console.log(json.name);
+			var str2 = {"name":"che","age":"20"};
+			var json2 = JSON.stringify(str2);
+			console.log(json2);*/
+			
+/*			var a = { 'name':'hello' };
+			var b = a;
+			b.name = 'hi';
+			alert(a.name);  //此处为对象引用，b里的name进行修改，影响到了a的name*/
+			
+			/*var a = {'name':'hello'};
+			var b = {};
+			for(var attr in a){
+				b[attr] = a[attr];
+			};
+			b.name = 'hi';
+			alert(a.name);  //通过for in的方法，就不会改变a的name值*/
+			
+			/*var a = {"name":"che"};
+			var str = JSON.stringify(a);
+			var b = JSON.parse(str);
+			b.name = 'hi';
+			console.log(a.name);  //深拷贝*/
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

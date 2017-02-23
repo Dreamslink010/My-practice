@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			body,html{
+				height: 100%;
+				overflow: hidden;
+				position: relative;
+			}
+			header,footer{
+				height: 40px;
+				font-size: 20px;
+				text-align: center;
+				background: #000;
+				line-height: 40px;
+				color: #fff;
+			}
+			footer{
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			#wrap{
+				position: absolute;
+				left: 0;
+				right:0;
+				top: 40px;
+				bottom: 40px;
+				overflow: hidden;
+			}
+			#list{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				
+			}
+			#list li{
+				border-bottom:1px solid #000 ;
+				height: 35px;
+				line-height: 35px;
+				text-indent: 2em;
+			}
+		</style>
+		<script src="js/m.Tween.js"></script>
+		<script>
+			function creatList(){
+				var inner = document.querySelector("#list");
+				var inner1 = "";
+				for(var i = 0; i < 100; i++){
+					inner1 += "<li>这是第"+ i +"个li</li>";
+				};
+				inner.innerHTML = inner1;
+			}
+			document.addEventListener("touchstart",function(e){
+				e.preventDefault();
+			})
+			window.onload = function(){
+				creatList();
+				mScroll({
+					el:wrap
+				});
+				
+			}
+			function mScroll(init){
+				if(!init.el){
+					return;
+				};
+				var wrap = init.el;
+				var inner = init.el.children[0];
+				var scrollBar = document.createElement("div");
+				var startPoint = 0; //手指按下去的坐标
+				var startEl = 0;    //元素当手指按下时的位置
+				var lastDis = 0;	//元素最后一次移动的距离
+				var lastY = 0;		//元素最后一次所在的位置
+				var lastTime = 0;
+				var lastTimeDis = 0;
+				var maxTranslate = wrap.clientHeight - inner.offsetHeight;
+				if( !init.offBar ){
+					var scale = wrap.clientHeight/inner.offsetHeight;
+					inner.style.minHeight = "100%";
+					scrollBar.style.cssText = "width: 6px;background:rgba(0,0,0,.5) ;position: absolute;right:0;top: 0;border-radius: 3px; opacity: 0;transition: .3s opacity;";
+					wrap.appendChild(scrollBar);
+				}
+				
+				css(inner,"translateZ",0.01);
+				inner.addEventListener("touchstart",function(e){
+					maxTranslate = wrap.clientHeight - inner.offsetHeight;
+					if( !init.offBar ){
+						if( maxTranslate >= 0 ){
+							scrollBar.style.display = "none";
+						}else{
+							scrollBar.style.display = "block";
+						}
+						scale = wrap.clientHeight/inner.offsetHeight;
+						scrollBar.style.height = wrap.clientHeight*scale+"px";
+					};
+					
+					clearInterval(inner.timer);
+					startPoint = e.changedTouches[0].pageY;
+					startEl = css(inner,'translateY');
+					lastY = startEl;
+					lastDis = 0;
+					lastTime = new Date().getTime();
+					lastTimeDis = 0;
+					(init.offBar)||(scrollBar.style.opacity = 1);
+					
+				});
+				inner.addEventListener("touchmove",function(e){
+					var nowTime = new Date().getTime();
+					var nowPoint = e.changedTouches[0].pageY; 
+					var dis = nowPoint-startPoint;
+					var translateY = dis + startEl;
+					css(inner,'translateY',translateY);
+					(init.offBar)||css(scrollBar,'translateY',-translateY*scale);
+					lastDis = translateY - lastY;
+					lastY = translateY;
+					lastTimeDis = nowTime - lastTime;
+					lastTime = nowTime;
+				});
+				inner.addEventListener('touchend',function(e){
+					var type = "easeOut";
+					var speed = Math.round(lastDis / lastTimeDis*10);
+					speed = lastTimeDis <=0 ? 0 : speed;
+					var target = Math.round(speed*30 + css(inner,'translateY'));
+					if( target > 0){
+						target = 0;
+						type = "backOut";
+					}else if( target < maxTranslate ){
+						target = maxTranslate;
+						type = "backOut";
+					};
+					MTween({
+						el:inner,
+						target:{translateY:target},
+						time:Math.round(Math.abs(target - css(inner,'translateY'))*1.8),
+						type:"easeOut",
+						callBack:function(){
+							(init.offBar)||(scrollBar.style.opacity = 0);
+						},
+						callIn:function(){
+							var translateY = css(inner,"translateY");
+							(init.offBar)||css(scrollBar,'translateY',-translateY*scale);
+						}
+					});
+					
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<header id="header">妙味课堂</header>
+		<section id="wrap">
+			<ul id="list"></ul>
+		</section>
+		<footer id="footer">运用translate进行滑屏操作</footer>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,h3,p{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="photo_wall">
+			<!--照片和导航区域-->
+			<div class="photo">
+				<!--照片外层，用来做旋转和位移-->
+				<div class="photo_i front center">
+					<!--照片内层，用来做3D翻转-->
+					<div class="photo_3D">
+						<!--照片的正面-->
+						<div class="photo_side photo_front">
+							<p><img src="img/a.jpg"/></p>
+							<h3>这是照片的标题</h3>
+						</div>
+						<!--照片的反面-->
+						<div class="photo_side photo_back">
+							<p class="desc">照片的描述信息</p>
+						</div>
+					</div>
+				</div>
+				<!--导航区域-->
+				<div class="nav">
+					<span class="nav_i"></span>
+					<span class="nav_i"></span>
+					<span class="nav_i"></span>
+					<span class="nav_i"></span>
+					<span class="nav_i"></span>
+				</div>
+			</div>
+			<!--遮罩层-->
+			<div class="shade">
+				<div class="start">Start View</div>
+			</div>
+		</div>
+		<script src="js/data.js"></script>
+	</body>
+</html>

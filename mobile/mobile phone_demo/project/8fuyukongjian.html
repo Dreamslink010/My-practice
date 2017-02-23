@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>富余空间</title>
+		<style>
+			#box{
+				height: 300px;
+				border: 1px solid #000;
+				/*新版弹性盒模型
+				display: flex;*/
+				
+				/*主轴方向富余空间管理*/
+				/*元素在主轴开始位置,富余空间在主轴的结束位置
+				justify-content: flex-start;*/
+				
+				/*元素在主轴结束位置,富余空间在主轴的开始位置
+				justify-content: flex-end;*/
+				
+				/*元素在主轴中间位置,富余空间在主轴的两侧位置
+				justify-content: center;*/
+				
+				/*富余空间平局分配在两个元素之间
+				justify-content: space-between;*/
+				
+				/*富余空间平均分配在每个元素的两侧
+				justify-content: space-around;*/
+				
+				/*侧轴方向富余空间管理*/
+				/*元素在侧轴开始位置,富余空间在侧轴的结束位置
+				align-items: flex-start;*/
+				
+				/*元素在侧轴结束位置,富余空间在侧轴的开始位置
+				align-items: flex-end;*/
+				
+				/*元素在侧轴中间位置,富余空间在侧轴的两侧位置
+				align-items: center;*/
+				
+				/*根据侧轴方向上文字的基线对齐
+				align-items: baseline;*/
+				
+				
+				/*老版的弹性盒模型
+				display: -webkit-box;*/
+				
+				/*主轴方向富余空间管理*/
+				/*元素在主轴的开始位置,富余空间在主轴的结束位置
+				-webkit-box-pack: start;*/
+				
+				/*元素在主轴的结束位置,富余空间在主轴的开始位置
+				-webkit-box-pack: end;*/
+				
+				/*元素在主轴中间位置,富余空间在主轴的两侧位置
+				-webkit-box-pack: center;*/
+				
+				/*富余空间平局分配在两个元素之间
+				-webkit-box-pack: justify;*/
+				
+				/*侧轴方向富余空间管理*/
+				
+				/*元素在侧轴开始位置,富余空间在侧轴的结束位置
+				-webkit-box-align: start;*/
+				
+				/*元素在侧轴结束位置,富余空间在侧轴的开始位置
+				-webkit-box-align: end;*/
+				
+				/*元素在侧轴中间位置,富余空间在侧轴的两侧位置
+				-webkit-box-align:center;*/
+			}
+			#box div{
+				width: 50px;
+				height: 50px;
+				background: purple;
+				font-size: 30px;
+				color: #fff;
+			}
+			#box div:nth-of-type(2){
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+	</body>
+</html>

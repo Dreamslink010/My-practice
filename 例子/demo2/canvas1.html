@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body{
+			background: pink;
+		}
+		#c1{
+			background: orangered;
+		}
+	</style>
+	<body>
+		<canvas id="c1" width="400" height="400"></canvas>
+		<!--默认宽300px，高150px，-->
+	</body>
+	<script>
+		var oCan = document.getElementById("c1");
+		var oGc = oCan.getContext("2d"); //获取绘图对象
+		/*oGc.fillStyle = "yellow"; //填充颜色
+		oGc.strokeStyle = "#9C9FCD"; //边框颜色
+		oGc.lineWidth = 10; //边框粗细
+		oGc.lineJoin = "bevel"; //边界链接点的样式 圆角round/斜角bevel/默认miter
+		oGc.fillRect(50,50,100,100); //新建一个方块，距离左边50，距离顶部50，尺寸100*100
+		oGc.strokeRect(50.5,50.5,100,100); //添加一个边框*/
+		
+		/*oGc.save(); //保存路径
+		oGc.fillStyle = "mediumpurple"
+		
+		oGc.beginPath(); //开始绘制路径
+		oGc.moveTo(100,100);//移动到绘制的新目标点
+		oGc.lineTo(200,200);//新的目标点
+		oGc.lineTo(300,200);
+		oGc.closePath();//结束绘制路径
+		oGc.fill(); //划线
+		
+		oGc.restore(); // 恢复路径
+		
+		oGc.beginPath();
+		oGc.moveTo(100,200);
+		oGc.lineTo(200,300);
+		oGc.lineTo(300,300);
+		oGc.closePath();
+		oGc.fill();//填充，默认为黑色*/
+		
+		/*oGc.beginPath();
+		oGc.rect(100,100,100,100); //画一个矩形
+		oGc.closePath();
+		oGc.fill();
+		oGc.clearRect(0,0,oCan.width,oCan.height) //删除一个画布的矩形区域*/
+		
+		/*oGc.lineWidth = 20;
+		oGc.lineCap = "round"; //端点样式（默认butt/圆角round/square高度多出为宽度一半的值）
+		oGc.moveTo(100,100);
+		oGc.lineTo(200,200);
+		oGc.stroke();*/
+		
+		
+		
+	</script>
+</html>

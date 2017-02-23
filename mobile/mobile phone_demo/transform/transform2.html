@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title></title>
+		<style>
+			#box{
+				width: 100px;
+				height: 100px;
+				border:1px solid #333;
+				padding: 100px;
+				-webkit-perspective: 200px;
+				perspective: 200px;
+				perspective-origin: right top;
+			}
+			#div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				transition: 3s;
+				-webkit-transform-style:preserve-3d ;
+				transform-style:preserve-3d ;
+				
+			}
+			#div span{
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: pink;
+				-webkit-transform:rotateX(60deg);
+				transform:rotateX(60deg);
+			}
+			
+		</style>
+		<script>
+			document.addEventListener('touchstart',function(ev){
+				ev.preventDefault();
+			})
+			window.onload = function(){
+				var div = document.querySelector('#div');
+				div.addEventListener('touchend',function(){
+					//div.style.WebkitTransform = div.style.transform = 'rotate(90deg)';
+					//div.style.WebkitTransform = div.style.transform = 'skew(40deg,40deg)';
+					//div.style.WebkitTransform = div.style.transform = 'scale(2)';
+					//div.style.WebkitTransform = div.style.transform = 'translate(100px,100px)';
+					//div.style.WebkitTransform = div.style.transform = 'rotateZ(60deg)';
+					//div.style.WebkitTransform = div.style.transform = 'rotateX(60deg)';
+					//div.style.WebkitTransform = div.style.transform = 'rotateY(60deg)';
+					div.style.WebkitTransform = div.style.transform = 'rotateY(360deg)';
+				});
+				/*
+						rotate	旋转	 deg
+						
+						skew	斜切	 deg
+							skewX
+							skewY
+							
+						scale	缩放(原始大小的多少倍)(X,Y)
+							scaleX
+							scaleY
+							
+						translate	位移 px
+							translateX
+							translateY
+							
+						transform-origin:center center; 基点
+						关键字：left right top bottom
+						百分比
+						距离单位(px em rem...)
+						
+						transform 的执行顺序，先写后执行
+						
+						rotateX/rotateY/rotateZ/rotate3D
+						translateX/translateY/translateZ/translate3D
+						perspective 景深(我在多远之外来看元素)
+						景深应加在要做3D变换的元素的父级
+						
+						perspective-origin:center center;
+						视线方向
+						
+						transform-style 元素在做3D变换时，是否保留子元素的3D变换
+						flat:不保留
+						presevre-3d：保留
+						
+						反面(背面)和父级角度相对元素，即为背面
+						backface-visibility:hidden;
+						背面隐藏
+				*/
+			}
+		</script>
+	</head>
+	
+	<body>
+		<!--
+			transform 变换
+			移动端使用应加前缀 -webkit-transform
+		-->
+		<div id="box">
+			<div id="div">
+				<span></span>
+			</div>
+		</div>
+	</body>
+</html>

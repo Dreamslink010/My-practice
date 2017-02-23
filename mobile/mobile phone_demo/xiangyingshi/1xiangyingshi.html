@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			#box{
+				width: 100px;
+				height: 100px;
+				background: mediumpurple;
+			}
+			/*@media all and (min-width:500px){
+				#box{
+					background: green;
+				}
+			}*/
+			@media all and (max-width:500px){
+				#box{
+					background: pink;
+				}
+			}
+			/*
+				@media 		媒体类型
+				
+			 	and    		连接媒体类型和媒体特性
+			 	
+			 	min-width 	当屏幕宽度大于等于500（某个值）时识别
+			 	
+			 	max-width: 	当屏幕大小小于等于500（某个值）时识别
+			*/
+		</style>
+		
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

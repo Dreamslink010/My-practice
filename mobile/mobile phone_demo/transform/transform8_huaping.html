@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			body,html{
+				height: 100%;
+				overflow: hidden;
+				position: relative;
+			}
+			header,footer{
+				height: 40px;
+				font-size: 20px;
+				text-align: center;
+				background: #000;
+				line-height: 40px;
+				color: #fff;
+			}
+			footer{
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			#wrap{
+				position: absolute;
+				left: 0;
+				right:0;
+				top: 40px;
+				bottom: 40px;
+				overflow: hidden;
+			}
+			#list{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			#list li{
+				border-bottom:1px solid #000 ;
+				height: 35px;
+				line-height: 35px;
+				text-indent: 2em;
+			}
+		</style>
+		<script src="js/m.Tween.js"></script>
+		<script>
+			function creatList(){
+				var list = document.querySelector("#list");
+				var inner = "";
+				for(var i = 0; i < 100; i++){
+					inner += "<li>这是第"+ i +"个li</li>";
+				};
+				list.innerHTML = inner;
+			}
+			window.onload = function(){
+				creatList();
+				var list = document.querySelector("#list");
+				var startPoint = 0; //手指按下去的坐标
+				var startEl = 0;    //元素当手指按下时的位置
+				css(list,"translateZ",0.01);
+				list.addEventListener("touchstart",function(e){
+					startPoint = e.changedTouches[0].pageY;
+					startEl = css(list,'translateY');
+				});
+				list.addEventListener("touchmove",function(e){
+					var nowPoint = e.changedTouches[0].pageY; 
+					var dis = nowPoint-startPoint;
+					var translateY = dis + startEl;
+					css(list,'translateY',translateY);
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<header id="header">妙味课堂</header>
+		<section id="wrap">
+			<ul id="list"></ul>
+		</section>
+		<footer id="footer">运用translate进行滑屏操作</footer>
+	</body>
+</html>

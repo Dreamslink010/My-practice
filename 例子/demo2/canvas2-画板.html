@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body{
+			background: pink;
+		}
+		#c1{
+			background: #fff;
+		}
+	</style>
+	<body>
+		<canvas id="c1" width="400" height="400"></canvas>
+		<!--默认宽300px，高150px，-->
+	</body>
+	<script>
+		var oCan = document.getElementById("c1");
+		var oGc = oCan.getContext("2d"); //获取绘图对象
+		oCan.onmousedown = function(ev){
+			var ev = ev || window.event;
+			oGc.moveTo(ev.clientX-oCan.offsetLeft,ev.clientY-oCan.offsetTop);
+			document.onmousemove = function(ev){
+				var ev = ev || window.event;
+				oGc.lineTo(ev.clientX-oCan.offsetLeft,ev.clientY-oCan.offsetTop);
+				oGc.stroke();
+			};
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
+		}
+		
+		
+		
+	</script>
+</html>

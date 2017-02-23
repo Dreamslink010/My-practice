@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"  />
+		<title>标签页和提示工具插件</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			.a{
+				height: 50px;
+				width: 100px;
+				border:1px solid #ccc;
+				background: #eee;
+			}
+			a:focus{
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul id="nav" class="nav nav-tabs">
+			<li class="active"><a href="#HTML5">HTML5</a></li>
+			<li><a href="#Bootstrap">Bootstrap</a></li>
+			<li><a href="#jQuery">jQuery</a></li>
+			<li><a href="#ExtJS">ExtJS</a></li>
+		</ul>
+		
+		<div class="tab-content" style="padding: 10px;">
+			<p class="tab-pane fade in active" id="HTML5">HTML5 当年张国荣以一部《霸王别姬》让很多人记住了他。而谢君豪则以一部《南海十三郎》压过了张国荣的风头。并获得了当年的金马影帝。但是，也只是片红人不红，谢君豪并没有因为拿了影帝而火起来。看过他的作品的人都知道，他的演技并不比同期的周星驰、刘德华、张国荣逊色。但却只能慢慢的陨落，他出演的影视作品大多数都火了，甚至剧里的配角都慢慢红红火火，作为主角的他却往往人气不高。</p>
+			<p class="tab-pane fade" id="Bootstrap">Bootstrap 当年张国荣以一部《霸王别姬》让很多人记住了他。而谢君豪则以一部《南海十三郎》压过了张国荣的风头。并获得了当年的金马影帝。但是，也只是片红人不红，谢君豪并没有因为拿了影帝而火起来。看过他的作品的人都知道，他的演技并不比同期的周星驰、刘德华、张国荣逊色。但却只能慢慢的陨落，他出演的影视作品大多数都火了，甚至剧里的配角都慢慢红红火火，作为主角的他却往往人气不高。</p>
+			<p class="tab-pane fade" id="jQuery">jQuery 当年张国荣以一部《霸王别姬》让很多人记住了他。而谢君豪则以一部《南海十三郎》压过了张国荣的风头。并获得了当年的金马影帝。但是，也只是片红人不红，谢君豪并没有因为拿了影帝而火起来。看过他的作品的人都知道，他的演技并不比同期的周星驰、刘德华、张国荣逊色。但却只能慢慢的陨落，他出演的影视作品大多数都火了，甚至剧里的配角都慢慢红红火火，作为主角的他却往往人气不高。</p>
+			<p class="tab-pane fade" id="ExtJS">ExtJS 当年张国荣以一部《霸王别姬》让很多人记住了他。而谢君豪则以一部《南海十三郎》压过了张国荣的风头。并获得了当年的金马影帝。但是，也只是片红人不红，谢君豪并没有因为拿了影帝而火起来。看过他的作品的人都知道，他的演技并不比同期的周星驰、刘德华、张国荣逊色。但却只能慢慢的陨落，他出演的影视作品大多数都火了，甚至剧里的配角都慢慢红红火火，作为主角的他却往往人气不高。</p>
+		</div>
+		
+		<a href="#" id="text" data-toggle="tooltip" title="<b>超文本标识符</b>" data-animation='false' data-html='true' data-placement='right' >HTML5</a>
+		
+		<div id="sele">
+			<a href="#" rel="tooltip" data-toggle="tooltip" title="超文本标识符">我可以提示</a>
+			<a href="#" data-toggle="tooltip" title="超文本标识符">我可以提示</a>
+		</div>
+		
+		<div class="btn-group">
+			<button class="btn btn-default" data-toggle = "tooltip" title="超文本标记符">左</button>
+			<button class="btn btn-default" data-toggle = "tooltip" title="超文本标记符">中</button>
+			<button class="btn btn-default" data-toggle = "tooltip" title="超文本标记符">右</button>
+		</div>
+		<a href="#" rel="tooltip" data-toggle="tooltip" title="超文本标识符">我可以提示</a>
+		<button class="btn btn-default">按钮</button>
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			/*$('#nav a').on('click',function(e){
+				e.preventDefault();
+				$(this).tab('show')
+			})*/
+//			$('button').tooltip({
+//				delay:{
+//					show:100,
+//					hide:100
+//				},
+//				container:'body'
+//			})
+//			$('#text').tooltip();
+//			$('#sele').tooltip({
+//				selector:"a[rel=tooltip]"
+//			});
+			$('a').tooltip({
+				trigger:'click'
+			});
+			$('button').on('click',function(){
+//				$('a').tooltip('hide');
+				$('a').tooltip('toggle')
+			})
+		</script>
+	</body>
+	
+</html>

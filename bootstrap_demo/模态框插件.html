@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"  />
+		<title>模态框插件</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			.a{
+				height: 50px;
+				width: 100px;
+				border:1px solid #ccc;
+				background: #eee;
+			}
+		</style>
+	</head>
+	<body style="margin: 100px;"> 
+		<!--模态框的声明-->
+		<div class="modal fade" id="myModal">
+			<!--窗口声明-->
+			<div class="modal-dialog">
+				<!--内容声明-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal"><span>&times;</span></button>
+						<h4 class="modal-title">会员登录</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-4">1</div>
+								<div class="col-md-4">3</div>
+								<div class="col-md-4">5</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn btn-default">注册</div>
+						<div class="btn btn-primary">登录</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-primary btn-lg"  id="btn">点击登录</button>
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			$("#btn").on('click',function(){
+				$("#myModal").modal('show');
+			});
+			$("#myModal").modal({
+				show:false
+			});
+			$("#myModal").on('show.bs.modal',function(){
+				alert('在show方法调用时立即触发')
+			});
+			$("#myModal").on('shown.bs.modal',function(){
+				alert('在模态框显示完毕后触发')
+			});
+			$("#myModal").on('hide.bs.modal',function(){
+				alert('在hide方法调用时立即触发')
+			});
+			$("#myModal").on('hidden.bs.modal',function(){
+				alert('在模态框完全关闭之后触发')
+			});
+		</script>
+	</body>
+	
+</html>

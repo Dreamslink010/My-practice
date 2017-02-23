@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body{
+			background: pink;
+		}
+		#c1{
+			background: #fff;
+		}
+	</style>
+	<body>
+		<canvas id="c1" width="400" height="400"></canvas>
+		<!--默认宽300px，高150px，-->
+	</body>
+	<script>
+		var oCan = document.getElementById("c1");
+		var oGc = oCan.getContext("2d"); //获取绘图对象
+		var num = 0;
+		oGc.fillRect(0,0,100,100);
+		setInterval(function(){
+			num++;
+			oGc.clearRect(0,0,oCan.width,oCan.height);
+			oGc.fillRect(num,num,100,100);
+		},30)
+		
+		
+	</script>
+</html>

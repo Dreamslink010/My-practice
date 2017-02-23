@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no"/>
+		<title>移动端H5游戏开发</title>
+		<link rel="stylesheet" type="text/css" href="style/css1.css"/>
+		<script>
+			(function(){
+				var html = document.documentElement;
+				var hWidth = html.getBoundingClientRect().width;
+				html.style.fontSize = hWidth/16+'px';
+			})()
+		</script>
+		<script src="js/lex.js"></script>
+		
+	</head>
+	<body>
+		<section class="bgColor sectionIn">
+			<div class="Bg_page1"></div>
+			<div class="bg_start"></div>
+			<div class="main_page1">
+				<div class="rocket"></div>
+				<div class="thanks"></div>
+				<div class="miaov"></div>
+			</div>
+			<div class="arrow"></div>
+			<div class="progress"><span id="progress"></span></div>
+		</section>
+		<div class="music musicRun" id="music">
+			<audio src="music/bg.mp3" -autoplay="true" preload="auto"></audio>
+		</div>
+		
+	</body>
+	<script src="js/js1.js"></script>
+	<script>
+			document.body.style.height = view().h+'px';
+	</script>
+</html>

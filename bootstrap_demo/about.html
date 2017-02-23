@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"  />
+		<title>项目实战-首页内容介绍</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			.a{
+				height: 50px;
+				width: 100px;
+				border:1px solid #ccc;
+				background: #eee;
+			}
+			a:focus{
+				outline: none;
+			}
+			.nav-pills{
+				width: 150px;
+			}
+			.nav-pills.affix{
+				top:30px;
+			}
+			#myCarousel{
+				margin: 50px 0 0 0;
+				background: purple;
+			}
+			.carousel-inner img{
+				margin: 0 auto;
+			}
+			.tab-h2{
+				font-size: 20px;
+				text-align: center;
+				letter-spacing: 1px;
+				color: #0059b2;
+			}
+			.tab-p{
+				font-size:15px ;
+				text-align: center;
+				letter-spacing: 1px;
+				color: #999;
+				margin: 20px 0 40px 0;
+			}
+			.tab1{
+				margin: 30px 0;
+				color: #666;
+			}
+			.tab1 .text-muted{
+				color: #999;
+				text-decoration: line-through;
+			}
+			.tab1 .media-heading{
+				margin: 5px 0 20px 0;
+			}
+			.col{
+				padding:20px;
+			}
+			
+			.tab2{
+				background: #eee;
+				padding: 60px 20px;
+				text-align: center;
+			}
+			.tab2 img{
+				width: 60%;
+				height: 60%;
+			}
+			.tab3{
+				padding: 40px 0;
+				text-align: center;
+			}
+			.tab3 img{
+				width: 60%;
+				height: 60%;
+			}
+			.text h3{
+				font-size: 20px;
+			}
+			.text p{
+				font-size: 14px;
+			}
+			.jumbotron{
+				background: #333;
+				margin: 50px 0 0 0;
+				color: #ccc;
+			}
+			.jumbotron h1{
+				font-size: 26px;
+				padding:0 0 0 20px;
+			}
+			.jumbotron h4{
+				font-size: 15px;
+				padding:0 0 0 20px;
+			}
+			#information{
+				background: #eee;
+				padding: 40px 0 40px 0;
+			}
+			.info-content{
+				background: #fff;
+				margin:0 0 20px 0;
+				box-shadow: 2px 2px 3px #ccc;
+			}
+			.info-content img{
+				margin: 12px 0;
+			}
+			.info-content h4{
+				color: #333;
+				padding: 2px 0 0 0;
+				font-size: 14px;
+			}
+			.info-content p{
+				line-height:1.6;
+			}
+			.info-right{
+				background: #fff;
+				box-shadow: 2px 2px 3px #ccc;
+			}
+			.info-right blockquote{
+				margin: 0;
+				padding: 0;
+			}
+			.info-right h2{
+				font-size: 20px;
+				color: #333;
+				padding: 5px;
+			}
+			.info-right h4{
+				color: #333;
+				font-size: 16px;
+				padding-top: 2px;
+			}
+			#case{
+				padding: 40px 0;
+				background: #eee;
+				text-align: center;
+			}
+			#case h4{
+				color: #666;
+			}
+			#case p{
+				color: #666;
+				line-height: 1.6;
+			}
+			#about{
+				background: #eee;
+				padding: 40px 15px;
+			}
+			#about a{
+				color: #0059b2;;
+			}
+			#about .about{
+				background: #fff;
+				box-shadow: 2px 2px 3px #ccc ;
+			}
+			#about h3{
+				color: #333;
+				font-size:18px;
+				border-bottom: 1px solid #eee;
+				padding: 20px 0;
+				margin: 0 0 10px 0;
+			}
+			#about p{
+				line-height: 2;
+				font-size: 13px;
+			}
+			#footer{
+				background: #666;
+				border-top: 1px solid #ccc;
+				padding:20px;
+				text-align: center;
+				color: #eee;
+			}
+			/*小屏幕（平板,大于等于768px)*/
+			@media (min-width:768px ) {
+				.tab-h2{
+					font-size: 26px;
+				}
+				.tab-p{
+					font-size:16px ;
+				}
+				.text h3{
+					font-size: 22px;
+				}
+				.text p{
+					font-size: 15px;
+				}
+				.tab2-text{
+					float: left;
+				}
+				.tab2-img{
+					float:right;
+				}
+				.jumbotron h1{
+					font-size: 30px;
+					padding:0 0 0 20px;
+				}
+				.jumbotron h4{
+					font-size: 16px;
+					padding:0 0 0 20px;
+				}
+				.info-content h4{
+					font-size: 16px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+				.info-content{
+					margin-bottom: 8px;
+				}
+			}
+			/*中等屏幕,(桌面显示器,大于等于992px)*/
+			@media (min-width: 992px) {
+				.tab-h2{
+					font-size: 28px;
+				}
+				.tab-p{
+					font-size:17px ;
+				}
+				.text h3{
+					font-size: 24px;
+				}
+				.text p{
+					font-size: 16px;
+				}
+				.jumbotron h1{
+					font-size: 33px;
+					padding:0 0 0 20px;
+				}
+				.jumbotron h4{
+					font-size: 17px;
+					padding:0 0 0 20px;
+				}
+				.info-content h4{
+					font-size: 18px;
+				}
+				.info-content{
+					margin-bottom: 12px;
+				}
+				#about h3{
+					font-size:19px;
+				}
+				#about p{
+					font-size: 14px;
+				}
+			}
+			/*大屏幕,(大桌面显示器,大于等于1200px)*/
+			@media (min-width: 1200px) {
+				.tab-h2{
+					font-size: 30px;
+				}
+				.tab-p{
+					font-size:18px ;
+				}
+				.text h3{
+					font-size: 26px;
+				}
+				.text p{
+					font-size: 18px;
+				}
+				.info-content h4{
+					font-size: 20px;
+				}
+				.info-content{
+					margin-bottom: 16px;
+				}
+				#about h3{
+					font-size:22px;
+				}
+				#about p{
+					font-size: 16px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="project2.html" class="navbar-brand" >品牌LOGO</a>
+					<button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse">
+					<ul class="nav navbar-nav navbar-right" style="margin-top: 0;">
+						<li><a href="project2.html"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+						<li><a href="information.html"><span class="glyphicon glyphicon-list"></span> 资讯</a></li>
+						<li ><a href="case.html"><span class="glyphicon glyphicon-fire"></span> 案例</a></li>
+						<li class="active"><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="jumbotron">
+			<div class="container">
+				<hgroup>
+					<h1>关于</h1>
+					<h4>本事物的成长介绍...</h4>
+				</hgroup>
+			</div>
+		</div>
+		<div id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 hidden-sm hidden-xs">
+						<div class="list-group">
+							<a class="list-group-item" href="#1">1、机构介绍</a>
+							<a class="list-group-item" href="#2">2、加入我们</a>
+							<a class="list-group-item" href="#3">3、联系方式</a>
+						</div>
+					</div>
+					<div class="col-md-9 about">
+						<a name="1"></a>
+						<h3>机构简介</h3>
+						<p>2016年11月29日，江苏省苏州工业园区一厂区建“迷你小镇”，中式古典庭院、中式现代庭院、3D打印6层楼、可移动式建筑、异形建筑、3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+						<a name="2"></a>
+						<h3>加入我们</h3>
+						<p>2016年11月29日，江苏省苏州工业园区一厂区建“迷你小镇”，中式古典庭院、中式现代庭院、3D打印6层楼、可移动式建筑、异形建筑、3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+						<p>请发送邮件到我们的邮箱：123456789@qq.com</p>
+						<a name="3"></a>
+						<h3>联系方式</h3>
+						<p>电话：13888888889</p>
+						<p>地址：北京市海淀区学院南路</p>
+						<p>邮编：100000</p>
+					</div>
+				</div>	 
+			</div>
+		</div>
+		<footer id="footer">
+			<div class="container">
+				<p>企业培训 | 合作事宜 | 版权投诉</p>
+				<p>京ICP备08102442号-1 2007-2016 MIAOV.COM 版权所有</p>
+			</div>
+		</footer>
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			
+		</script>
+	</body>
+	
+</html>

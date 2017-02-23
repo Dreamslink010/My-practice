@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"  />
+		<title>项目实战-首页内容介绍</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			.a{
+				height: 50px;
+				width: 100px;
+				border:1px solid #ccc;
+				background: #eee;
+			}
+			a:focus{
+				outline: none;
+			}
+			.nav-pills{
+				width: 150px;
+			}
+			.nav-pills.affix{
+				top:30px;
+			}
+			#myCarousel{
+				margin: 50px 0 0 0;
+				background: purple;
+			}
+			.carousel-inner img{
+				margin: 0 auto;
+			}
+			.tab-h2{
+				font-size: 20px;
+				text-align: center;
+				letter-spacing: 1px;
+				color: #0059b2;
+			}
+			.tab-p{
+				font-size:15px ;
+				text-align: center;
+				letter-spacing: 1px;
+				color: #999;
+				margin: 20px 0 40px 0;
+			}
+			.tab1{
+				margin: 30px 0;
+				color: #666;
+			}
+			.tab1 .text-muted{
+				color: #999;
+				text-decoration: line-through;
+			}
+			.tab1 .media-heading{
+				margin: 5px 0 20px 0;
+			}
+			.col{
+				padding:20px;
+			}
+			#footer{
+				background: #ccc;
+				border-top: 1px solid #ccc;
+				padding:20px;
+				text-align: center;
+				color: #666;
+			}
+			.tab2{
+				background: #eee;
+				padding: 60px 20px;
+				text-align: center;
+			}
+			.tab2 img{
+				width: 60%;
+				height: 60%;
+			}
+			.tab3{
+				padding: 40px 0;
+				text-align: center;
+			}
+			.tab3 img{
+				width: 60%;
+				height: 60%;
+			}
+			.text h3{
+				font-size: 20px;
+			}
+			.text p{
+				font-size: 14px;
+			}
+			/*小屏幕（平板,大于等于768px)*/
+			@media (min-width:768px ) {
+				.tab-h2{
+					font-size: 26px;
+				}
+				.tab-p{
+					font-size:16px ;
+				}
+				.text h3{
+					font-size: 22px;
+				}
+				.text p{
+					font-size: 15px;
+				}
+				.tab2-text{
+					float: left;
+				}
+				.tab2-img{
+					float:right;
+				}
+			}
+			/*中等屏幕,(桌面显示器,大于等于992px)*/
+			@media (min-width: 992px) {
+				.tab-h2{
+					font-size: 28px;
+				}
+				.tab-p{
+					font-size:17px ;
+				}
+				.text h3{
+					font-size: 24px;
+				}
+				.text p{
+					font-size: 16px;
+				}
+			}
+			/*大屏幕,(大桌面显示器,大于等于1200px)*/
+			@media (min-width: 1200px) {
+				.tab-h2{
+					font-size: 30px;
+				}
+				.tab-p{
+					font-size:18px ;
+				}
+				.text h3{
+					font-size: 26px;
+				}
+				.text p{
+					font-size: 18px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand" >品牌LOGO</a>
+					<button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse">
+					<ul class="nav navbar-nav navbar-right" style="margin-top: 0;">
+						<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+						<li><a href="information.html"><span class="glyphicon glyphicon-list"></span> 资讯</a></li>
+						<li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> 案例</a></li>
+						<li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+					</ul>
+				</div>
+				
+			</div>
+		</nav>
+		<div id="myCarousel" class="carousel slide">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="../images/01.jpg" alt="第一张" />
+				</div>
+				<div class="item">
+					<img src="../images/02.jpg"" alt="第二张" />
+				</div>
+				<div class="item">
+					<img src="../images/03.jpg"" alt="第三张" />
+				</div>
+				
+			</div>
+			<a href="#myCarousel" data-slide="prev" class="carousel-control left">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a href="#myCarousel" data-slide="next" class="carousel-control right">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+		
+		<div class="tab1">
+			<div class="container">
+				<h2 class="tab-h2">江苏多栋3D打印建筑亮相 建迷你“小镇”</h2>
+				<p class="tab-p">2016年11月29日，江苏省苏州工业园区一厂区建“迷你小镇”，中式古典庭院、中式现代庭院、3D打印6层楼、可移动式建筑、异形建筑、3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+				<div class="row">
+					<div class="col-md-6 col">
+						<div class="media">
+							<div class="media-left">
+								<a href="#"><img class="media-object" src="images/b.jpg" style="width: 100px; height: 100px;"/></a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">课程内容</h4>
+								<p class="text-muted">3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+								<p>3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col">
+						<div class="media">
+							<div class="media-left">
+								<a href="#"><img class="media-object" src="images/b.jpg" style="width: 100px; height: 100px;"/></a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">课程内容</h4>
+								<p class="text-muted">3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+								<p>3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col">
+						<div class="media">
+							<div class="media-left">
+								<a href="#"><img class="media-object" src="images/b.jpg" style="width: 100px; height: 100px;"/></a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">课程内容</h4>
+								<p class="text-muted">3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+								<p>3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col">
+						<div class="media">
+							<div class="media-left">
+								<a href="#"><img class="media-object" src="images/b.jpg" style="width: 100px; height: 100px;"/></a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">课程内容</h4>
+								<p class="text-muted">3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+								<p>3D打印1100㎡奢华别墅等多栋3D打印建筑令人目不暇接。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab2">
+			<div class="container" >
+				<div class="col-md-6 col-sm-6 tab2-img">
+					<img src="images/a.jpg" class="auto center-block"/>
+				</div>
+				<div class="text col-md-6 col-sm-6 tab2-text" >
+					<h3>俄罗斯能源部长不出席OPEC会议 </h3>
+					<p>周二(11月29日)俄新社报道称，俄罗斯能源部长诺瓦克将不会石油输出国组织(OPEC)半年度会议。</p>
+				</div>
+			</div>
+		</div>
+		<div class="tab3">
+			<div class="container">
+				<div class="col-md-6 col-sm-6">
+					<img src="images/b.jpg" class="auto center-block"/>
+				</div>
+				<div class=" text col-md-6 col-sm-6">
+					<h3>俄罗斯能源部长不出席OPEC会议 </h3>
+					<p>周二(11月29日)俄新社报道称，俄罗斯能源部长诺瓦克将不会出席石油输出国组织(OPEC)半年度会议。</p>
+				</div>
+			</div>
+		</div>
+		<footer id="footer">
+			<div class="container">
+				<p>企业培训 | 合作事宜 | 版权投诉</p>
+				<p>京ICP备08102442号-1 2007-2016 MIAOV.COM 版权所有</p>
+			</div>
+		</footer>
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			//设置自动播放
+			$('#myCarousel').carousel({
+				interval:4000
+			})
+			//设置垂直居中
+			$('.carousel-control').css('line-height',$('.carousel-inner img').height()+'px');
+			$(window).resize(function(){
+				var oHeight = $('.carousel-inner img').eq(0).height() || 
+							  $('.carousel-inner img').eq(1).height() ||
+							  $('.carousel-inner img').eq(2).height()
+				$('.carousel-control').css('line-height',oHeight+'px');
+			});
+			//设置文字垂直居中
+			$('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+			$(window).resize(function(){
+				$('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+			});
+			$('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+			$(window).resize(function(){
+				$('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+			});
+		</script>
+	</body>
+	
+</html>

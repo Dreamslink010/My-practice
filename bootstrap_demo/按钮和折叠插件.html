@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"  />
+		<title>按钮和折叠插件</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			.a{
+				height: 50px;
+				width: 100px;
+				border:1px solid #ccc;
+				background: #eee;
+			}
+		</style>
+	</head>
+	<body style="margin: 100px;">
+		<!--一、按钮-->
+		<button class="btn btn-primary" data-toggle="button" autocomplete="off">单个切换</button>
+		<!--单选-->
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary active">
+				<input type="radio" name="sex" value="男" checked />男
+			</label>
+			<label class="btn btn-primary">
+				<input type="radio" name="sex" value="女"/>女
+			</label>
+		</div>
+		
+		<!--多选-->
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary active">
+				<input type="checkbox" name="fa" value="吃饭" checked/>吃饭
+			</label>
+			<label class="btn btn-primary">
+				<input type="checkbox" name="fa" value="睡觉"/>睡觉
+			</label>
+			<label class="btn btn-primary ">
+				<input type="checkbox" name="fa" value="购物" />购物
+			</label>
+			<label class="btn btn-primary">
+				<input type="checkbox" name="fa" value="旅游"/>旅游
+			</label>
+		</div>
+		
+		<!--加载状态-->
+		<button id="myButton" class="btn btn-primary" data-abc-text="Loading">开始上传</button>
+		<button id="btn" class="btn btn-primary">按钮</button>
+		
+		<!--二、折叠-->
+		<div style="margin-top: 20px;">
+			<button class="btn btn-primary" data-toggle='collapse' data-target='#content'>Bootstrap</button>
+			<div class="collapse" id="content">
+				<div class="well">
+					当年张国荣以一部《霸王别姬》让很多人记住了他。而谢君豪则以一部《南海十三郎》压过了张国荣的风头。并获得了当年的金马影帝。但是，也只是片红人不红，谢君豪并没有因为拿了影帝而火起来。看过他的作品的人都知道，他的演技并不比同期的周星驰、刘德华、张国荣逊色。但却只能慢慢的陨落，他出演的影视作品大多数都火了，甚至剧里的配角都慢慢红红火火，作为主角的他却往往人气不高。
+				</div>
+			</div>
+		</div>
+		<!--手风琴折叠-->
+		<!--<div class="panel-group" id="box">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseOne" data-toggle="collapse" data-parent="#box">第一部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第一部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseTwo" data-toggle="collapse" data-parent="#box">第二部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第二部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseThree" data-toggle="collapse" data-parent="#box" >第三部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第三部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseFour" data-toggle="collapse" data-parent="#box">第四部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第四部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		
+		<div class="panel-group" id="box">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseOne" data-toggle="collapse">第一部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第一部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseTwo" data-toggle="collapse" >第二部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第二部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseThree" data-toggle="collapse" >第三部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第三部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>
+						<a href="#collapseFour" data-toggle="collapse">第四部分链接</a>
+					</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div class="panel-title">
+						<div class="panel-body">
+							第四部分内容
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div style="margin-top: 20px;">
+			<button class="btn btn-primary" id="btn2" data-toggle='collapse'>Bootstrap</button>
+			<div class="collapse" id="content2">
+				<div class="well">
+					当年张国荣以一部《霸王别姬》让很多人记住了他。而谢君豪则以一部《南海十三郎》压过了张国荣的风头。并获得了当年的金马影帝。但是，也只是片红人不红，谢君豪并没有因为拿了影帝而火起来。看过他的作品的人都知道，他的演技并不比同期的周星驰、刘德华、张国荣逊色。但却只能慢慢的陨落，他出演的影视作品大多数都火了，甚至剧里的配角都慢慢红红火火，作为主角的他却往往人气不高。
+				</div>
+			</div>
+		</div>
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script>
+/*			$("#myButton").on('click',function(){
+				var btn = $(this).button('loading');
+				setTimeout(function(){
+					btn.button('reset');
+				},1000);
+			});*/
+			
+//			$('#btn').on('click',function(){
+//				$(this).button('toggle');
+//			})
+			$("#collapseOne,#collapseTwo,#collapseThree,#collapseFour").collapse({
+				parent:'#box',
+				toggle:false
+			})
+			$("#btn2").on('click',function(){
+//				$("#content2").collapse('toggle');
+				/*$('#content2').collapse({
+					toggle:true,
+				});*/
+				$("#content2").collapse("show");
+			})
+		</script>
+	</body>
+	
+</html>

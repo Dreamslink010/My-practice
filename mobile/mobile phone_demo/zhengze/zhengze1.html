@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+		var	pattern = /^[1-9]\d{5}$/		//邮政编码
+		var str = '224000';			//必须是6位，必须是数字，第一位不能为0
+		alert(pattern.test(str)); 
+		
+		//检查文件的压缩包
+		var pattern = /^[\w\-]+\.zip|gz|rar/		//\w+,加上^来限定首字符开始匹配
+		var str = '2-13.zip'			//文件名可以是字母，数字，下划线.zip.gz.rar.7z
+		alert(pattern.test(str));
+		
+		var pattern = /\s/g;			//删除多余的空格
+		var str = '111 222 333 444';
+		alert(str.replace(pattern,''));
+		
+		//删除字符串首尾空格 方案1
+		var pattern = /^\s+/;
+		var str = '          glr ass      ';
+		var result = str.replace(pattern,'');
+		pattern = /\s+$/;
+		result = result.replace(pattern,'');
+		alert('|'+result+'|');
+		
+		//删除字符串首尾空格 方案2
+		var pattern = /^\s+(.+?)\s+$/;		//(.+)是贪婪模式，后面加一个问号变成惰性模式
+		var str = '          glr ass      ';
+		var result = pattern.exec(str)[1];
+		alert('|'+result+'|');
+		
+		//删除字符串首尾空格 方案3
+		var pattern = /^\s+(.+?)\s+$/;		//使用了分组
+		var str = '          glr ass      ';
+		var result = str.replace(pattern,'$1');
+		alert('|'+result+'|');
+		*/
+		
+		//验证电子邮件
+		var pattern = /^([\w\.\-]+)@([\w\-]+)\.([a-zA-Z](\.*){2,4})$/;
+		var str = 'sdfcs-dnlk@163.com';
+		alert(pattern.test(str));
+		
+	</script>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"  />
+		<title>图标菜单按钮组件</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			.a{
+				height: 50px;
+				width: 100px;
+				border:1px solid #ccc;
+				background: #eee;
+			}
+		</style>
+	</head>
+	<body> 
+		<div class="input-group">
+			<span class="input-group-addon">@</span>
+			<input type="text" class="form-control" />
+		</div>
+		<br />
+		<div class="input-group">
+			<input type="text" class="form-control" />
+			<span class="input-group-addon">@163.com</span>
+		</div>
+		<br />
+		<div class="input-group input-group-lg">
+			<span class="input-group-addon">价格</span>
+			<input type="text" class="form-control" />
+			<span class="input-group-addon">.00</span>
+		</div>
+		<br />
+		<div class="input-group">
+			<span class="input-group-addon"><input type="checkbox"/></span>
+			<input type="text" class="form-control" />
+		</div>
+		<br />
+		<div class="input-group">
+			<span class="input-group-addon"><input type="radio"/></span>
+			<input type="text" class="form-control" />
+		</div>
+		
+		<div class="input-group">
+			<input type="text" class="form-control" />
+			<div class="input-group-btn">
+				<button class="btn btn-default">左</button>
+			</div>
+		</div>
+		
+		<div class="input-group">
+			<input type="text" class="form-control" />
+			<div class="input-group-btn">
+				<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					下拉菜单
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">首页</a></li>
+					<li><a href="#">资讯</a></li>
+					<li><a href="#">产品</a></li>
+					<li><a href="#">关于</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		导航组件
+		
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">首页</a></li>
+			<li><a href="#">资讯</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">关于</a></li>
+		</ul>
+		<br />
+		<ul class="nav nav-pills">
+			<li class="active"><a href="#">首页</a></li>
+			<li><a href="#">资讯</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">关于</a></li>
+		</ul>
+		<br />
+		<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="#">首页</a></li>
+			<li><a href="#">资讯</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">关于</a></li>
+		</ul>
+		<br />
+		<ul class="nav nav-tabs nav-justified">
+			<li class="active"><a href="#">首页</a></li>
+			<li><a href="#">资讯</a></li>
+			<li><a href="#">产品</a></li>
+			<li><a href="#">关于</a></li>
+		</ul>
+		<br />
+		<ul class="nav nav-tabs nav-justified">
+			<li class="active"><a href="#">首页</a></li>
+			<li><a href="#">资讯</a></li>
+			<li><a href="#">产品</a></li>
+			<li class="dropdown">
+				<a href="#" data-toggle="dropdown">下拉菜单<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">资讯</a></li>
+					<li><a href="#">产品</a></li>
+					<li><a href="#">关于</a></li>
+					<li><a href="#">我们</a></li>
+				</ul>
+			</li>
+			<li><a href="#">关于</a></li>
+		</ul>
+		
+		<br />
+		导航条组件
+		<nav class="navbar navbar-default navbar-static-top navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">标题</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">首页</a></li>
+					<li class="disabled"><a href="#">资讯</a></li>
+					<li><a href="#">产品</a></li>
+					<li><a href="#">我们</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<div class="input-group">
+						<input type="text" class="form-control" />
+						<div class="input-group-btn">
+							<button class="btn btn-default">提交</button>
+						</div>
+					</div>
+				</form>
+				<button class="btn btn-default navbar-btn navbar-right">按钮</button>
+				<p class="navbar-text navbar-left">我是一段文本<a href="#" class="navbar-link">链接</a></p>
+			</div>
+			
+		</nav>
+		<p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p><p>123</p>
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	</body>
+	
+</html>

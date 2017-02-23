@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			#box{
+				height: 100px;
+				border:1px solid #000;
+				background: pink;
+			}
+			#box:before{
+				content: "好宽敞~~~，可以自由自在滴啦!!!!好宽敞~~~，可以自由自在滴啦!!!!好宽敞~~~，可以自由自在滴啦!!!!好宽敞~~~，可以自由自在滴啦!!!!好宽敞~~~，可以自由自在滴啦!!!!好宽敞~~~，可以自由自在滴啦!!!!";
+			}
+			@media all and (max-width:900px ) {
+				#box{
+					background: mediumpurple;
+				}
+				#box:before{
+					content: "地盘变小了，不能自在的翻滚了~~~~~~~~~~~~~";
+				}
+			}
+			@media all and (max-width:500px ) {
+				#box{
+					background: purple;
+					color: #fff;
+				}
+				#box:before{
+					content: "不能再小了，已经木有位置啦！！！！";
+				}
+			}
+			@media all and (max-width:400px ) {
+				#box{
+					background: black;
+					color: #fff;
+				}
+				#box:before{
+					content: "我感觉要窒息了";
+				}
+			}
+			/*屏幕垂直*/
+			@media (orientation:portrait) {
+				#box{
+					background: red;
+				}
+			}
+			/*屏幕水平*/
+			@media (orientation:landscape) {
+				#box{
+					background: burlywood;
+				}
+			}
+			
+			/*
+				@media 		媒体类型
+				
+			 	and    		连接媒体类型和媒体特性
+			 	
+			 	min-width 	当屏幕宽度大于等于500（某个值）时识别
+			 	
+			 	max-width: 	当屏幕大小小于等于500（某个值）时识别
+			*/
+		</style>
+		
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>

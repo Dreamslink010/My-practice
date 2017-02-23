@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title></title>
+		<script>
+			(function(){
+				var html = document.documentElement;
+				var hWidth = html.getBoundingClientRect().width; 
+				html.style.fontSize = hWidth/16 +'px';
+				document.addEventListener('touchstart',function(ev){
+					ev.preventDefault()
+				});
+			})()
+		</script>
+		<style>
+			body{
+				margin: 0;
+			}
+			.wrap{
+				position: relative;
+				height: 8.75rem;
+			}
+			.list{
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				left: 0;
+				top: 0;
+				list-style: none;
+				z-index: 0;
+				width: 400%;
+			}
+			.list li{
+				float: left;
+				width: 16rem;
+			}
+			.list img{
+				display: block;
+				width: 16rem;
+			}
+			nav{
+				width: 16rem;
+				height: 1rem;
+				position: absolute;
+				bottom: 5px;
+				z-index: 1;
+				text-align: center;
+			}
+			nav a{
+				width: 0.5rem;
+				height: 0.5rem;
+				display: inline-block;
+				background: #fff;
+				border-radius: 50%;
+				vertical-align: top;
+			}
+			.active{
+				background: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="wrap">
+			<ul class="list">
+				<li><img src="img/1.jpg"/></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+			</ul>
+			<nav>
+				<a href="javascript:;" class="active"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+			</nav>
+		</section>
+		<script>
+			var wrap = document.querySelector('.wrap'),
+				list = document.querySelector('.list'),
+				allA = document.querySelectorAll('a'),
+				disX = 0,//按下时的坐标
+				listL = 0, //当前按下的list的left的值
+				w = wrap.clientWidth, //一张图片的宽度
+				len = 0,
+				n = 0;//默认第一个小点为白色
+			list.innerHTML += list.innerHTML; //复制一份
+			len = list.children.length;
+			list.style.width = w * len +'px';
+			list.addEventListener('touchstart',start);
+			list.addEventListener('touchmove',move);
+			list.addEventListener('touchend',end);
+			function start(ev){
+				var e = ev.changedTouches[0];
+				disX = e.pageX;
+				list.style.transition = 'none';
+				/*
+					在按下的时候，我要知道我当前点的是第几张图片，如果是第一张图片快速拉到第五张的位置
+				*/
+				
+				var num = Math.round( list.offsetLeft / w );
+				if(num == 0){
+ 					num = allA.length;
+					list.style.left = -num * w +'px';
+				};
+				if(-num == len-1){
+					num = allA.length-1;
+					list.style.left = -num * w +'px';
+				}
+				listL = this.offsetLeft
+				//console.log(num);
+			};
+			function move(ev){
+				var e = ev.changedTouches[0];
+				list.style.left = (e.pageX - disX) + listL +'px';
+			};
+			function end(ev){
+				var num = Math.round( list.offsetLeft / w );
+				list.style.left = num * w +"px";
+				list.style.transition = '.5s';
+				console.log(-num);
+				allA[n].className = '';
+				allA[-num%allA.length].className = "active";
+				n = -num%allA.length;
+			}
+		</script>
+	</body>
+</html>

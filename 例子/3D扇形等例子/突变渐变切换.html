@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width: 600px;
+			height: 400px;
+			background: pink;
+			margin: 0 auto;
+		}
+		#wrap{
+			width: 600px;
+			height: 400px;
+			transform-style: preserve-3d;
+			perspective:800px;
+		}
+		#wrap div{
+			width: 10px;
+			height: 400px;
+			background: url(../../images/01.jpg) no-repeat;
+			float: left;
+			transition: .5s;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<div id="wrap">
+				
+			</div>
+		</div>
+		<script>
+			var wrap = document.getElementById("wrap");
+			var divs = wrap.getElementsByTagName("div");
+			var str = "";
+			var timer;
+			var now = 0;
+			var srcNum = 2;
+			for( var i = 0; i < 60; i++ ){
+				
+				str += "<div style='background-position-x:"+(-10*i)+"px'></div>";
+			};
+			wrap.innerHTML = str;
+			go();
+			function go(){
+				timer = setInterval(function(){
+					tab(now);
+					now++;
+					if( now == 61 ){
+						clearInterval(timer);
+						srcNum++;
+						now = 0;
+						setTimeout(go,500);
+						if( srcNum == 5 ){
+							srcNum = 1;
+						}
+					};
+				},50)
+			}
+			
+			function tab(n){
+				if( divs[n-1] ){
+					divs[n-1].style.opacity = 1;
+				};
+				if( divs[n] ){
+					divs[n].style.opacity = 0;
+					divs[n].style.backgroundImage = "url(../../images/0"+ srcNum +".jpg)"
+				}
+			}
+		</script>
+	</body>
+</html>

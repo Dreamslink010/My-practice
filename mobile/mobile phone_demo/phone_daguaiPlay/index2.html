@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title>移动端H5游戏开发</title>
+		<link rel="stylesheet" type="text/css" href="style/css1.css"/>
+		<script>
+			(function(){
+				var html = document.documentElement;
+				var hWidth = html.getBoundingClientRect().width;
+				html.style.fontSize = hWidth/16+'px';
+			})()
+		</script>
+		<script src="js/lex.js"></script>
+		
+	</head>
+	<body class="bgColor">
+		<div class="Bg_page1"></div>
+		<div class="bg_game"></div>
+		<canvas id="name"></canvas>
+		<div class="typeBar">
+			<div class="score">X100</div>
+			<div class="time">25秒</div>
+			<div class="music musicRun" id="music">
+				<audio src="music/bg.mp3" -autoplay="true" preload="auto"></audio>
+			</div>
+		</div>
+	</body>
+	<script src="js/jCanvascript.1.5.18.js"></script>
+	<script>
+		musicShow()
+		function musicShow(){
+			var au = s('music').getElementsByTagName('audio')[0];
+			bind(s('music'),'touchstart',function(event){
+				event.stopPropagation();
+				if(au.paused){
+					au.play();
+					removeClass(s('music'),'musicStop')
+					addClass(s('music'),'musicRun');
+				}else{
+					au.pause();
+					removeClass(s('music'),'musicRun')
+					addClass(s('music'),'musicStop');
+				};
+			});
+		};
+		function game(){
+			s('game').width = view().w;
+			s('game').height = view().h;
+			var _this = this;
+			_this.monster = {
+				var img = new Image();
+				img.src = 'img/monster.png';
+				img.onload = function(){
+					jc.start(idCanvas);
+					jc.image(img,100,100);
+					jc.start(idCanvas);
+				}
+			}
+		}
+	</script>
+	<script>
+			document.body.style.height = view().h+'px';
+	</script>
+</html>
