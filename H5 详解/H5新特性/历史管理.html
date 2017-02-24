@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//触发历史管理: 1.通过跳转页面 2.通过hash 3.pushState
+			/*history:  服务器下运行
+						pushState(): 三个参数:数据   标题(都没实现) 地址(可选)
+						popState事件 : 读取数据  event.state
+						注意:网址是虚假的,需要在服务器指定对应页面,不然刷新找不到页面*/
+		</script>
+		<script>
+			window.onload = function(){
+				/*var oInput = document.querySelector("#inpt");
+				var oBox = document.querySelector("#box");
+				var json = {};
+				oInput.onclick = function(){
+					var num = Math.random();
+					var newArr = randomNum(35,7);
+					json[num] = newArr;
+					oBox.innerHTML = newArr;
+					window.location.hash = num;
+				};
+				window.onhashchange = function(){
+					oBox.innerHTML = json[window.location.hash.substring(1)];
+				}
+				function randomNum(iAll,iNow){
+					var arr = [];
+					var newArr = [];
+					for(var i = 1; i<=iAll; i++){
+						arr.push(i);
+					};
+					for(var j = 0; j<iNow; j++){
+						newArr.push(arr.splice(Math.floor(Math.random()*arr.length),1))
+					};
+					return newArr;
+				}*/
+				var oInput = document.querySelector("#inpt");
+				var oBox = document.querySelector("#box");
+				var json = {};
+				oInput.onclick = function(){
+					var newArr = randomNum(35,7);
+					history.pushState(newArr,'');
+					oBox.innerHTML = newArr;
+				};
+				window.onpopstate = function(ev){
+					oBox.innerHTML = ev.state;
+				}
+				function randomNum(iAll,iNow){
+					var arr = [];
+					var newArr = [];
+					for(var i = 1; i<=iAll; i++){
+						arr.push(i);
+					};
+					for(var j = 0; j<iNow; j++){
+						newArr.push(arr.splice(Math.floor(Math.random()*arr.length),1))
+					};
+					return newArr;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="随机选择" id="inpt" />
+		<div id="box"></div>
+	</body>
+</html>
