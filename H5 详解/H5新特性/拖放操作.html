@@ -39,6 +39,14 @@
 				事件的执行顺序：drop触发的时候（drapover的时候阻止默认事件）
 					drapstart > drag > dragenter > dragover > drop > dragend
 				不能释放时的光标和能释放时的光标不一样
+				
+			拖放事件
+				解决火狐下的问题
+					必须设置dataTransfer对象的setData方法才可以拖拽图片外的其他标签
+					
+				dataTransfer对象
+				setData():设置数据key和value（必须是字符串）
+				getData():获取数据，根据key值，获取对应的value
 			
 			*/
 			window.onload = function(){
@@ -47,7 +55,14 @@
 				var box = document.querySelector("#box");
 				var i = 0;
 				for(var i = 0; i<allLi.length; i++){
-					allLi[i].ondragstart = function(){
+					
+					allLi[i].index = i;
+					
+					allLi[i].ondragstart = function(ev){
+						var ev = ev || window.event; //dataTransfer需要先获取事件对象
+						
+						//ev.dataTransfer.setData('name','hello');
+						ev.dataTransfer.setData('name',this.index);
 						this.style.background = "pink";
 					};
 //					allLi[i].ondrag = function(){  //开始与结束连续触发
@@ -68,8 +83,12 @@
 					//想要触发drop事件，就必须在dragover中阻止默认事件
 					ev.preventDefault();
 				};
-				box.ondrop = function(){
-					alert(123); 
+				box.ondrop = function(ev){
+					//alert(ev.dataTransfer.getData('name'));
+					list.removeChild(allLi[ev.dataTransfer.getData('name')]);
+					for(var i = 0; i<allLi.length; i++){
+						allLi[i].index = i;
+					};
 				}
 				
 			}
