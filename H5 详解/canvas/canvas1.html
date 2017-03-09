@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: pink;
+			}
+			canvas{
+				background: yellow;
+			}
+			span{
+				color: #000;
+			}
+		</style>
+		<script>
+			/*
+			canvas 默认大小：宽300px，高150px。 
+			
+			绘制方块
+			fillRect(L,T,W,H):默认颜色是黑色
+			strokeRect(L,T,W,H):带边框的方块，默认一像素黑色边框。
+			
+			设置绘图
+			fillStyle:填充颜色（绘制canvas是有顺序的）
+			lineWidth:线宽度，是一个数值
+			strokeStyle：边线颜色
+			
+			
+			
+			*/
+			window.onload = function(){
+				var oC = document.querySelector("#c1");
+				var oGc = oC.getContext('2d');  //webgl:3D绘图（有兼容性问题）
+				//oGc.fillRect(50,50,100,100);
+				//oGc.strokeRect(50.5,50.5,100,100);
+				oGc.fillStyle = 'red';
+				oGc.strokeStyle = 'purple';
+				oGc.lineWidth = 10;
+				//oGc.lineJoin = 'round';
+				oGc.lineJoin = "bevel";
+				oGc.fillRect(50,50,100,100);
+				oGc.strokeRect(50.5,50.5,100,100);
+				
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="c1" width="400" height="400">
+			<span>您的浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

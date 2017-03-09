@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			#box{
+				width:300px;
+				height: 300px;
+				background: orangered;
+				margin: 100px;
+				color: #fff;
+				font-size: 18px;
+				line-height: 300px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			/*
+			
+			拖放事件
+				拖放元素事件:事件对象为被拖拽元素
+					dragstart,拖拽前触发
+					drag，拖拽开始与结束之间触发，连续触发
+					dragend,拖拽结束触发
+				目标元素事件：事假对象为目标元素
+					dragenter，进入目标元素触发，相当于mouseover
+					dragover, 进入目标，离开目标之间，连续触发
+					dragleave，离开目标元素触发，相当于mouseout
+					drop。在目标元素上释放鼠标触发
+					
+			拖放事件
+				事件的执行顺序：drop不触发的时候
+					dragstart > drag > dragenter > dragover > dragleave > dragend
+				事件的执行顺序：drop触发的时候（drapover的时候阻止默认事件）
+					drapstart > drag > dragenter > dragover > drop > dragend
+				不能释放时的光标和能释放时的光标不一样
+				
+			拖放事件
+				解决火狐下的问题
+					必须设置dataTransfer对象的setData方法才可以拖拽图片外的其他标签
+					
+				dataTransfer对象
+					setData():设置数据key和value（必须是字符串）
+					getData():获取数据，根据key值，获取对应的value
+					
+					effectAllowed:设置移动时的光标样式（copy，link，none，copyLink，copyMove，linkMove，move，all，uninitialized）
+					setDragImage：把移动时候鼠标样式改为一个图片
+						接收3个参数（指定的图片，坐标X，坐标Y）
+						
+					files 获取外部拖拽的文件，返回一个filesList列表
+						  filesList下有个type属性，返回文件的类型
+			
+			*/
+			window.onload = function(){
+				var box = document.querySelector("#box");
+				var oUl = document.querySelector("#ul1");
+				box.ondragenter = function(){
+					this.innerHTML = "可以释放鼠标";
+				};
+				box.ondragleave = function(){   
+					this.innerHTML = "将文件拖拽到此区域";
+				};
+				box.ondragover = function(ev){    //enter和leave之间连续触发
+				
+					ev.preventDefault();
+				};
+				box.ondrop = function(ev){
+					ev.preventDefault();
+					var fs = ev.dataTransfer.files;
+					//alert(fs.length);
+					//alert(fs[0].type);
+					/*if( fs[0].type.indexOf("image") != -1 ){
+						var fd = new FileReader();
+						fd.readAsDataURL(fs[0]);   //读取传入的文件
+						fd.onload = function(){    //读取文件成功就会触发此事件
+							//alert(this.result);
+							var oLi = document.createElement('li');
+							var oImg = document.createElement('img');
+							oImg.src = this.result;
+							oLi.appendChild(oImg);
+							oUl.appendChild(oLi);
+						};
+					}else{
+						alert('请上传图片类型');
+					};*/
+					
+					for( var i = 0; i<fs.length; i++ ){
+						if( fs[i].type.indexOf("image") != -1 ){
+							var fd = new FileReader();
+							fd.readAsDataURL(fs[i]);   //读取传入的文件
+							fd.onload = function(){    //读取文件成功就会触发此事件
+								//alert(this.result);
+								var oLi = document.createElement('li');
+								var oImg = document.createElement('img');
+								oImg.src = this.result;
+								oLi.appendChild(oImg);
+								oUl.appendChild(oLi);
+							};
+						}else{
+							alert('请上传图片类型');
+						};
+					}
+					
+				};
+				
+			};
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="box">将文件拖拽到此区域</div>
+		<ul id="ul1">
+			
+		</ul>
+	</body>
+</html>

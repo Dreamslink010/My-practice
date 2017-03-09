@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas像素</title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			/*
+			像素1
+			getImageData(x,y,w,h)
+			 - 获取图像数据
+			putImageData(获取图像,x,y)
+			 - 设置新的图像数据
+			
+			属性
+			 - width:一行的像素个数
+			 - height:一列的像素个数
+			 - data：一个数组，包含每个像素的rgba四个值，注意每个值都是在0~255之间的整数
+			
+			像素2
+			createImageData(w,h)
+			 - 生成新的像素矩阵，初始值是全透明的黑色，即(0,0,0,0);
+			 - 例子：像素显字
+			获取或设置指定坐标
+			 - 封装：getXY,setXY
+			图片的像素操作
+			 - 必须是同源下的
+			 - 例子：反色，倒影，渐变
+			 - 例子：马赛克效果
+			
+			
+			
+			*/
+			window.onload = function(){
+				var oBox = document.querySelector("#box");
+				var oGx = oBox.getContext('2d');
+				/*oGx.fillStyle = 'purple';
+				oGx.fillRect(0,0,100,100);
+				var oImg = oGx.getImageData(0,0,100,100);
+				//console.log(oImg.width);  //一行的像素个数
+				//console.log(oImg.height);  //一列的像素个数
+				//console.log(oImg.data);
+				//console.log(oImg.data.length); //整体像素的数组集合，4个数代表一个颜色（rgba）
+				for( var i = 0; i<oImg.width*oImg.height; i++ ){
+					oImg.data[4*i] = 255;
+					oImg.data[4*i+1] = 0;
+					oImg.data[4*i+2] = 0;
+					oImg.data[4*i+3] = 100;
+					
+				};
+				oGx.putImageData(oImg,100,100);*/
+				
+				var oImg2 = oGx.createImageData(100,200);
+				for( var i = 0; i<oImg2.width*oImg2.height; i++ ){
+					oImg2.data[4*i] = 255;
+					oImg2.data[4*i+1] = 0;
+					oImg2.data[4*i+2] = 0;
+					oImg2.data[4*i+3] = 100;
+					
+				};
+				oGx.putImageData(oImg2,100,100);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="400" height="400"></canvas>
+	</body>
+</html>

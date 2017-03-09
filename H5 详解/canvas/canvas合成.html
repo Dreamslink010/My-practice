@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			/*
+			
+			合成
+			全局阿尔法值
+			 - globalAlpha
+			覆盖合成
+			 - 源；新的图形
+			 - 目标；已经绘制过的图形
+			 - globalCompositeOperation 属性
+			 》source-over 源在上
+			 》destination-over 目标在上
+			 》source-atop 保留目标和目标与源的重合部分
+			 》destination-atop 保留源和目标与源重合的部分
+			 》source-in 保留目标和源的重合部分(颜色是源的颜色)
+			 》destination-in 保留标和源的重合部分(颜色是目标的颜色)
+			 》source-out 保留源的部分(出去与目标重合的部分)
+			 》destination-out 保留目标部分(出去与源重合的部分)
+			 》xor 除去目标和源的重合部分
+			
+			*/
+			window.onload = function(){
+				var oC1 = document.querySelector("#box");
+				var oG1 = oC1.getContext('2d');
+				/*oG1.fillStyle = 'orangered';
+				oG1.fillRect(0,0,100,100);
+				oG1.fillStyle = 'purple';
+				oG1.globalAlpha = 0.5;
+				oG1.fillRect(50,50,100,100);*/
+				oG1.fillRect(0,0,100,100);
+				oG1.fillStyle = "green";
+				oG1.globalCompositeOperation = 'xor';
+				oG1.fillRect(50,50,100,100);
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="500" height="500"></canvas>
+	</body>
+</html>

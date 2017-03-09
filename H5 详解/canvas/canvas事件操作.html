@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+			#img1{
+				background: #fff;
+			}
+		</style>
+		<script>
+			/*
+			
+			事件操作
+			isPointInPath
+			 - 是否在点击范围
+			 - jCancasScript(canvas中的jquery)；
+			 》http://jcscript.com
+			 
+			*/
+			
+			window.onload = function(){
+				var oC1 = document.querySelector("#box");
+				var oG1 = oC1.getContext('2d');
+				var oImg = document.querySelector("#img1");
+				
+				/*oG1.beginPath();
+				oG1.arc(100,100,50,0,360*Math.PI/180,false);
+				oG1.closePath();
+				oG1.fill();
+				
+				oG1.beginPath();
+				oG1.arc(200,200,50,0,360*Math.PI/180,false);
+				oG1.closePath();
+				oG1.fill();
+				oC1.onmousedown = function(ev){  //事件只对后者起作用
+					var ev = ev||window.event;
+					var x = ev.clientX - oC1.offsetLeft;
+					var y = ev.clientY - oC1.offsetTop;
+					if( oG1.isPointInPath(x,y) ){
+						alert(123);
+					};
+					
+				}*/
+				
+				var c1 = new Shape(100,100,50);
+				var c2 = new Shape(200,200,50);
+				oC1.onmousedown = function(ev){
+					var ev = ev||window.event;
+					var point = {
+						x : ev.clientX - oC1.offsetLeft,
+						y : ev.clientY - oC1.offsetTop
+					};
+					c1.reDraw(point);
+					c2.reDraw(point);
+				};
+				c1.click = function(){
+					alert('我是c1');
+				};
+				c2.click = function(){
+					alert('我是c2');
+				};
+				function Shape(x,y,r){
+					this.x = x;
+					this.y = y;
+					this.r = r;
+					oG1.beginPath();
+					oG1.arc(this.x,this.y,this.r,0,360*Math.PI/180);
+					oG1.closePath();
+					oG1.fill();
+				};
+				Shape.prototype.reDraw = function(point){
+					oG1.beginPath();
+					oG1.arc(this.x,this.y,this.r,0,360*Math.PI/180);
+					oG1.closePath();
+					oG1.fill();
+					if( oG1.isPointInPath(point.x,point.y) ){
+						this.click();
+					}
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="500" height="500"></canvas>
+		<img src="" id="img1" />
+	</body>
+</html>

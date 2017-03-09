@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+			#img1{
+				background: #fff;
+			}
+		</style>
+		<script>
+			/*
+			
+			将画布导出为图像
+			toDataURL() - 火狐右键可以直接到处成图片
+			
+			
+			
+			*/
+			
+			window.onload = function(){
+				var oC1 = document.querySelector("#box");
+				var oG1 = oC1.getContext('2d');
+				var oImg = document.querySelector("#img1");
+				
+				oG1.fillRect(0,0,100,100);
+				oG1.fillStyle = "green";
+				oG1.globalCompositeOperation = 'xor';
+				oG1.fillRect(50,50,100,100);
+				//alert( oC1.toDataURL() );
+				oImg.src = oC1.toDataURL();
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="500" height="500"></canvas>
+		<img src="" id="img1" />
+	</body>
+</html>

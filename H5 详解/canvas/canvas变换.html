@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#c4{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			
+			/*
+			
+			变换
+			translate
+			 - 偏移：从起始点为基准点，移动当前坐标位置
+			rotate
+			 - 旋转：参数为弧度
+			scale
+			 - 缩放
+			
+			
+			*/
+			
+			window.onload = function(){
+				var oC4 = document.querySelector("#c4");
+				var oG4 = oC4.getContext('2d');
+				oG4.translate(100,100);
+				oG4.rotate(45*Math.PI/180);
+				//oG4.scale(2,2);
+				oG4.fillRect(50,50,100,100);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="c4" width="400" height="400"></canvas>
+	</body>
+</html>

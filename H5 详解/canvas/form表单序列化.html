@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+    
+    <script src="jquery-2.2.1.js"></script>
+    
+    <script type="text/javascript">
+        
+    
+    
+      
+    $(function() {  
+        $("#ajaxBtn").click(function() {  
+                var params = $("#myform").serializeObject(); //将表单序列化为JSON对象 
+                var json = JSON.stringify(params);
+                var json2 = JSON.parse(json)
+                alert(json2.name)
+            })  
+    })  
+  
+    $.fn.serializeObject = function() {  
+        var o = {};  
+        var a = this.serializeArray();  
+        $.each(a, function() {  
+            if (o[this.name]) {  
+                if (!o[this.name].push) {  
+                    o[this.name] = [ o[this.name] ];  
+                }  
+                o[this.name].push(this.value || '');  
+            } else {  
+                o[this.name] = this.value || '';  
+            }  
+        });  
+        return o;  
+    }  
+</script>
+    </script>
+
+</head>
+<body>
+
+    <form id="myform">  
+    <table>  
+        <tr>  
+            <td>姓名:</td>  
+            <td> <input type="text" name="name" /> </td>  
+        </tr>  
+        <tr>  
+            <td>性别:</td>  
+            <td>  
+                <input type="radio" name="sex" value="1"> 男  
+                <input type="radio" name="sex" value="0"> 女  
+            </td>  
+        </tr>  
+        <tr>  
+            <td>年龄:</td>  
+            <td>  
+                <select name="age">  
+                    <option value="20">20</option>  
+                    <option value="21">21</option>  
+                    <option value="22">22</option>  
+                </select>  
+            </td>  
+        </tr>  
+        <tr>  
+            <td>爱好</td>  
+            <td>  
+                <input type="checkbox" value="basketball" name="hobby">篮球  
+                <input type="checkbox" value="volleyball" name="hobby">排球  
+                <input type="checkbox" value="football" name="hobby">足球  
+                <input type="checkbox" value="earth" name="hobby">地球  
+            </td>  
+        </tr>  
+        <tr>  
+            <td colspan="2">  
+                <input type="button" id="ajaxBtn" value="提交" />  
+            </td>  
+        </tr>  
+    </table>  
+</form>
+
+</body>
+</html>

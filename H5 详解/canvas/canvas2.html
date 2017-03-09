@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: pink;
+			}
+			canvas{
+				background: yellow;
+			}
+			span{
+				color: #000;
+			}
+		</style>
+		<script>
+			/*
+			canvas 默认大小：宽300px，高150px。 
+			
+			绘制方块
+			fillRect(L,T,W,H):默认颜色是黑色
+			strokeRect(L,T,W,H):带边框的方块，默认一像素黑色边框。
+			
+			设置绘图
+			fillStyle:填充颜色（绘制canvas是有顺序的）
+			lineWidth:线宽度，是一个数值
+			strokeStyle：边线颜色
+			
+			边界绘制
+			lineJoin 边界连接点样式
+			 - miter(默认)、round(圆角)、bevel(斜角)
+			lineCap: 端点样式
+			 -butt(默认)、round(圆角)、square(高度多出为宽（lineWidth）一半的值)
+			
+			绘制路径1
+			beginPath:开始绘制路径
+			closePath:结束绘制路径
+			moveTo:移动到绘制的新目标点
+			lineTo：新的目标点
+			
+			绘制路径
+			stroke:画线，默认是黑色
+			fill：填充，默认是黑色
+			rect：绘制矩形区域
+			clearRect：删除一个画布的矩形区域
+			save：保存路径
+			restore:恢复路径
+			
+			
+			*/
+			window.onload = function(){
+				var oC = document.querySelector("#c1");
+				var oGc = oC.getContext('2d'); 
+				
+				/*oGc.fillStyle = "purple";//目前是作用于两个路径
+				
+				oGc.beginPath();
+				oGc.moveTo(100,100);
+				oGc.lineTo(200,200);
+				oGc.lineTo(300,200);
+				oGc.closePath();
+				oGc.fill();
+				
+				oGc.beginPath();
+				oGc.moveTo(100,250);
+				oGc.lineTo(200,250);
+				oGc.lineTo(200,350);
+				oGc.lineTo(100,350);
+				oGc.closePath();
+				oGc.fill();
+				*/
+				
+				/*oGc.save();
+				
+				oGc.fillStyle = "purple";// 将想要改变的路径放在oGc.save()和oGc.restore()之间
+				
+				oGc.beginPath();
+				oGc.moveTo(100,100);
+				oGc.lineTo(200,200);
+				oGc.lineTo(300,200);
+				oGc.closePath();
+				oGc.fill();
+				
+				oGc.restore();
+				
+				oGc.beginPath();
+				oGc.moveTo(100,250);
+				oGc.lineTo(200,250);
+				oGc.lineTo(200,350);
+				oGc.lineTo(100,350);
+				oGc.closePath();
+				oGc.fill();*/
+				
+				
+				/*oGc.beginPath();
+				oGc.rect(100.5,100.5,100,100);
+				oGc.closePath();
+				oGc.stroke();
+				oGc.clearRect(0,0,150,150);*/
+				
+				oGc.beginPath();
+				oGc.lineWidth = 20;
+				oGc.lineCap = "square";
+				oGc.moveTo(100,100);
+				oGc.lineTo(200,200);
+				oGc.stroke();
+				oGc.closePath();
+				
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="c1" width="400" height="400">
+			<span>您的浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

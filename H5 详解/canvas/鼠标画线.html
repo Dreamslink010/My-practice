@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: pink;
+			}
+			canvas{
+				background: yellow;
+			}
+			span{
+				color: #000;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var oC2 = document.querySelector("#c2");
+				var oG2 = oC2.getContext('2d');
+				oC2.onmousedown = function(ev){
+					var ev = ev || window.event;
+					oG2.strokeStyle = 'green';
+					oG2.moveTo(ev.clientX - oC2.offsetLeft,ev.clientY - oC2.offsetTop);
+					document.onmousemove = function(ev){
+						var ev = ev || window.event;
+						oG2.lineTo(ev.clientX - oC2.offsetLeft,ev.clientY - oC2.offsetTop);
+						oG2.stroke();
+					};
+					document.onmouseup = function(){
+						document.onmousedown = null;
+						document.onmousemove = null;
+					};
+					
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<canvas width="400" height="400" id="c2">
+			<span>您的浏览器不支持canvas</span>
+		</canvas>
+	</body>
+</html>

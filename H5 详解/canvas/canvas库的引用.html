@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+			
+		</style>
+		<script src="jCanvaScript.1.5.18.min.js"></script>
+		<script>
+			
+			
+			window.onload = function(){
+				var oC1 = document.querySelector("#box");
+				var oG1 = oC1.getContext('2d');
+				var oInput = document.querySelector("#input1");
+				jc.start('box',true); //第二个参数是重绘的意思
+				//jc.rect(100,100,50,50,'#ff000',1); //绘制矩形
+				jc.circle(100,100,50,'#ff000',1).click(function(){
+					alert(123);
+				});
+				jc.circle(200,200,50,'#ff000',1).id('c1');
+				
+				jc.start('box');
+				oInput.onclick = function(){
+					jc('#c1').color("#ffff00").animate({x:300,y:300,radius:5},2000);
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="500" height="500"></canvas>
+		<input type="button" id="input1" value="点击" />
+	</body>
+</html>

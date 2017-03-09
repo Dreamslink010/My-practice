@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#list li{
+				width: 100px;
+				height: 30px;
+				background: mediumpurple;
+				margin: 10px;
+				list-style: none;
+				color: #fff;
+			}
+			#box{
+				width:300px;
+				height: 300px;
+				background: orangered;
+				margin: 200px;
+			}
+		</style>
+		<script>
+			/*
+			
+			拖放事件
+				拖放元素事件:事件对象为被拖拽元素
+					dragstart,拖拽前触发
+					drag，拖拽开始与结束之间触发，连续触发
+					dragend,拖拽结束触发
+				目标元素事件：事假对象为目标元素
+					dragenter，进入目标元素触发，相当于mouseover
+					dragover, 进入目标，离开目标之间，连续触发
+					dragleave，离开目标元素触发，相当于mouseout
+					drop。在目标元素上释放鼠标触发
+					
+			拖放事件
+				事件的执行顺序：drop不触发的时候
+					dragstart > drag > dragenter > dragover > dragleave > dragend
+				事件的执行顺序：drop触发的时候（drapover的时候阻止默认事件）
+					drapstart > drag > dragenter > dragover > drop > dragend
+				不能释放时的光标和能释放时的光标不一样
+				
+			拖放事件
+				解决火狐下的问题
+					必须设置dataTransfer对象的setData方法才可以拖拽图片外的其他标签
+					
+				dataTransfer对象
+					setData():设置数据key和value（必须是字符串）
+					getData():获取数据，根据key值，获取对应的value
+					
+					effectAllowed:设置移动时的光标样式（copy，link，none，copyLink，copyMove，linkMove，move，all，uninitialized）
+					setDragImage：把移动时候鼠标样式改为一个图片
+						接收3个参数（指定的图片，坐标X，坐标Y）
+			
+			*/
+			window.onload = function(){
+				var list = document.querySelector("#list");
+				var allLi = list.querySelectorAll("li");
+				var box = document.querySelector("#box");
+				var oImg = document.querySelector("#img2")
+				var i = 0;
+				for(var i = 0; i<allLi.length; i++){
+					allLi[i].ondragstart = function(ev){
+						var ev = ev || window.event; //dataTransfer需要先获取事件对象
+						ev.dataTransfer.setData('name','hello');
+						ev.dataTransfer.effectAllowed = "copy";
+						//ev.dataTransfer.effectAllowed = "link";
+						//ev.dataTransfer.effectAllowed = "none";
+						//ev.dataTransfer.effectAllowed = "copyLink";
+						//ev.dataTransfer.effectAllowed = "copyMove";
+						//ev.dataTransfer.effectAllowed = "linkMove";
+						//ev.dataTransfer.effectAllowed = "move";
+						//ev.dataTransfer.effectAllowed = "all";
+						//ev.dataTransfer.effectAllowed = "uninitialized";
+						ev.dataTransfer.setDragImage(oImg,50,50);
+					};
+
+					allLi[i].ondragend = function(){
+						this.style.background = "mediumpurple";
+					}
+				};
+				box.ondragenter = function(){
+					this.style.background = "yellow";
+				};
+				box.ondragleave = function(){   
+					this.style.background = "orangered";
+				};
+				box.ondragover = function(ev){    //enter和leave之间连续触发
+					document.title = i++;
+					//想要触发drop事件，就必须在dragover中阻止默认事件
+					ev.preventDefault();
+				};
+				box.ondrop = function(ev){
+					
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<ul id="list">
+			<li draggable="true">a</li>  <!--谷歌下，设置为true，元素就可以拖拽-->
+			<li draggable="true">b</li>
+			<li draggable="true">c</li>
+		</ul>
+		<div id="box"></div>
+		<img src="02.jpg" id="img2" style="width: 300px;"/>
+	</body>
+</html>

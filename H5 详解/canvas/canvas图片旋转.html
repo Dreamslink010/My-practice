@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas插图</title>
+		<style>
+			
+		</style>
+		<script>
+			window.onload = function(){
+				var oInput = document.getElementsByTagName('input');
+				var oImg = document.querySelector("#img1");
+				var nImg = new Image();
+				var iNow = 0;
+				nImg.onload = function(){
+					draw(oImg);
+				};
+				nImg.src = oImg.src;
+				function draw(obj){
+					var oC = document.createElement('canvas');
+					var oGc = oC.getContext('2d');
+					oC.width = obj.width;
+					oC.height = obj.height;
+					obj.parentNode.replaceChild(oC,obj);
+					oGc.drawImage(obj,0,0);
+					oInput[1].onclick = function(){
+						if( iNow == 3  ){
+							iNow = 0;
+						}else{
+							iNow++;
+						}
+						
+						toChange();
+					};
+					oInput[0].onclick = function(){
+						if( iNow == 0  ){
+							iNow = 3;
+						}else{
+							iNow--;
+						}
+						
+						toChange();
+					};
+					function toChange(){
+						switch(iNow){
+							case 1:
+								oC.width = obj.height;
+								oC.height = obj.width;
+								oGc.rotate(90*Math.PI/180);
+								oGc.drawImage(obj,0,-obj.height);
+							break;
+							case 2:
+								oC.width = obj.width;
+								oC.height = obj.height;
+								oGc.rotate(180*Math.PI/180);
+								oGc.drawImage(obj,-obj.width,-obj.height);
+							break;
+							case 3:
+								oC.width = obj.height;
+								oC.height = obj.width;
+								oGc.rotate(270*Math.PI/180);
+								oGc.drawImage(obj,-obj.width,0);
+							break;
+							case 0:
+								oC.width = obj.width;
+								oC.height = obj.height;
+								oGc.rotate(0*Math.PI/180);
+								oGc.drawImage(obj,0,0);
+							break;
+						}
+					}
+				};
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="左转" />
+		<input type="button" value="右转" />
+		<div>
+			<img src="02.jpg" id="img1" />
+		</div>
+	</body>
+</html>

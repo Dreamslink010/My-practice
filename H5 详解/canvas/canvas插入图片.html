@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas插图</title>
+		<style>
+			body{
+				background: #333;
+			}
+			#img{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				/*
+				
+				插入图片
+					等图片加载完，再执行canvas操作
+					 - 图片预加载，在onload中调用方法
+					drawImage(oImg,x,y,w,h)
+					 - oImg：当前图片; x,y:坐标; w,h宽高 
+				*/
+				var oImg = document.querySelector("#img");
+				var oImgZ = oImg.getContext('2d');
+				var yImg = new Image();
+				yImg.onload = function(){
+					draw(this);
+				}
+				yImg.src = '02.jpg';
+				function draw(obj){
+					oImgZ.drawImage(obj,0,0); //如果设置图片大小，会根据设置的执行，如果不设置，则按图片的实际大小，多出canvas的会被裁掉
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="img" width="400" height="400">
+			
+		</canvas>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas像素显字</title>
+		<style>
+			body{
+				background: #333333;
+				color: orangered;
+				font-size: 30px;
+			}
+			#box{
+				background: #fff;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var oC1 = document.querySelector("#box");
+				var oG1 = oC1.getContext('2d');
+				var allLi = document.getElementsByTagName('li');
+				for(var i=0; i<allLi.length; i++){
+					allLi[i].onclick = function(){
+						var str = this.innerHTML;
+						var h = 180;
+						oG1.clearRect(0,0,oC1.width,oC1.height);
+						oG1.font = h + 'px 楷体';
+						oG1.textBaseline = 'top';
+						oG1.fillStyle = 'orangered';
+						
+						var w = oG1.measureText(str).width;
+						oG1.fillText(str,(oC1.width - w)/2,(oC1.height - h)/2);
+						var oImg = oG1.getImageData((oC1.width - w)/2,(oC1.height - h)/2,w,h);
+						oG1.clearRect(0,0,oC1.width,oC1.height);
+						var arr = randomArr(w*h,w*h/10);
+						var newImg = oG1.createImageData(w,h);
+						for( var i = 0; i<arr.length; i++ ){
+							newImg.data[4*arr[i]] = oImg.data[4*arr[i]];
+							newImg.data[4*arr[i]+1] = oImg.data[4*arr[i]+1];
+							newImg.data[4*arr[i]+2] = oImg.data[4*arr[i]+2];
+							newImg.data[4*arr[i]+3] = oImg.data[4*arr[i]+3];	
+						};
+						oG1.putImageData(newImg,(oC1.width - w)/2,(oC1.height - h)/2);
+					};
+				};
+				function randomArr(iAll,iNow){
+					var arr = [];
+					var newArr = [];
+					for( var i=0; i<iAll; i++ ){
+						arr.push(i);
+					};
+					for( var i = 0; i<iNow; i++ ){
+						newArr.push(arr.splice(Math.floor(Math.random()*arr.length),1));
+					};
+					return newArr;
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="400" height="400"></canvas>
+		<ul style="float: left; list-style: none;">
+			<li>三</li>
+			<li>生</li>
+			<li>三</li>
+			<li>世</li>
+		</ul>
+	</body>
+</html>

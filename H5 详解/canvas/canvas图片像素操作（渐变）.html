@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var oC1 = document.querySelector("#box");
+				var oG1 = oC1.getContext('2d');
+				var yImg = new Image();
+				yImg.onload = function(){
+					draw(this);
+				};
+				yImg.src = '02.jpg';
+				function draw(obj){
+					oC1.width = obj.width;
+					oG1.drawImage(obj,0,0);
+					var oImg = oG1.getImageData(0,0,obj.width,obj.height);
+					var w = oImg.width;
+					var h = oImg.height;
+					var newImg = oG1.createImageData(obj.width,obj.height);
+					for(var i = 0; i<h; i++){
+						for( var j = 0; j<w; j++ ){
+							var result = [];
+							var color = getXY(oImg,j,i);
+							result[0] = 255 - color[0];
+							result[1] = 255 - color[1];
+							result[2] = 255 - color[2];
+							result[3] = 255*i/h;
+							setXY(newImg,j,h - i,result);
+						};
+					};
+					oG1.putImageData(newImg,0,obj.height);
+				};
+				function getXY(obj,x,y){
+					var w = obj.width;
+					var h = obj.height;
+					var d = obj.data;
+					var color = [];
+					color[0] = d[4*(y*w+x)]
+					color[1] = d[4*(y*w+x)+1]
+					color[2] = d[4*(y*w+x)+2]
+					color[3] = d[4*(y*w+x)+3]
+					return color;
+				};
+				function setXY(obj,x,y,color){
+					var w = obj.width;
+					var h = obj.height;
+					var d = obj.data;
+					d[4*(y*w+x)] = color[0];
+					d[4*(y*w+x)+1] = color[1]
+					d[4*(y*w+x)+2] = color[2]
+					d[4*(y*w+x)+3] = color[3]
+					
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="500" height="800"></canvas>
+	</body>
+</html>

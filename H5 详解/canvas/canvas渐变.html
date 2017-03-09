@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas渐变</title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			/*
+			渐变
+			createLinearGradient(x1,y1,x2,y2);
+			 - 线性渐变：
+			 - 第一组参数：起始点坐标、第二组参数：结束点坐标
+			 - addColorStop(位置，颜色) 添加渐变点
+			createRadialGradient(x1,y1,r1,x2,y2,r2);
+			 - 放射性渐变：
+			 - 参数：第一个圆的坐标和半径，第二个圆的坐标和半径
+			
+			*/
+			window.onload = function(){
+				var oC = document.querySelector('#box');
+				var oGc = oC.getContext('2d');
+				/*var obj = oGc.createLinearGradient(150,100,250,200);
+				obj.addColorStop(0,'red');
+				obj.addColorStop(0.5,'yellow');
+				obj.addColorStop(1,'blue');
+				oGc.fillStyle = obj;
+				oGc.fillRect(150,100,100,100);*/
+				
+				var obj = oGc.createRadialGradient(200,200,100,200,200,150);
+				obj.addColorStop(0,'green');
+				obj.addColorStop(0.5,'blue');
+				obj.addColorStop(1,'yellow');
+				oGc.fillStyle = obj;
+				oGc.fillRect(0,0,oC.width,oC.height);
+				
+				
+			};
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="400" height="400"></canvas>
+	</body>
+</html>

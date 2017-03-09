@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#c3{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			
+			/*
+			 
+			绘制圆
+			arc (x,y,半径,起始弧度,结束弧度,旋转方向)
+			 - x,y起始位置(圆心)
+			 - 弧度与角度的关系：弧度 = 角度*Math.PI/180
+			 - 旋转方向：顺时针（默认：false），逆时针（true）
+			
+			 
+			*/
+			window.onload = function(){
+				var oC3 = document.querySelector("#c3");
+				var oG3 = oC3.getContext('2d');
+				function toDraw(){
+					var x = 200;
+					var y = 200;
+					var r = 150;
+					oG3.clearRect(0,0,oC3.width,oC3.height); //每次绘制之前要先清空画布，再进行绘制
+					var oDate = new Date();  //获取当地时间
+					var oHours = oDate.getHours(); //获取小时
+					var oMin = oDate.getMinutes(); //获取分钟
+					var oSen = oDate.getSeconds(); //获取秒钟
+					var oHoursValue = (-90 + oHours*30 + oMin/2) * Math.PI/180;
+					var oMinValue = (-90 + oMin*6) * Math.PI/180;
+					var oSenValue = (-90 + oSen*6) * Math.PI/180;
+					oG3.beginPath();  //制作秒针的刻度
+					for( var i = 0; i<60 ; i++ ){
+						oG3.moveTo(x,y);
+						oG3.arc(x,y,r,6*i*Math.PI/180,6*(i+1)*Math.PI/180,false);
+					};
+					oG3.closePath();
+					oG3.stroke();
+					
+					oG3.fillStyle = "#ccc"; //盖住部分秒钟的刻度
+					oG3.beginPath();
+					oG3.moveTo(200,200);
+					oG3.arc(x,y,r*19/20,0,360*Math.PI/180,false)
+					oG3.closePath();
+					oG3.fill();
+					
+					oG3.lineWidth = 3;  //制作分针的刻度
+					oG3.beginPath();
+					for( var j = 0; j<12 ; j++ ){
+						oG3.moveTo(x,y);
+						oG3.arc(x,y,r,30*j*Math.PI/180,30*(j+1)*Math.PI/180,false);
+					};
+					oG3.closePath();
+					oG3.stroke();
+					
+					oG3.fillStyle = "#ccc"; //盖住部分分钟的刻度
+					oG3.beginPath();
+					oG3.moveTo(200,200);
+					oG3.arc(x,y,r*18/20,0,360*Math.PI/180,false)
+					oG3.closePath();
+					oG3.fill();
+					
+					oG3.lineWidth = 5;  //制作时针
+					oG3.beginPath();
+					oG3.moveTo(x,y);
+					oG3.arc(x,y,r*10/20,oHoursValue,oHoursValue,false)
+					oG3.closePath();
+					oG3.stroke();
+					
+					oG3.lineWidth = 3;  //制作分针
+					oG3.beginPath();
+					oG3.moveTo(x,y);
+					oG3.arc(x,y,r*15/20,oMinValue,oMinValue,false)
+					oG3.closePath();
+					oG3.stroke();
+					
+					oG3.lineWidth = 1;  //制作秒针
+					oG3.beginPath();
+					oG3.moveTo(x,y);
+					oG3.arc(x,y,r*19/20,oSenValue,oSenValue,false)
+					oG3.closePath();
+					oG3.stroke();
+					
+				};
+				setInterval(toDraw,1000)
+				toDraw()
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="c3" width="400" height="400">
+			
+		</canvas>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas文字</title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			/*
+			文本1
+			strokeText(文字,x,y);
+			 - 文字边框
+			fillText(文字,x,y);
+			 - 文字填充
+			font
+			 - 文字大小：'60px impact' impact是字体，必须写，否则大小不起作用
+			textAline
+			 - 文字左右对齐，默认是start跟left一样的效果，end right center
+			texBaseline
+			 - 文字上下对齐方式，默认是alphabetic, top middle bottom
+			 
+			文本2
+			measureText()
+			 - measureText(str).width:只有宽度，没有高度
+			 
+			阴影
+			shadowOffsetX、shadowOffsetY
+			 - X轴偏移、Y轴偏移
+			shadowBlur
+			 - 高斯模糊值
+			shadowColor
+			 - 阴影颜色
+			
+			*/
+			window.onload = function(){
+				var oC = document.querySelector('#box');
+				var oGc = oC.getContext('2d');
+				oGc.font = '60px 楷体';
+				oGc.textBaseline = 'top'; //middle bottom
+				//oGc.fillStyle = 'yellow';
+				//oGc.fillText('canvas文字demo',0,0);
+				//oGc.strokeStyle = 'blueviolet';
+				//oGc.strokeText('canvas文字demo',0,200);
+				
+				/*oGc.shadowOffsetX = 10;
+				oGc.shadowOffsetY = 10;
+				oGc.shadowBlur = 8;
+				//alert(oGc.shadowColor);  //默认颜色是黑色透明的
+				oGc.shadowColor = '#333';  //阴影颜色必须填写，否则没有效果*/
+				var w = oGc.measureText('canvas文字').width
+				oGc.fillText('canvas文字',(oC.width - w)/2,(oC.height - 60)/2);
+				
+				
+			};
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="400" height="600"></canvas>
+	</body>
+</html>

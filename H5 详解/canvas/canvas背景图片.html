@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas背景图片</title>
+		<style>
+			body{
+				background: #333;
+			}
+			#box{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			/*
+			设置背景
+			creatPattern(oImg,平铺方式);
+			 - 平铺方式  repeat,repeat-x.repeat-y,no-repeat
+			
+			*/
+			window.onload = function(){
+				var oC = document.querySelector('#box');
+				var oGc = oC.getContext('2d');
+				var nImg = new Image();
+				nImg.onload = function(){
+					draw(this);
+				};
+				nImg.src = '02.jpg';
+				function draw(obj){
+					var bg = oGc.createPattern(obj,'repeat');
+					oGc.fillStyle = bg;
+					oGc.fillRect(0,0,300,300);
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="box" width="400" height="400"></canvas>
+	</body>
+</html>

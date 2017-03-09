@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#c4{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			
+			
+			
+			window.onload = function(){
+				var oC4 = document.querySelector("#c4");
+				var oG4 = oC4.getContext('2d');
+				var num = 0;
+				var num2 = 0;
+				var value = 1;
+				oG4.translate(100,100);
+				
+				setInterval(function(){
+					num++;
+					oG4.save();
+					oG4.clearRect(-100,-100,oC4.width,oC4.height);
+					num2 += value;
+					if( num2 == 50 ){
+						value = -1;
+					}else if( num2 == 0 ){
+						value = 1;
+					};
+					oG4.scale(num2*1/50,num2*1/50);
+					oG4.rotate(num*Math.PI/180);
+					oG4.translate(-50,-50);
+					oG4.fillRect(0,0,100,100);
+					oG4.restore();
+				},30)
+				
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="c4" width="400" height="400"></canvas>
+	</body>
+</html>

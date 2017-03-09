@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: #333;
+			}
+			#c4{
+				background: #ccc;
+			}
+		</style>
+		<script>
+			
+			/*
+			 
+			绘制其他曲线
+			arcTo(x1,y1,x2,y2,r)
+			 - 第一组坐标，第二组坐标，半径
+			quadraticCurveTo(dx,dy,x1,y1)
+			 - 贝塞尔曲线：第一组控制点，第二组结束坐标
+			bezierCurveTo(dx1,dy1,dx2,dy2,x1,x2)
+			 - 贝塞尔曲线：第一组控制点，第二组控制点，第三组结束坐标
+			
+			*/
+			
+			window.onload = function(){
+				var oC4 = document.querySelector("#c4");
+				var oG4 = oC4.getContext('2d');
+				/*oG4.moveTo(100,200);
+				oG4.arcTo(100,100,200,100,50);
+				oG4.stroke();*/
+				
+				/*oG4.moveTo(100,200);
+				oG4.quadraticCurveTo(100,100,200,100);
+				oG4.stroke();*/
+				
+				oG4.moveTo(100,200);
+				oG4.bezierCurveTo(100,100,200,200,200,100);
+				oG4.stroke();
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="c4" width="400" height="400"></canvas>
+	</body>
+</html>
