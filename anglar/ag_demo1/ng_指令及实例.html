@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			ng-repeat 指令(遍历集合 - 通过in的方式遍历每一项)
+			学过的指令有：
+			 - ng-app
+			 - ng-controller
+			 - ng-click
+			
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope','$filter',function($scope,$filter){
+				var oriArr = [
+					{ 'name':"red",'age':'30' },
+					{ 'name':"green",'age':'20' },
+					{ 'name':"yellow",'age':'10' },
+					{ 'name':"pink",'age':'40' }
+				];
+				$scope.dataList = oriArr
+				$scope.fnSort = function(arg){
+					
+					arguments.callee['fnSort'+arg] = !arguments.callee['fnSort'+arg];
+					
+					$scope.dataList = $filter('orderBy')($scope.dataList , arg , arguments.callee['fnSort'+arg]);
+				};
+				$scope.fnFilter = function(){
+					$scope.dataList = $filter('filter')(oriArr , $scope.filterVal);
+				};
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			<input type="text" ng-model="filterVal" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="搜索" ng-click = "fnFilter()"/>
+			<table border="1">
+				<tr>
+					<th ng-click="fnSort('name')">姓名</th>
+					<th ng-click="fnSort('age')">年龄</th>
+				</tr>
+				<tr ng-repeat="data in dataList">
+					<td>{{data.name}}</td>
+					<td>{{data.age}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
