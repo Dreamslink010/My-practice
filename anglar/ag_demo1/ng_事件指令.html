@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+		<!--<script src="angular-1.3.0.js"></script>-->
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			事件指令
+			ng-click/dblclick 点击/双击
+			ng-mousedown/up  鼠标按下/抬起
+			ng-mouseenter/leave 鼠标进入/离开
+			ng-mousemove/over/out 鼠标移动/覆盖/离开
+			ng-keydown/up/press 键盘按下/抬起
+			ng-focus/blur 元素获得焦点/失去焦点
+			ng-submit 元素被提交的时候
+			
+			ng-selected 下拉菜单被选中的时候
+			ng-change  输入框中的数据发生改变的时候就会触发
+			ng-copy 在输入框中进行复制操作时触发
+			ng-cut 在输入框中进行剪切操作时触发
+			ng-paste 在输入框中进行粘贴操作时触发
+			*/
+			
+			
+		</script>
+	</head>
+	<body>
+		<div>
+			<input type="checkbox" ng-model='aaa'/>
+			<select>
+				<option>111</option>
+				<option ng-selected='aaa'>222</option>
+			</select>
+			<input type="text" ng-change = 'bbb = "hello"' ng-model="bbb" />{{bbb}}<br />
+			<input type="text" value="afsgergadsg" ng-copy="ccc = true"/>{{ccc}}
+			<input type="text" value="afsgergadsg" ng-cut="eee = true"/>{{eee}}
+			<input type="text" value="afsgergadsg" ng-paste="ddd = true"/>{{ddd}}
+		</div>
+		
+	</body>
+</html>
