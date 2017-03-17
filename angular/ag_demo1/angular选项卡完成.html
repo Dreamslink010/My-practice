@@ -21,19 +21,21 @@
 				cursor: pointer;
 			}
 		</style>
+		<script src="jquery.min.js"></script>
 		<script src="angular.min.js"></script>
 		<script>
 			/*
 			
 			angular 的自定义指令
 			 - directive
-			 > scope 
-			  - 独立作用域true
-			  - 隔离作用域{}
-			  	这三个都叫绑定策略
-			  	@ 指的是绑定的普通字符串，叫什么解析出来什么
-			  	= 解析的数据，变量名，找到所对应的数据
-			  	& 连接函数
+			 
+			  	
+			 - controller
+			 - link
+			  > scope
+			  > element
+			  > attr
+			  > reController
 			  
 			
 			*/
@@ -50,7 +52,16 @@
 					controller:['$scope',function($scope){
 						$scope.name = 'cheshuang'; 
 					}],
-					templateUrl:'temp完成.html'
+					templateUrl:'temp完成.html',
+					link:function(scope,element,attr){
+						/*console.log(scope.name);
+						console.log(element);
+						console.log(attr.myId);*/
+						element.delegate('input','click',function(){
+							$(this).attr('class','active').siblings('input').attr('class','');
+							$(this).siblings('div').eq($(this).index()).css('display',"block").siblings('div').css('display','none');
+						})
+					}
 				}
 			});
 			m1.controller('Nice',['$scope',function($scope){
