@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1 div,#box2 div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid orangered;
+				display: none;
+			}
+			#box1 input.active,#box2 input.active{
+				background: orangered;
+			}
+		</style>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			
+			angular 的自定义指令
+			 - directive
+			 > scope 
+			  - 独立作用域true
+			  - 隔离作用域{}
+			  	这三个都叫绑定策略
+			  	@ 指的是绑定的普通字符串，叫什么解析出来什么
+			  	= 解析的数据，变量名，找到所对应的数据
+			  	& 连接函数
+			  
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.directive('myTab',function(){
+				return{
+					restrict:'E',
+					replace:true,
+					/*template:'<div id="box">\
+								<input class="active" type="button" value="1" />\
+								<input type="button" value="2" />\
+								<input type="button" value="3" />\
+								<div style="display: block;">11111111</div>\
+								<div>22222222</div>\
+								<div>33333333</div>\
+							</div>'*/
+					//scope:true, //默认是false，意思是myTab这个指令具有独立作用域的概念
+					scope:{
+						myId:"@", // @是指定是谁变成了指令，如果前后相同，也可省略
+						myName:'=',
+						myFn:'&'
+					}, //隔离作用域
+					controller:['$scope',function($scope){
+						$scope.name = 'cheshuang'; //这里一般存放共享的数据
+					}],
+					templateUrl:'temp.html'
+				}
+			});
+			m1.controller('Nice',['$scope',function($scope){
+				$scope.name = 'hello';
+				$scope.show = function(n){
+					alert(n);
+				}
+			}])
+		</script>
+	</head>
+	<body ng-controller="Nice">
+		<my-tab my-id="box1" my-name='name' my-fn="show(num)"></my-tab>
+		<my-tab my-id="box2" my-name='name' my-fn="show(num)"></my-tab>
+		<!--<div id="box">
+			<input class="active" type="button" value="1" />
+			<input type="button" value="2" />
+			<input type="button" value="3" />
+			<div style="display: block;">11111111</div>
+			<div>22222222</div>
+			<div>33333333</div>
+		</div>-->
+	</body>
+</html>

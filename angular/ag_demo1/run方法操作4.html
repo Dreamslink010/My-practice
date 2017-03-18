@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+/*			function Nice($scope){
+				$scope.name = 'hello';
+				setTimeout(function(){
+					$scope.$apply(function(){
+						$scope.name = 'hi';
+					});
+				},2000)
+			}*/
+			
+			var m1 = angular.module('myApp',[]);
+			/*
+				$scope.$apply  监听视图有没有发生变化(可以在第三方里或原生js有效果)
+				run()			初始化全局作用域数据
+			*/
+			m1.run(['$rootScope',function($rootScope){
+				$rootScope.name = 'hello';
+			}]); 
+		</script>
+	</head>
+	<body>
+		<div>
+			<p>{{name}}</p>
+		</div>
+		
+	</body>
+</html>

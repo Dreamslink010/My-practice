@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html> <!--引用哪个名字，哪个模块就作为初始模块 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>ag的模块化开发</title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*var m1 = angular.module('myApp',[]);  //m1就是初始模块
+			m1.controller('Nice',function($scope){ //这种写法如果js文件被压缩了，$scope就会被改变，会出错
+				$scope.name = 'hello'
+			});
+			m1.controller('How',function($scope){
+				$scope.name = 'hi'
+			}); */
+			var m1 = angular.module('myApp1',[]);  //建议模块化的要这样写
+			var m2 = angular.module('myApp2',[]);  //建议模块化的要这样写
+			m1.controller('Nice',['$scope',function($scope){ 
+				$scope.name = 'hello'
+			}]);
+			m2.controller('How',['$scope',function($scope){
+				$scope.name = 'hi'
+			}]);
+			document.onclick = function(){
+				var oDiv = document.getElementsByTagName('div');
+				angular.bootstrap(oDiv[0],['myApp1']);
+				angular.bootstrap(oDiv[1],['myApp2']);
+			}
+			
+			/*function Nice($scope){
+				$scope.name = 'hello'
+			};
+			function How($scope){
+				$scope.name = 'hi'
+			};*/
+			
+			
+			/*function show(n1,n2){
+				alert(n1);
+				alert(n2);
+				alert(this);
+			};
+			//angular.bind(document,show)(3,4);
+			//angular.bind(document,show,3,4)();
+			angular.bind(document,show,4)(3);*/
+			
+			/*var a = {
+				name:'hello'
+			};
+			var b = {
+				age:'20'
+			};
+			var c = angular.copy(a,b);
+			//console.log(c);
+			//console.log(a);
+			console.log(b);  //a把所有值覆盖给了b*/
+			
+/*			var a = {
+				name:'hello'
+			};
+			var b = {
+				age:'20'
+			};
+			var c = angular.extend(b,a);  //把对象a复制一份给了b
+			console.log(b)   //b和c是一样的*/
+		</script>
+	</head>
+	<body>
+		<div ng-controller = 'Nice'>
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller = 'How'>
+			<p>{{name}}</p>
+		</div>
+		<!--<p>
+			angular 的工具方法
+			angular.bind() 改this指向
+			angular.copy() 拷贝对象
+			angular.extend() 对象复制（继承对象）
+		</p>-->
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1 div,#box2 div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid orangered;
+				display: none;
+			}
+			#box1 input.active,#box2 input.active{
+				background: orangered;
+				color: #fff;
+			}
+			#box1 input,#box2 input{
+				border: none;
+				margin-right: 2px;
+				outline: none;
+				cursor: pointer;
+			}
+		</style>
+		<script src="jquery.min.js"></script>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			
+			angular 的自定义指令
+			 - directive
+			 
+			  	
+			 - controller
+			 - link
+			  > scope
+			  > element
+			  > attr
+			  > reController
+			  
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.directive('myTab',function(){
+				return{
+					restrict:'E',
+					replace:true,
+					
+					scope:{
+						myId:"@",
+						myData:'='
+					}, 
+					controller:['$scope',function($scope){
+						$scope.name = 'cheshuang'; 
+					}],
+					templateUrl:'temp完成.html',
+					link:function(scope,element,attr){
+						/*console.log(scope.name);
+						console.log(element);
+						console.log(attr.myId);*/
+						element.delegate('input','click',function(){
+							$(this).attr('class','active').siblings('input').attr('class','');
+							$(this).siblings('div').eq($(this).index()).css('display',"block").siblings('div').css('display','none');
+						})
+					}
+				}
+			});
+			m1.controller('Nice',['$scope',function($scope){
+				$scope.data1 = [
+					{title:"历史",content:"大历史"},
+					{title:"中华",content:"大中华"},
+					{title:"文化",content:"大文化"}
+				];
+				$scope.data2 = [
+					{title:"唐朝",content:"武则天"},
+					{title:"明朝",content:"朱元璋"},
+					{title:'清朝',content:'皇太极'}
+				];
+				
+			}])
+		</script>
+	</head>
+	<body ng-controller="Nice">
+		<my-tab my-id="box1" my-data = "data1"></my-tab>
+		<my-tab my-id="box2" my-data = "data2"></my-tab>
+		<!--<div id="box">
+			<input class="active" type="button" value="1" />
+			<input type="button" value="2" />
+			<input type="button" value="3" />
+			<div style="display: block;">11111111</div>
+			<div>22222222</div>
+			<div>33333333</div>
+		</div>-->
+	</body>
+</html>

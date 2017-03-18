@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="jquery.min.js"></script>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			
+			angular 的自定义指令
+			 - directive
+			 》transclued 当父级和子集同时需要引用模板时会用到
+			  - ng-transclued
+			 》require
+			 - ^ 当所要引用的指令不在自己身上，例如在父级，就需要加上^,在的话就不用
+			 - ? 只是一个容错的指令，不会报错，但会返回undefined，一般都会加上？
+			  
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.directive('hello',function(){
+				return{
+					restrict:'E',
+					replace:true,
+					transclude:true,
+					controller:function($scope){
+						/*$scope.name = 'cheshuang' 这样写只能在hello的指令里找到*/
+						this.name = 'cheshuang'; //这样写其他的指令也能找到
+					},//controller一般是在多调用中的数据共享，指令与指令进行交互的时候，controller可以作为共有的一些方法，共有的方法就是可以在其他的指令中被找到
+					template:'<div ng-transclude>hello angular</div>',
+				
+				}
+			});
+			m1.directive('hi',function(){
+				return{
+					restrict:'E',
+					replace:true,
+					require:'hello', //引用hello指令里的内容
+					template:'<span>hello angular</span>',
+					link:function(scope,element,attr,reController){
+						console.log(reController);
+					}//link一般用在dom操作，把当前指令的dom操作放在link当中。而且是对当前指令内部的实现功能
+				}
+			});
+			m1.controller('Nice',['$scope',function($scope){
+				
+				
+			}])
+		</script>
+	</head>
+	<body ng-controller="Nice">
+		<hello>
+			<hi></hi>
+		</hello>
+	</body>
+</html>

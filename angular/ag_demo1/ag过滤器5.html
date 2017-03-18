@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app = 'myApp'>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope',function($scope){
+//				$scope.name = '9384954';
+//				$scope.name = 'html';
+//				$scope.name = {'name':'che','age':'20'};
+//				$scope.name = 'hello';
+				$scope.name = [
+					{color:"red",age:"20"},
+					{color:"blue",age:"10"},
+					{color:"yellow",age:"40"},
+					{color:"green",age:"70"}
+				];
+			}]);
+			/*
+				过滤器	金额 currency  //$9,384,954.00
+				    		cunrrency:'￥' //￥9,384,954.00
+				   		数字 number  //9,384,954（有小数默认保留3位，number:0/1/2 可以传参，自定义保留多少位）
+				    	lowercase/uppercase 转换大小写
+				    	json  将对象数据序列化，方便查看
+				    	limitTo  截取字符串/数组，limitTo:2通过传参截取位数
+				    	date   格式化日期，参数很多，详见参考文档
+				    	orderBy  排序（默认从小到大，orderBy:'age':true 传入相应的参数可改变，true逆排序）
+				    	filter   查找对应的数据（传入参数，就可查找出相应的数据，传入的必须是value值或字符）
+			*/
+				    
+			
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			<!--
+			<p>{{name | currency}}</p>
+			<p>{{name | currency:'￥'}}</p>
+			<p>{{name | number}}</p>
+			<p>{{name | uppercase}}</p>
+			<pre>{{name | json}}</pre>
+			<p>{{name | limitTo:2}}</p>
+			<p>{{name | orderBy:'color'}}</p>
+			<p>{{name | orderBy:'age':true}}</p>
+			<p>{{name | filter:'red'}}</p>
+			<p>{{name | filter:'70'}}</p>
+			<p>{{name | filter:'l'}}</p>
+			<p>{{name | filter:'l'，true}}</p> 必须匹配完整的value值
+			-->
+			
+			<p>{{name | filter:'l'}}</p>
+		</div>
+	</body>
+</html>

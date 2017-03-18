@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angular 标签指令
+			 - <a>
+			 - ng-options
+			 > for in
+			 - <textarea>
+			 - <input>
+			 - <form>
+			 > novalidate 去掉表单的默认样式
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope',function($scope){
+				$scope.colors = [
+					{name:"purple"},
+					{name:"oringe"},
+					{name:"green"}
+				];
+			}]);
+			
+		</script>
+	</head>
+	<body>
+		<div ng-app = "myApp" ng-controller="Nice">
+			<a href="">{{myColor}}</a><!--标签指令-->
+			<select ng-options="color.name for color in colors" ng-model="myColor">
+			</select>
+			<form novalidate="">
+				<input type="email" />
+			</form>
+		</div>
+		<a href="">bbbb</a><!--普通a标签-->
+		
+	</body>
+</html>

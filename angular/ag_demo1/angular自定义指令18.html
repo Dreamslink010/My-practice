@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular-1.3.0.js"></script>
+		<script>
+			/*
+			
+			angular 的自定义指令
+			 - angular.module 模块对象
+			 》controller 创建控制器
+			 》run 初始操作
+			 》filter 定义过滤器
+			 》directive 自定义指令
+			  - restrict 定义指令类型
+			  - replace
+			  - template  模板
+			  - templateUrl 引用外部模板文件
+			
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+//			m1.directive('hello',function(){
+//				return{
+//					/*restrict:'E', //E控制标签
+//					template:'<div>hello angular</div>'*/
+//					/*restrict:'A', //A控制属性
+//					template:'<div>hello angular</div>'*/
+//					/*restrict:'AEC', //AE可以同时写，但是必须是大写
+//					replace:true, //模板标签替换原本标签
+//					template:'<div>hello angular</div>'*/
+//					restrict:'AECM', //M是解析注释，将注释变成标签
+//					replace:true, //模板标签替换原本标签
+//					template:'<div>hello angular</div>'
+//				}
+//			});
+			m1.directive('myHello',function(){
+				return{
+					restrict:'AECM', //M是解析注释，将注释变成标签
+					replace:true, //模板标签替换原本标签
+					template:'<div>hello angular</div>'
+				}
+			})
+			m1.controller('Nice',['$scope',function($scope){
+				
+			}]);
+		</script>
+	</head>
+	<body>
+		<!--hello></hello>
+		<p hello></p>
+		<p class="hello"></p>-->
+		<!-- directive:hello -->
+		
+		<my-hello></my-hello>
+		<p my-hello></p>
+		<div ng-controller="Nice">
+			
+		</div>
+	</body>
+</html>
