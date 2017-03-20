@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope','$http','$timeout',function($scope,$http,$timeout){
+				var timer = null;
+				$scope.data = [];
+				$scope.change = function(name){
+					$timeout.cancel(timer);
+					timer = $timeout(function(){
+						$http({
+							method:"JSONP",
+							url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+name+'&cb=JSON_CALLBACK'
+						}).success(function(data){
+							//console.log(data);
+							$scope.data = data.s;
+						});
+					},500)
+					
+				};
+				
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			<input type="text" ng-model="name" ng-keyup="change(name)"/>
+			<input type="button" value="搜索" /><!--ng-click="change(name)"-->
+			<ul>
+				<li ng-repeat="d in data">{{d}}</li>
+			</ul>
+		</div>
+	</body>
+</html>
