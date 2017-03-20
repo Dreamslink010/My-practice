@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#parent div{
+				width: 300px;
+				height: 500px;
+				border: 1px solid #000;
+				margin:20px;
+			}
+			#parent ul{
+				width: 200px;
+				position: fixed;
+				top: 0;
+				right:0;
+			}
+			#parent ul li{
+				cursor: pointer;
+			}
+		</style>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angular 的服务
+			$location
+			 - absUrl() 获取到地址栏里的地址（编码后）
+			 - path() 路径。是在angular.js里特别设置的一种方式，有利于做路由的操作，可以有前进后退(可以设置，也可获取)
+			 - replace() 禁止掉path()方法里的前进后退，一般用不上
+			 - hash()
+			 - search() 
+			 - url() 得到当前路径
+			 - host() 得到主机名
+			 - port() 得到端口号
+			 - protocol() 得到协议
+			 
+			$anchorScroll 锚点跳转
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope','$location','$anchorScroll',function($scope,$location,$anchorScroll){
+				$scope.change = function(id){
+					//console.log(id);
+					$location.hash(id);
+					$anchorScroll();
+				}
+				
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice" id="parent">
+			<ul>
+				<li ng-repeat="id in [1,2,3,4,5]" ng-click="change('div'+id)">{{id}}aaaaaaaa</li>
+			</ul>
+			<div ng-repeat="id in [1,2,3,4,5]" ng-attr-id="div{{id}}">{{id}}</div>
+		</div>
+	</body>
+</html>
