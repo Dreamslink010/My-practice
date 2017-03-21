@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angular 的服务
+			$interpolate 插值服务
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',["$scope",'$interpolate',function($scope,$interpolate){
+				$scope.$watch('body',function(newBody){ //监听
+					if( newBody ){
+						var temp = $interpolate(newBody); //把body里的内容整体得到返回一个结果
+						$scope.showText = temp({name:$scope.name});
+					}
+				})
+			}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			<input type="text" ng-model="name" />
+			<textarea ng-model='body'></textarea>
+			<p>{{showText}}</p>
+		</div>
+	</body>
+</html>
