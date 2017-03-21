@@ -40,7 +40,7 @@
 			var m1 = angular.module('myApp',[]);
 			m1.controller('Nice',['$scope','$location','$anchorScroll',function($scope,$location,$anchorScroll){
 				$scope.change = function(id){
-					//console.log(id);
+					console.log(id);
 					$location.hash(id);
 					$anchorScroll();
 				}
