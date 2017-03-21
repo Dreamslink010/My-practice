@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angular 的服务
+			$cacheFactory  ng下缓存操作的方式
+			- info()
+			- put()
+			- get()
+			- remove()
+			- 配置capacity 设置缓存的长度
+			
+			$log   ng中打印到控制台
+			- log()
+			- info()
+			- warn()
+			- error()
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope','$cacheFactory','$log',function($scope,$cacheFactory,$log){
+				var cache = $cacheFactory('myCache',{capacity:2}); //此处可以设置缓存的长度
+				/*cache.put('name','hello'); //设置缓存
+				cache.put('age','20');
+				console.log(cache.info()); //查看缓存
+				console.log(cache.get('name')) //获取缓存
+				cache.remove('name');    //删除缓存*/
+				cache.put('name','hello');
+				cache.put('age','20');
+				cache.put('job','IT');
+				console.log(cache.info());
+				
+				$log.log('hello');
+			}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice"></div>
+	</body>
+</html>
