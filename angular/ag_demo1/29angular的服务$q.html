@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			 
+			angualr 的服务
+			$q
+			- promise的实现
+			- defer() 创建延迟对象
+			- resolve() 成功触发
+			- reject() 失败触发
+			- notify() 实时通知
+			- then() 监听成功或失败的处理
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.controller('Nice',['$scope','$q',function($scope,$q){
+				var dfd = $q.defer();
+				function show(){
+					setTimeout(function(){
+						//dfd.resolve(); //对应去调成功的函数
+						dfd.reject();  //对应去调失败的函数
+					},2000);
+					return dfd.promise;
+				};
+				show().then(function () {
+					alert('成功');
+				},function(){
+					alert('失败');
+				});//接受两个函数，成功或是失败
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice"></div>
+	</body>
+</html>

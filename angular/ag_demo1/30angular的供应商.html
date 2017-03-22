@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			
+			angular的供应商
+			服务相关的初始配置操作
+			config
+			- provider
+			- startSymbol 
+			- endSymbol
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.config(['$interpolateProvider',function($interpolateProvider){
+				$interpolateProvider.startSymbol('@@');
+				$interpolateProvider.endSymbol('@@');
+			}]);
+			m1.controller('Nice',['$scope','$interpolate',function($scope,$interpolate){
+				$scope.showText = 'hello';
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			<p>@@showText@@</p>
+		</div>
+	</body>
+</html>
