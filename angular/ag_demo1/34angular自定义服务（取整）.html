@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angular 自定义服务 （！！！注意：1自定义的服务不要定义$；2自定义的服务要写在内部服务的后面）
+			module
+			- filter()
+			- directive() 
+			- factory() 自定义服务
+			- provider() 自定义的服务如果想进行初始化config操作，那么就要用到provider
+			> 区别	
+			> $get
+			*/
+			var m1 = angular.module('myApp',[]);
+			/*m1.factory('myRandomNum',function(){  //定义一个获取随机数的服务
+				return function(num1,num2){
+					return Math.random()*(num2 - num1) + num1;
+				}
+				
+			});*/
+			m1.provider('myRandomNum',function(){
+				return{
+					bulInt : false,
+					int:function(argBol){
+						if( argBol ){
+							this.bulInt = true;
+						}else{
+							this.bulInt = false;
+						}
+					},
+					$get:function(){
+						var This = this;
+						return function(num1,num2){
+							return This.bulInt ? Math.round( Math.random()*(num2 - num1))+num1 : Math.random()*(num2 - num1)+num1;
+						}
+					}
+				}
+			});
+			m1.config(['myRandomNumProvider',function(myRandomNumProvider){
+				//myRandomNumProvider.int(true); //为true时，四舍五入，为false保留小数时
+			}])
+			m1.controller('Nice',['$scope','myRandomNum',function($scope,myRandomNum){
+				console.log(myRandomNum(-3,6));
+			}]);
+			
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice"></div>
+	</body>
+</html>

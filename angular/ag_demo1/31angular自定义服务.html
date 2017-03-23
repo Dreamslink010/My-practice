@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angular 自定义服务 （！！！注意：1自定义的服务不要定义$；2自定义的服务要写在内部服务的后面）
+			module
+			- filter()
+			- directive() 
+			- factory() 自定义服务
+			- provider()
+			> 区别
+			> $get
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.factory('myService',function(){  //这就是一个自定义服务，服务的名字就叫myService
+				return{
+					name:'hello',
+					show:function(){
+						return this.name + ':angular';
+					}
+				};
+			})
+			m1.controller('Nice',['$scope','myService',function($scope,myService){
+				console.log(myService.show());
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice"></div>
+	</body>
+</html>

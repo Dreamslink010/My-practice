@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angular 自定义服务 （！！！注意：1自定义的服务不要定义$；2自定义的服务要写在内部服务的后面）
+			module
+			- filter()
+			- directive() 
+			- factory() 自定义服务
+			- provider() 自定义的服务如果想进行初始化config操作，那么就要用到provider
+			> 区别	
+			> $get
+			*/
+			var m1 = angular.module('myApp',[]);
+			//这两种方式效果是一样的，factory执行的时候，内部也是调用的provider，但是直接用provider，可以添加，改写内部的属性和方法
+			m1.provider('myService',function(){
+				return{
+					age:20,
+					$get:function(){
+						return{
+							name:'hello',
+							show:function(){
+								return this.name +':angular';
+							}
+						};
+					}
+				};
+			}); 
+			/*m1.factory('myService',function(){  //这就是一个自定义服务，服务的名字就叫myService
+				return{
+					name:'hello',
+					show:function(){
+						return this.name + ':angular';
+					}
+				};
+			})*/
+			m1.config(['myServiceProvider',function(myServiceProvider){
+				console.log(myServiceProvider);
+			}])
+			m1.controller('Nice',['$scope','myService',function($scope,myService){
+				console.log(myService.show());
+			}]);
+			
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice"></div>
+	</body>
+</html>
