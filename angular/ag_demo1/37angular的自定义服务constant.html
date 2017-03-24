@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angualr 的自定义服务
+			模块之间的通信
+			- provide 好处
+			service()
+			- 构造函数(针对的是面向对象的方式)
+			constant() 可以调config
+			value()
+			- 设置常量
+			
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+			m1.constant('myService','hello Angular');
+			//m1.value('myService','hello Angular');
+			m1.config(['myService',function(myService){
+				console.log(myService);
+			}])
+			m1.controller('Nice',['$scope','myService',function($scope,myService){
+				console.log(myService);
+				
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			
+		</div>
+	</body>
+</html>

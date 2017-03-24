@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			/*
+			angualr 的自定义服务
+			模块之间的通信
+			- provide 好处
+			service()
+			- 构造函数
+			
+			*/
+			var m1 = angular.module('module1',[]);
+			m1.factory('myService',function(){  //这就是一个自定义服务，服务的名字就叫myService
+				return{
+					name:'hello',
+					show:function(){
+						return this.name + ':angular';
+					}
+				};
+			}); //可以提到公共js文件中，也可以利用provider进行数据改写
+			var m2 = angular.module('myApp',['module1']); //将module1注入到m2中
+			m2.controller('Nice',['$scope','myService',function($scope,myService){
+				console.log(myService.show());
+			}]); //m2中没有myService这个服务，想要使用，需要将module1注入到m2中
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			
+		</div>
+	</body>
+</html>
