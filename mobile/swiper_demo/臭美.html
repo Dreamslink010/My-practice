@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1">
+		<title></title>
+		<link href="js/Swiper-3.4.2/dist/css/swiper.min.css" rel="stylesheet" />
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				background: url(img/shouye_nvsheng_bg.png);
+				background-size: 100% 100%;
+			}
+			#header img{
+				width: 100%;
+			}
+			.swiper-container{
+				width: 100%;
+				perspective: 1200px;
+			}
+			.swiper-wrapper{
+				margin-top: 10px;
+			}
+			.swiper-slide{
+				width: 80%;
+				transform-style: preserve-3d;
+				
+			}
+			.swiper-slide .main-img{
+				width: 80%;
+				margin: 0 auto;
+				display: block;
+			}
+			#pagination{
+				position: absolute;
+				bottom: 100px;
+				width: 100%;
+			}
+			#pagination .swiper-pagination-bullet{
+				width: 9.5%;
+				float: left;
+				margin: 0 0 0 6.15%;
+				background: 0;
+				opacity: 1;
+			}
+			.swiper-pagination-bullet i{
+				background: #41203f;
+				width: 24px;
+				height: 24px;
+				line-height: 24px;
+				font-size: 12px;
+				border-radius: 50%;
+				display: block;
+				font-style: normal;
+				text-align: center;
+				margin: 0 auto;
+				color: #f5b55c;
+			}
+			.swiper-pagination-bullet-active i{
+				transform: scale(1.5);
+				background: url(img/shouye_nvsheng_huangseb.png) no-repeat center 50%;
+				background-size: auto 100%;
+				color: #815d4b;
+			}
+			@media screen and (min-height:481px){
+				.swiper-wrapper{margin-top:20px}
+				#pagination{bottom:110px};
+			}
+			@media screen and (min-height:569px){
+				.swiper-wrapper{margin-top:40px}
+				#pagination{bottom:120px}
+				.swiper-pagination-bullet i{
+					width:30px;height:30px;line-height:30px;font-size:15px
+				}
+			}
+			#footer{
+				position:absolute;
+				bottom:0;
+			}
+			#footer img{
+				width:100%;
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+			<div id="header">
+				<img src="img/header.png" />
+			</div>
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide swiper-slide-active">
+		        	<img src="img/shouye_nvsheng_washblow_one.png" class="main-img" />
+		        </div>
+		        <div class="swiper-slide swiper-slide-active">
+		        	<img src="img/shouye_nvsheng_washcutblow_two.png" class="main-img"/>
+		        </div>
+		        <div class="swiper-slide swiper-slide-active">
+		        	<img src="img/shouye_nvsheng_hairperm_three.png" class="main-img"/>
+		        </div>
+		        <div class="swiper-slide swiper-slide-active">
+		        	<img src="img/shouye_nvsheng_hairdye_four.png" class="main-img"/>
+		        </div>
+		        <div class="swiper-slide swiper-slide-active">
+		        	<img src="img/shouye_nvsheng_haircare_five.png" class="main-img"/>
+		        </div>
+		        <div class="swiper-slide swiper-slide-active">
+		        	<img src="img/shouye_nvsheng_packeage_six.png" class="main-img"/>
+		        </div>
+		    </div>
+		</div>
+		 <!-- 如果需要分页器 -->
+		<div class="swiper-pagination" id="pagination"></div>
+	    <div id="footer">
+	    	<img src="img/footer.png" />
+	    </div>
+		<!--导航等组件可以放在container之外-->
+		<script src="js/Swiper-3.4.2/dist/js/swiper.min.js"></script>
+		<script>
+			var arr = ["洗","剪","烫","染","护","套"]
+			var mySwiper = new Swiper ('.swiper-container', {
+				direction: 'horizontal',
+				pagination:".swiper-pagination",
+				paginationType:"bullets",
+				slidesPerView:"auto", //设置slider容器能够同时显示的slides数量,可以设置为number或者 'auto'则自动根据slides的宽度来设定数量。
+				centeredSlides:true,
+				watchSlidesProgress:true,
+				paginationClickable:true,
+				paginationBulletRender:function( swiper,index,classname ){ //分页器渲染
+					return "<span class = '"+classname+"'><i>"+ arr[index] +"</i></span>"
+				},
+//				onProgress:function(swiper){
+//					for( var i = 0; i<swiper.slides.length; i++ ){
+//						swiper.slides[i].style.transform = "scale(1.5)"
+//					}
+//				}
+
+
+			});        
+		</script>
+	</body>
+</html>
