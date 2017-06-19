@@ -20,7 +20,14 @@
 			}
 			.swiper-slide:nth-of-type(3){
 				background: plum;
-			}  
+			}
+			.swiper-pagination-bullet{
+				width: 20px;
+				height: 20px;
+			}
+			.swiper-pagination-bullet-active{
+				background: green;
+			}
 		</style>
 	</head>
 	<body>
@@ -42,27 +49,22 @@
 		</div>
 		<!--导航等组件可以放在container之外-->
 		<script src="js/Swiper-3.4.2/dist/js/swiper.js"></script>
-		<script>        
+		<script> 
+			
 			var mySwiper = new Swiper ('.swiper-container', {
 				direction: 'horizontal',
-//				touchRatio:0.2, //触摸距离与slide滑动距离的比率
-//				onlyExternal:true, //无法拖动，默认值是false
-//				followFinger:false, //跟随手指
-//				longSwipesMs:1000, //定义什么是长时间滑动，此句为滑动时间超过1s为长时间滑动
-//				longSwipes:false  //false为不支持长时间滑动
-//				shortSwipes:false //false为不支持短时间快速度的滑动
-//				longSwipesRatio:0.9 //触发滑动最小距离比率，此句为最少滑动可滑动区域的90%
-//				touchAngle:10 //允许滑动的角度
-//				loop: true,
+				pagination:".swiper-pagination",
+				paginationType:"bullets", //默认，圆点
+//				paginationType:"fraction" //分式
+//				paginationType:"progress" //进度条
+//				paginationClickable:true, //分页器可点击，默认是true
+//				paginationHide:true, //点击显示/隐藏分页器
+//				paginationElement:"p", //改变分页器的标签类型
+				paginationBulletRender:function( swiper,index,classname ){ //分页器渲染
+					return "<span class = '"+classname+"'>"+ index +"</span>"
+				}
 				
-//				// 如果需要分页器
-//				pagination: '.swiper-pagination',
-//				
-//				// 如果需要前进后退按钮
-//				nextButton: '.swiper-button-next',
-//				prevButton: '.swiper-button-prev',
-//				// 如果需要滚动条
-//				scrollbar: '.swiper-scrollbar',
+
 			});        
 		</script>
 	</body>
