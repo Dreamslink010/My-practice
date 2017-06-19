@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--react.js是react的核心库-->
+    <script src="build/react.js"></script>
+    <!--react-dom.js的作用是提供与DOM相关的功能-->
+    <script src="build/react-dom.js"></script>
+    <!--brower.min.js的作用是将JSX语法转换成Javascript语法-->
+    <script src="build/browser.min.js"></script>
+    
+</head>
+<body>
+	<!--react渲染的模板内容会插入到这个DOM节点中，作为一个容器-->
+	<div id="container"></div>
+</body>
+<!--在react开发中，使用JSX,跟JavaScript不兼容，在使用JSX的地方，要设置type="text/babel"-->
+<!--babel是一个转换编译器，ES6转成可以在浏览器中运行的代码-->
+<script type="text/babel">
+	//在此处编写react代码
+	/*
+	props是组件自身的属性，一般用于嵌套的内外层组件中，负责传递信息（通常是由父层组件向子层组件传递）
+	注意：props对象中的属性与组件的属性一一对应，不要直接去修改props属性的值
+	
+	定义一个组件WebShow。功能：输出网站的名字和网址，网址是一个可以点击的链接
+	分析：定义一个组件WebName负责输出网站名字，定义组件WebLink显示网站的网址并且可以点击 
+	
+	思路：
+	1、给WebShow设置两个属性，wname，wlink
+	2、WebShow的props对象增加两个属性值
+	3、WebName从WebShow的props对象中获取wname的值，即网站名称
+	
+	//定义WebName
+	var WebName = React.createClass({
+		render:function(){
+			return<h1>{this.props.webname}</h1>
+		}
+	});
+	
+	//定义WebLink
+	var WebLink = React.createClass({
+		render:function(){
+			return<a href={this.props.weblink}>{this.props.weblink}</a>
+		}
+	})
+	//定义WebShow
+	var WebShow = React.createClass({
+		render:function(){
+			return(
+				<div>
+					<WebName webname={this.props.wname}/>
+					<WebLink weblink={this.props.wlink}/>
+				</div>
+			)
+		}
+	});
+	//渲染
+	ReactDOM.render(
+		<WebShow wname="车爽" wlink="http://www.baidu.com"/>,
+		document.getElementById("container")
+	);
+	
+	...this.props
+	props提供的语法糖，可以将父组件中的全部属性都复制给子组件
+	需求：定义一个组件，Link，Link组件中只包含一个<a>,我们不给<a>设置任何属性，他所有的属性全部从父组件中复制得到
+	var Link = React.createClass({
+		render:function(){
+			return<a {...this.props}>{this.props.name}</a>
+		}
+	});
+	ReactDOM.render(
+		<Link href="http://www.baidu.com" name="下午好"/>,
+		document.getElementById('container')
+	)
+	
+	
+	this.props.children
+	children是一个例外，不是跟组件的属性对应的
+	表示组件的所有子节点
+	
+	定义一个列表组件，列表项中显示的内容，以及列表项的数量都由外部决定
+	*/
+	var ListComponent = React.createClass({
+		render:function(){
+			return(
+				<ul>
+					{
+						/*
+						列表项的数量以及内容不确定，在创建模板时才能确定
+						利用this.props.children从父组件获取需要展示的列表项内容
+						获取到列表项内容后，需要遍历children,逐项进行设置
+						使用React.Children.map方法
+						返回值：数组对象。这里数组中的元素是<li>
+						*/
+						React.Children.map(this.props.children,function(child){
+							//child是遍历得到的父组件的子节点
+							return<li>{child}</li>
+						})
+					}
+				</ul>
+			)
+		}
+	});
+	ReactDOM.render(
+		(
+			<ListComponent>
+				<h1>百度</h1>
+				<a href="http://baidu.com">百度地址</a>
+				<ListComponent>
+					<h1>百度</h1>
+					<a href="http://baidu.com">百度地址</a>
+				</ListComponent>
+			</ListComponent>
+			
+		),
+		
+		document.getElementById("container")
+	);
+</script>
+</html>

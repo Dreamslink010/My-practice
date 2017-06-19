@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--react.js是react的核心库-->
+    <script src="build/react.js"></script>
+    <!--react-dom.js的作用是提供与DOM相关的功能-->
+    <script src="build/react-dom.js"></script>
+    <!--brower.min.js的作用是将JSX语法转换成Javascript语法-->
+    <script src="build/browser.min.js"></script>
+    <style>
+    	.pStyle{
+    		font-size: 20px;
+    	}
+    </style>
+</head>
+<body>
+	<!--react渲染的模板内容会插入到这个DOM节点中，作为一个容器-->
+	<div id="container"></div>
+</body>
+<!--在react开发中，使用JSX,跟JavaScript不兼容，在使用JSX的地方，要设置type="text/babel"-->
+<!--babel是一个转换编译器，ES6转成可以在浏览器中运行的代码-->
+<script type="text/babel">
+	//在此处编写react代码
+	/*
+	创建一个组件类，用于输出hello react
+	规则：
+	1、React中创建的组件类以大写字母开头，驼峰命名法
+	2、在React中使用React.creatClass方法，创建一个组件类
+	3、核心代码：每个组件类都必须实现自己的render方法。输出定义好的组件模板。返回值：null,false,组件模板
+	4、组件类：只能包含一个顶层标签
+	
+	var HelloMessage = React.createClass({
+		render:function(){
+			return <h1>Hello React</h1>
+		}
+	});
+	ReactDOM.render(
+		//在模板中插入<HelloMessage/>会自动生成一个实例
+		<HelloMessage/>,
+		document.getElementById("container")
+	);
+	设置组价的样式，讲解三种
+	1、内联样式
+	2、对象样式
+	3、选择器样式
+	
+	注意：在react和H5中设置样式时的书写格式是有区别的
+	1、HTML5以;结尾
+	   react以,结尾
+	2、HTML5中key,value都不加引号
+	   react中属于js对象，key的名字不能出现"-",需要使用驼峰命名法，如果value为字符串，需要加引号
+	3、HTML5中，value如果是数字，需要带单位
+	   react中不需要带单位
+	   
+	我们定义一个组价类，同时使用三种设置组件样式的方式
+	需求：定义一个组件，分为上下两行显示内容
+	<div>  内联样式：设置背景颜色，边框大小，边框颜色
+		<h1></h1> 对象样式：设置背景颜色，字体颜色
+		<p></p> 选择器样式：设置字体大小
+	</div>
+	
+	注意：在react中使用选择器样式设置组件样式时，属性名不能使用class，需要使用className替换。
+	类似的，使用htmlFor替换for
+	
+	//创建设置h1样式对象
+	var hStyle = {
+		backgroundColor:"green",
+		color:"red"
+	}
+	var ShowMessage = React.createClass({
+		render:function(){
+			return(
+				<div style={{backgroundColor:"yellow",borderWidth:5,borderColor:'black',borderStyle:"solid"}}>
+					<h1 style={hStyle}>{this.props.firstRow}</h1>
+					<p className="pStyle">{this.props.secondRow}</p>
+				</div>
+			)
+		}
+	});
+	ReactDOM.render(
+		<ShowMessage firstRow="车爽" secondRow="下午好"/>,
+		document.getElementById("container")
+	);
+	
+	复合组件
+	也被称为组合组件、创建多个组件合成一个组件
+	
+	定义一个组件WebShow。功能：输出网站的名字和网址，网址是一个可以点击的链接
+	分析：定义一个组件WebName负责输出网站名字，定义组件WebLink显示网站的网址并且可以点击 
+	*/
+	//定义WebName组件
+	var WebName = React.createClass({
+		render:function(){
+			return<h1>车爽下午好</h1>
+		}
+	});
+	//定义WebLink组件
+	var WebLink = React.createClass({
+		render:function(){
+			return<a href="http://www.baidu.com">百度</a>
+		}
+	})
+	//定义复合组件WebShow
+	var WebShow = React.createClass({
+		render:function(){
+			return(
+				<div>
+					<WebName/>
+					<WebLink/>
+				</div>
+			)
+		}
+	});
+	ReactDOM.render(
+		<WebShow/>,
+		document.getElementById("container")
+	);
+</script>
+</html>

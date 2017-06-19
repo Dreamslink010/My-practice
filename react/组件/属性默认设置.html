@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--react.js是react的核心库-->
+    <script src="build/react.js"></script>
+    <!--react-dom.js的作用是提供与DOM相关的功能-->
+    <script src="build/react-dom.js"></script>
+    <!--brower.min.js的作用是将JSX语法转换成Javascript语法-->
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+	<!--react渲染的模板内容会插入到这个DOM节点中，作为一个容器-->
+	<div id="container"></div>
+</body>
+<!--在react开发中，使用JSX,跟JavaScript不兼容，在使用JSX的地方，要设置type="text/babel"-->
+<!--babel是一个转换编译器，ES6转成可以在浏览器中运行的代码-->
+<script type="text/babel">
+	//在此处编写react代码
+	/*
+	属性验证 propTypes
+	
+	组件类的属性
+	
+	用于验证组件实例的属性是否复合要求
+	
+	var ShowTitle = React.createClass({
+		//title数据类型必须为字符串
+		propTypes:{
+			title:React.PropTypes.string.isRequired
+		},
+		render:function(){
+			return <h1>{this.props.title}</h1>
+		}
+	});
+	ReactDOM.render(
+		<ShowTitle title=123/>,
+		document.getElementById("container")
+	);
+	
+	设置组件属性的默认值
+	
+	通过实现组件的getDefaultProps方法，对属性设置默认值
+	
+	
+	*/
+	
+	var MyTitle = React.createClass({
+		getDefaultProps:function(){
+			return{
+				title:"车爽"
+			};
+		},
+		render:function(){
+			return <h1>{this.props.title}</h1>
+		}
+	});
+	ReactDOM.render(
+		//设置了默认值的话这里可以不传值，如果传了会覆盖默认值
+		<MyTitle/>, 
+		document.getElementById("container")
+	);
+</script>
+</html>
