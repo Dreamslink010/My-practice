@@ -74,8 +74,7 @@
 			var text = this.state.isCheck ? "已选中" : "未选中"; 
 			return (
 				<div>
-					<input type="checkbox" onChange={this.handleChange} />
-					{text}
+					<input type="checkbox" onChange={this.handleChange} />{text}
 				</div>
 			);
 		}
