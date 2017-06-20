@@ -62,7 +62,9 @@
 		handleChange:function(){
 			//修改状态值，通过this.state读取设置的状态值
 			this.setState({
+				
 				isCheck:!this.state.isCheck
+				
 				
 			});
 		},
@@ -72,7 +74,7 @@
 			var text = this.state.isCheck ? "已选中" : "未选中"; 
 			return (
 				<div>
-					<input type="checkbox" onchange={this.handleChange} />
+					<input type="checkbox" onChange={this.handleChange} />
 					{text}
 				</div>
 			);
@@ -83,5 +85,6 @@
 		document.getElementById("container")
 	);
 	
+	//当state发生变化时，会调用组件内部的render方法！！！
 </script>
 </html>
