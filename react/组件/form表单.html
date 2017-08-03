@@ -55,7 +55,7 @@
 		<Input />,
 		document.getElementById("container")
 	);*/
-	-----------------------------------------------------------------------
+	//-----------------------------------------------------------------------
 	var Input = React.createClass({
 		//定义初始状态
 		getInitialState:function(){
@@ -65,7 +65,7 @@
 		},
 		//定义事件绑定的方法
 		handleChange:function(event){
-			//修改状态值，通过this.state读取设置的状态值
+			//修改状态值，通过event.target.value读取设置的状态值
 			this.setState({
 				value:event.target.value
 			});

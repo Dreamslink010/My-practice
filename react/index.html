@@ -1,22 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <!--react.js是react的核心库-->
-    <script src="build/react.js"></script>
-    <!--react-dom.js的作用是提供与DOM相关的功能-->
-    <script src="build/react-dom.js"></script>
-    <!--brower.min.js的作用是将JSX语法转换成Javascript语法-->
-    <script src="build/browser.min.js"></script>
-</head>
-<body>
-	<!--react渲染的模板内容会插入到这个DOM节点中，作为一个容器-->
-	<div id="container"></div>
-</body>
-<!--在react开发中，使用JSX,跟JavaScript不兼容，在使用JSX的地方，要设置type="text/babel"-->
-<!--babel是一个转换编译器，ES6转成可以在浏览器中运行的代码-->
-<script type="text/babel">
-	//在此处编写react代码
-</script>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="demo_b.js"></script>
+		<script src="demo_a.js"></script>
+		<script>
+
+/*			let firstName = `che`,
+				lastName = `shuang`
+			let str = `My name is ${firstName} ${lastName}`;
+			console.log(str);*/
+			
+			/*let human = {
+				id:1,
+				name:`che`,
+				children:{
+					c1:`c`,
+					c2:`h`
+				}
+			}
+			
+			let {id:id1,name,children:{c1,c2}} = human
+			console.log(id1,name,c1,c2);*/
+			
+			/*class Animal{ //新建一个类
+				constructor(a,b,c){
+					this.a = a;
+					this.b = b;
+					this.c = c;
+				}
+				move(){
+					console.log("I can move");
+				}
+				hand(){}
+			}
+			let a1 = new Animal(1,2,3);
+			//console.log(a1.a,a1.b,a1.c);
+			//a1.move();
+			
+			class Human extends Animal{ //新建一个类继承Animal这个类
+				constructor(name){
+					super(2,3,4); //执行一下父类构造函数
+					this.name = name;
+				}
+				move(){
+					console.log("I am a man") //覆盖了Animal的move函数
+				}
+			}
+			let hu1 = new Human("shuang");
+			console.log(hu1.b);
+			console.log(hu1.name);
+			hu1.move();*/
+		</script>
+		
+	</body>
 </html>

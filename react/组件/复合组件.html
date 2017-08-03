@@ -41,7 +41,7 @@
 		<HelloMessage/>,
 		document.getElementById("container")
 	);
-	设置组价的样式，讲解三种
+	设置组件的样式，讲解三种
 	1、内联样式
 	2、对象样式
 	3、选择器样式
@@ -84,7 +84,7 @@
 		document.getElementById("container")
 	);
 	
-	复合组件
+	复合组件（父子组件）
 	也被称为组合组件、创建多个组件合成一个组件
 	
 	定义一个组件WebShow。功能：输出网站的名字和网址，网址是一个可以点击的链接
@@ -113,6 +113,7 @@
 			)
 		}
 	});
+	//渲染到页面上
 	ReactDOM.render(
 		<WebShow/>,
 		document.getElementById("container")
