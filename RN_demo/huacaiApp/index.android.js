@@ -12,7 +12,8 @@ import {
   View,
   Image
 } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from 'react-native-tab-navigator';
+import {Navigator} from "react-native-deprecated-custom-components";
 
 //StatusBar.setHidden(true);
 
