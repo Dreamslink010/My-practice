@@ -17,6 +17,10 @@ import {Navigator} from "react-native-deprecated-custom-components";
 
 //StatusBar.setHidden(true);
 
+var Navigation = require("./all_view/common/navigation");
+var BookList = require("./all_view/book/book_list");
+
+
 var TabNavigatorItem =TabNavigator.Item; 
 
 var tab_normal_1=require('./images/index.png');  
@@ -70,12 +74,7 @@ class huacaiApp extends Component{
 			        selectedTitleStyle={{color:'green'}}  
 			        onPress={()=>this.onPress(tabName)}  
 		        >
-			        <View 
-			        	style={{flex:1,justifyContent:'center',alignItems:'center'}}
-			        >
-			        	<Text>{tabContent}</Text>
-			        	<Text>{tabContent}</Text>
-			        </View>
+			        <Navigation component={BookList}/>
 		        </TabNavigatorItem>
 		    );
 	    }else if( title === "电影" ){

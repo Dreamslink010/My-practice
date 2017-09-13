@@ -12,33 +12,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.0.1_2ca926370b503acc5cd958c8da85a907b00e9494.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\javax.inject-1_273da2ba53aedc2691b5c6c4485ebe7b12b6e634.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fbui.textlayoutbuilder\textlayoutbuilder\1.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_40be24c1c0f1a580eab1df08cd7a42c8f31b6be9.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
         jumboMode="false"
         optimize="true"
@@ -57,12 +30,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\1.3.0\jars\classes.jar"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.3.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-1.3.0_58f04787b85b24be785a83fa57d0755a99ef112d.jar" />
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.3.0_43c411b102e2069ce27afc7e9abc977005b86ce3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -75,15 +48,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-1.3.0_e3812fc764f1769d67b9f9c65e6b39d8aff98f2f.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\1.3.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -93,30 +57,57 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.3.0\jars\classes.jar"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.3.0_7dac167beb05d96a644e069bfd29358b2ff96c80.jar" />
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.1_c3fc16f285352896583a0882bff1aa87c99df138.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.3.0\jars\classes.jar"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.48.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9dfdc1614e402edaf52eaa5e5d8d38ac6f12cf0e">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.react-react-native-0.48.1_6b8343cee49fa52649e0baaf78b022df8ea8f84f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-okhttp3\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-okhttp3-1.3.0_d3525db4777f36aaf1d09167f4dee8a10f8de16d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-1.3.0_7b7c9ebe6ebcaeb2168d33b5c48e65b1fb5202b2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fbui.textlayoutbuilder\textlayoutbuilder\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_1104bafac307896f06f32d0bee9f0bc0a07b177c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.3.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.3.0_f97239b8255ec48c7f4d91b3c7995bf64298e85b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1_132f03b83b07c5ff6e41734cadeca882a5964ff3.jar" />
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.3.0_a46cd4dfec8af71311fbaa4fa0550542e2626af8.jar" />
     </item>
     <item
         is-multidex="false"
@@ -156,15 +147,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.facebook.fbui.textlayoutbuilder\staticlayout-proxy\1.0\f162442a19fff13995fbd51ba414d9ee05579080\staticlayout-proxy-1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\staticlayout-proxy-1.0_0283216b9bf7dad1d31c87f4be8f1ed4e4500cc6.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
         jumboMode="false"
         optimize="true"
@@ -174,12 +156,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.soloader\soloader\0.1.0\jars\classes.jar"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.soloader\soloader\0.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="8f615bca00639150c9eb6175d4b5471193f70794">
-        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.soloader-soloader-0.1.0_2f3e7a2cce1406813da15be74af3e77dbd0059d3.jar" />
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.soloader-soloader-0.1.0_062cdb874cf421178364b004cf6544e065993d89.jar" />
     </item>
     <item
         is-multidex="false"
@@ -189,6 +171,141 @@
         revision="23.0.1"
         sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
         <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\okhttp-3.6.0_1efc6a5eb9346389ba0de2f5ee10a5fa311da347.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1_1b2f2732f3ec6d0b18fdae6e170f81ef03d0ec97.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-1.3.0_7e2f8be5a6530f3055ed7bdb552735483939cb2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.0.1_2ca926370b503acc5cd958c8da85a907b00e9494.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\javax.inject-1_273da2ba53aedc2691b5c6c4485ebe7b12b6e634.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fbui.textlayoutbuilder\textlayoutbuilder\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_40be24c1c0f1a580eab1df08cd7a42c8f31b6be9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-1.3.0_58f04787b85b24be785a83fa57d0755a99ef112d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fresco-1.3.0_e3812fc764f1769d67b9f9c65e6b39d8aff98f2f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-fbcore-1.3.0_7dac167beb05d96a644e069bfd29358b2ff96c80.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.3.0_f97239b8255ec48c7f4d91b3c7995bf64298e85b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1_132f03b83b07c5ff6e41734cadeca882a5964ff3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.facebook.fbui.textlayoutbuilder\staticlayout-proxy\1.0\f162442a19fff13995fbd51ba414d9ee05579080\staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\staticlayout-proxy-1.0_0283216b9bf7dad1d31c87f4be8f1ed4e4500cc6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.0.1_7fc4cf627f022edf7e98d35c8c13955dec980a04.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-drawee-1.3.0_2814373f50cfc7b89afd666f9f97d7da6c9a5377.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.react\react-native\0.48.1\jars\libs\infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="E:\wenjian\mine2\My-practice\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_ac51253cc4dee9221137194aedd5c7c52d978319.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\RN_demo\huacaiApp\android\app\build\intermediates\exploded-aar\com.facebook.soloader\soloader\0.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="E:\RN_demo\huacaiApp\android\app\build\intermediates\pre-dexed\debug\com.facebook.soloader-soloader-0.1.0_2f3e7a2cce1406813da15be74af3e77dbd0059d3.jar" />
     </item>
 
 </items>

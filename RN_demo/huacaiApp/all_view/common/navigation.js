@@ -15,40 +15,38 @@ import {
 	AppRegistry,
 	StyleSheet,
 	Text,
-	View,
-	navigator
+	View
 } from 'react-native';
 import {Navigator} from "react-native-deprecated-custom-components";
 import TabNavigator from 'react-native-tab-navigator';
 
-var Navigator = React.createClass({
-	render:function(){
-		//创建route对象，约定格式
-		var rootRoute = {
-			component:this.props.component,
-			passProps:{
-				
-			}
-		};
-		return(
-			<Navigator
-				initialRoute = {rootRoute}
-				configureScene = {() => {return Navigator.SceneConfigs.PushFromRight}}
-				renderScene = {(route,navigator) => {
-					var Component = route.component;
-					return(
-						<View style={{flex:1}}>
-							<Component
-								navigator={navigator}
-								route={route}
-								{...route.passProps}
-							/>
-						</View>
-					)
-				}}
-			/>
-		)
-	}
+var Navigation = React.createClass({
+  render: function() {
+    // 创建route对象，约定格式
+    var rootRoute = {
+      component: this.props.component,
+      passProps: {
+
+      }
+    };
+
+    return (
+      <Navigator
+        initialRoute={rootRoute}
+        configureScene={() => {return Navigator.SceneConfigs.PushFromRight}}
+        renderScene={(route, navigator) => {
+          var Component = route.component;
+          return (
+            <View style={{flex:1}}>
+              <Component
+                navigator={navigator}
+                route={route}
+                {...route.passProps}/>
+            </View>
+          );
+        }}/>
+    );
+  }
 });
 
 module.exports = Navigation;
