@@ -75,7 +75,7 @@ var styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     textAlign: "center",
-    lineHeight: 44
+    lineHeight: 33
   }
 });
 

@@ -16,36 +16,42 @@ import {
 	StyleSheet,
 	Text,
 	View,
-	webView
+	WebView,
+	Dimensions
 } from 'react-native';
 import {Navigator} from "react-native-deprecated-custom-components";
 import TabNavigator from 'react-native-tab-navigator';
 
+
 var Header = require("./header");
 
 var CustomWebView = React.createClass({
-	render:function(){
-		return(
-			<View style={{backgroundColor:"white",flex:1}}>
-				<Header
-					navigator={this.props.navigator}
-					initObj={{
-						backName:this.props.backName,
-						barTitle:this.props.title
-					}}
-				/>
-				<WebView
-					startInLoadingState={true}
-					contentInset:{{top:-44,bottom:-120}}
-					source={{url:this.props.url}}
-				/>
-			</View>
-		)
-	}
+
+  render: function() {
+  	
+    return (
+      <View style={{backgroundColor:"white", flex:1}}>
+        <Header
+          navigator={this.props.navigator}
+          initObj={{
+            backName: this.props.backName,
+            barTitle: this.props.title
+          }}/>
+        <WebView
+          startInLoadingState={true}
+          contentInset={{top:-44, bottom:-120}}
+          source={{uri:this.props.url}}
+          />
+          
+      </View>
+    );
+  }
+
 });
 
-module.exports = CustomWebView;
 
+
+module.exports = CustomWebView;
 
 
 

@@ -7,12 +7,12 @@
 		<script>
 			/*
 			angular 指令
-			ng-init
-			ng-include
-			 - ng-model-options
-			 - updateOn
+			ng-init 变量初始化
+			ng-include 在结构中嵌入做好的页面
+			 - ng-model-options 双向数据绑定，实现输入和显示不同步，可以设置同步事件
+			 - updateOn 
 			ng-controller
-			 - as
+			 - as 控制器中用面相对象编程，可以得到每个变量的值
 			*/
 			var m1 = angular.module('myApp',[]);
 			m1.controller('Nice',['$scope',function($scope){
@@ -44,8 +44,8 @@
 			<input type="text" ng-model = "text2" ng-model-options = "{updateOn:'blur'}" />
 			<div>{{text2}}</div>
 		</div>-->
-		<div ng-controller="FnNice as a1">
-			<div>{{a1.text}}:{{a1.show()}}</div>
+		<div ng-controller="FnNice as a2">
+			<div>{{a2.text}}:{{a2.show()}}</div>
 		</div>
 	</body>
 </html>

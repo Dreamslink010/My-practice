@@ -22,19 +22,19 @@ import TabNavigator from 'react-native-tab-navigator';
 
 var Icon = require("./left_icon");
 
-var Hearder = React.createClass({
+var Header = React.createClass({
 	render:function(){
 		
 		//获取obj对象，包括：backName(按钮名称)，barTitle
-		var headerContent = this.props.initObj
+		var headerContent = this.props.initObj;
 		return(
 			<View style={styles.header}>
 				<TouchableOpacity style={styles.left_icon} onPress={this._pop}>
-					<Icon/>
-					<Text style={styles.btn_text}>{backName.backName}</Text>
+					<Icon style={styles.icon}/>
+					<Text style={styles.btn_text}>{headerContent.backName}</Text>
 				</TouchableOpacity>
 				<View style={styles.title_container}>
-					<Text style={styles.title} numberOfLines = {1}>{backName.barTitle}</Text>
+					<Text style={styles.title} numberOfLines = {1}>{headerContent.barTitle}</Text>
 				</View>
 			</View>
 		);
@@ -65,7 +65,7 @@ var styles = StyleSheet.create({
 		fontWeight:"bold",
 	},
 	title_container:{
-		flex:1;
+		flex:1,
 		justifyContent:"center",
 		alignItems:"center",
 	},
@@ -75,7 +75,8 @@ var styles = StyleSheet.create({
 		fontWeight:"bold",
 		lineHeight:18,
 		width:200,
-	}
+	},
+	
 });
 
 module.exports = Header;

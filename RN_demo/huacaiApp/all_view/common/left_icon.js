@@ -20,7 +20,7 @@ import TabNavigator from 'react-native-tab-navigator';
 
 var Icon = React.createClass({
 	render:function(){
-		rturn(
+		return(
 			<View>
 				<View style={styles.go }></View>
 			</View>
@@ -34,8 +34,9 @@ var styles = StyleSheet.create({
 		height:15,
 		borderLeftWidth:2,
 		borderBottomWidth:2,
-		borderColor:10,
-		transform:[{rotate:"45deg"}] //将一个矩形框旋转了45度
+		borderColor:"#ffffff",
+		transform:[{rotate:"45deg"}], //将一个矩形框旋转了45度
+		marginLeft:10,
 	}
 });
 

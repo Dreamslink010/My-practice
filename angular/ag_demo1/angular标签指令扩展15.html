@@ -24,7 +24,7 @@
 		<div ng-controller="Nice">
 			<form novalidate="" name = "myForm">
 				<input type="text" name="myText" ng-model="text"/>
-				<div>{{myForm.myText.$valid}}</div>
+				<div>{{myForm.myText.$valid}}</div> <!--通过name的方式进行查找 -->
 				<div>{{myForm.myText.$invalid}}</div>
 				<div>{{myForm.myText.$pristine}}</div>
 				<div>{{myForm.myText.$dirty}}</div>
