@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular.js/1.2.9/angular-route.min.js"></script>
+		<script>
+			/*
+			angualr 的插件
+			
+			ngSanitize 对html进行格式化的处理，解析成真正的html标签
+			ngRoute
+			-  版本的问题
+			-  ng-view
+			-  $routeProvider
+			>  when
+			   template/templateUrl
+			   controller
+			>  otherwise
+			-  $routeParams
+			
+			
+			
+			*/
+			var m1 = angular.module('myApp',['ngRoute']);
+			
+			m1.config(["$routeProvider",function($routeProvider){
+				$routeProvider
+					.when("/aaa",{
+						template:"<p>首页</p>"
+					})
+					.when("/bbb",{
+						template:"<p>学院</p>"
+					})
+					.when("/ccc",{
+						template:"<p>课程</p>"
+					});
+			}]);
+			
+			m1.controller('Nice',['$scope',function($scope){
+				console.log("123");
+			}]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice">
+			<a href="#aaa">首页</a>
+			<a href="#bbb">学院</a>
+			<a href="#ccc">课程</a>
+			<div ng-view></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		
+		<script>
+			/*
+			angualr 的事件传播方式
+			- $emit 向上传播，类似冒泡机制
+			- $broadcast 广播的方式，类似事件捕获
+			event
+				targetScope 目标作用域
+				currentScope 当前作用域
+				name 事件的名字
+				stopPropagation()阻止向上传播的方法
+			
+			
+			
+			
+			*/
+			var m1 = angular.module('myApp',[]);
+			
+			m1.controller('Nice1',['$scope',function($scope){
+				$scope.count = 0;
+				$scope.$on("myEvent",function(event){
+					$scope.count++;
+					//console.log( event.targetScope == event.currentScope );
+					//console.log(event.name);
+					event.stopPropagation();
+				})
+			}]);
+			
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice1">
+			{{count}}
+			<div ng-controller="Nice1" ng-click="$emit('myEvent')">
+				{{count}}
+				<div ng-controller="Nice1">
+					{{count}}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

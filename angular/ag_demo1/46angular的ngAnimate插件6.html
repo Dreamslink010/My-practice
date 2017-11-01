@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width:200px;
+				height: 200px;
+				background: orange;
+				
+			}
+			
+		</style>
+		<script src="jquery.min.js"></script>
+		<script src="angular.min.js"></script>
+		<script src="https://cdn.bootcss.com/angular.js/1.3.0-beta.1/angular-animate.min.js"></script>
+		<script>
+			/*
+			angular的插件
+			
+			ngAnimate
+			ng-hide-add 添加移出除
+			ng-hide-add-active
+			ng-hide-remove 删除移除
+			ng-hide-remove-active
+			
+			支持的指令
+			》class,show,hide,model等
+			js方式
+			》animation()
+				enter/leave
+				removeClass/addClass
+			
+			
+			
+			
+			*/
+			var m1 = angular.module('myApp',['ngAnimate']);
+			
+			m1.animation(".box",function(){
+				return{
+					addClass:function(element,sClass,done){
+						/*console.log(element);
+						console.log(sClass);
+						console.log(done);*/
+						$(element).animate({width:0,height:0},1000,done);
+					},
+					removeClass:function(element,sClass,done){
+						$(element).css({width:0,height:0});
+						$(element).animate({width:200,height:200},1000,done);
+					}
+				}
+			})
+			
+			m1.controller('Nice1',['$scope',function($scope){
+				$scope.bBtn = true;
+				
+			}]);
+			
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Nice1">
+			<input type="checkbox" ng-model="bBtn" />
+			<!--<div ng-if="bBtn" class="box"></div>-->
+			<div ng-show="bBtn" class="box"></div>
+		</div>
+	</body>
+</html>
+
