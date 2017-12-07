@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量的解构赋值</title>
+	</head>
+	<body>
+		<!--
+			基本概念：
+				本质上是一种匹配模式，只要等号两边的模式相同，那么左边的变量既可以被赋予对应的值
+
+			解构赋值主要分为：
+				1、数组的解构赋值(常用)
+				2、对象的解构赋值(常用)
+				3、基本类型的解构赋值
+		-->
+
+		<script>
+			/* 数组的解构赋值 */
+			/*let [a,b,c] = [1,2,3];
+			console.log(a,b,c);*/
+
+			/*let [a,[[b],c]] = [1,[[2],3]];
+			console.log(a,b,c); //1,2,3*/
+
+			/*let [ , ,c] = [1,2,3];
+			console.log(c); //3*/
+
+			/*let [x] = [];
+			console.log(x); //undefind*/
+
+			/*let [y = 1] = []; //赋值了一个默认值
+			console.log(y); //1*/
+
+			/* 对象的解构赋值 */
+			/*let {a,b} = {b:'bbb',a:'aaa'};
+			console.log(a,b);
+			*/
+
+			/*let {a:b} = {a:1};
+			console.log(b)*/
+
+			// 基本类型的解构赋值
+			// let [a,b,c,d] = '1234';
+			// console.log(a,b,c,d);
+
+			// let { length:len } = "cheshuang";
+			// console.log(len);
+
+			// let {toString:ts} = 1;
+			// let {toString:bs} = true;
+			// console.log(ts === Number.prototype.toString);
+			// console.log(bs === Boolean.prototype.toString);
+
+			// null 和 undefind 不能进行结构赋值
+
+
+
+
+
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  /*
+  基本概念
+  Promise:是ES6中新增的异步编程解决方案，体现在代码中他是一个对象，可以通过Promise构造函数来实例化
+
+  new Promise(cb) ===> 实例的基本使用 Pending Resolved Rejected
+
+  Pending(进行中) ===> Resolved(已完成)
+  Pending(进行中) ===> Rejected(已失败)
+
+  两个原型方法：
+  - Promise.prototype.then() Promise异步操作结束成功之后要执行的回调函数
+  - Promise.prototype.catch() Promise异步操作结束失败之后要执行的回调函数
+
+  两个常用的静态方法：
+  Promise.all();
+  Promise.resolve();
+
+  Promise.all 可以将多个Promise实例包装成一个新的Promise实例
+  当所有的Promise实例的状态都变成Resolved，Promise.all的状态才会变为resolved，此时返回值组成一个数组，传递给then中的resolve函数
+  只要其中有一个被rejected，Promise.all的状态就会变成rejected，此时第一个被reject的实例的返回值，回传递给p的回调函数
+
+  Promise.resolve(); 将一个对象转化为Promise对象
+  1、参数是Promise实例，将不做任何修改，原封不动的返回这个实例
+  2、将对象转化为Promise对象，然后就立即执行thenable对象的then方法
+
+  */
+  const imgs = [
+  'http://img5.duitang.com/uploads/item/201510/20/20151020205904_GQt5N.jpeg',
+  'http://pic28.photophoto.cn/20130828/0005018349601482_b.png',
+  'http://d.hiphotos.baidu.com/zhidao/pic/item/4a36acaf2edda3cc3768a58d04e93901203f928a.jpg',
+  'http://pic.58pic.com/58pic/15/16/23/83n58PIC5Km_1024.jpg'
+  ];
+  // const p = new Promise(function( resolve,reject ){
+  //   const img = new Image();
+  //   img.src = imgs[4];
+  //   img.onload = function(){ //执行成功
+  //     resolve(this);
+  //   };
+  //   img.onerror = function(){ //执行失败
+  //     reject(new Error('图片加在失败'))
+  //   };
+  // });
+  //
+  // console.log(123);
+  //
+  // p.then(function(img){
+  //   console.log('加载完成');
+  //   document.body.appendChild(img);
+  // }).catch(function(err){
+  //   console.log(err);
+  // })
+  //
+  // console.log(456);
+
+  function loadImg(url){
+    const p = new Promise(function( resolve,reject ){
+      const img = new Image();
+      img.src = url;
+      img.onload = function(){
+        resolve(this);
+      };
+      img.onerror = function(){
+        reject( new Error('图片加载失败') )
+      };
+    });
+    return p;
+  };
+  // loadImg(imgs[0]).then(function(img){
+  //   document.body.appendChild(img);
+  // })
+
+  // const allDone =  Promise.all([ loadImg(imgs[0]), loadImg(imgs[1]), loadImg(imgs[2]),loadImg('')]);
+  // allDone.then(function(datas){
+  //   datas.forEach(function( item,i ){
+  //     document.body.appendChild(item);
+  //   })
+  // }).catch(function(err){
+  //   console.log(err);
+  // })
+
+  // Promise.resolve(loadImg(imgs[0])).then(function(img){
+  //   document.body.appendChild(img);
+  // })
+
+  // Promise.resolve({
+  //   then(resolve,reject){
+  //     const img = new Image();
+  //     img.src = imgs[2];
+  //     img.onload  = function(){
+  //       resolve(this);
+  //     };
+  //   }
+  // }).then(function(img){
+  //   document.body.appendChild(img);
+  // })
+
+  // Promise.resolve('cheshuang').then(function(str){
+  //   console.log(str);
+  // })
+  const s = Promise.resolve();
+  console.log(s);
+</script>
+</html>

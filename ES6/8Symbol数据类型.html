@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  /*
+  1、什么是Symbol？
+  Symbol，表示独一无二的值。他是JS中的第七种数据类型
+
+  基本数据类型： null,undefined,string,number,Boolean,Symbol
+  引用数据类型：object
+
+  Symbol 函数前不能使用new否则会报错，原因是Symbol是一个原始类型的值，不是对象
+
+  Symbol 函数接收一个字符串作为参数，表示对Symbol的描述，主要是为了在控制台显示，或者转化为字符串的时候，比较容易区分
+  */
+  // let s1 = Symbol();
+  // let s2 = Symbol();
+  // console.log(typeof s1);
+  // console.log(s1 === s2);
+  // //let s3 = new Symbol(); 会报错
+  //
+  // let s3 = Symbol('xiaohua');
+  // let s4 = Symbol('xiaoming');
+  // console.log(s3,s4);
+
+  /*
+  2、Symbol 数据类型转换
+    - 不能转换成数字
+    - 不能做任何运算
+
+  */
+  console.log(String(Symbol('cheshuang'))); //Symbol(cheshuang)
+  console.log(Symbol('xiaohong').toString()); //Symbol(xiaohong)
+  console.log(!!Symbol()); //true
+  //console.log(Number(Symbol())); //会报错，不能转换成数字
+  //console.log(Symbol('che')+'shuang'); //不能做任何运算
+
+  /*
+  3、作为对象的属性名
+
+  Symbol 使用的时候应注意
+    - 不能被for...in循环遍历，虽然不能被遍历，但也不是私有的属性，可以通过Object.getOwnPropertySymbols 方法获得一个对象的所有Symbol属性
+
+  */
+  // let hao = Symbol('all');
+  // const obj = {};
+  // obj[hao] = 'hello';
+  // console.log(obj);
+  // console.log(obj[hao]);
+
+  // let ss = Symbol('che');
+  // const data = {
+  //   [ss]:'xiaoyu'
+  // };
+  // console.log(data);
+  // console.log(data[ss]);
+
+  const data = {
+    [Symbol()]:123,
+    a:1,
+    b:2
+  }
+  console.log(data);
+  console.log(data[Symbol()]); //这样是取不到里面的值的
+
+  for(let i in data){
+    console.log(i);
+  };
+  console.log(Object.getOwnPropertySymbols(data));
+  console.log(data[Object.getOwnPropertySymbols(data)[0]]); //通过这个方法可以取到里面的值
+</script>
+</html>
