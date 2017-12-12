@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <!-- 模板 -->
+  <div id="demo">
+    <span v-on:click='clickHandle'>{{ message }}</span>
+  </div>
+</body>
+<script type="text/javascript">
+  let obj = {
+    message: 'hello,Vue'
+  };
+  let vm = new Vue({
+    el: "#demo", //挂载的元素
+    data: obj, //数据中心，把数据放在模板里
+    methods: {
+      clickHandle() {
+        alert("我来啦");
+      }
+    }
+  });
+  console.log(vm);
+</script>
+
+</html>

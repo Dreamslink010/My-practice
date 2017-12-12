@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <!-- 模板 -->
+  <div id="demo">
+    <span :cutomId = 'id'>{{ message }}</span>
+  </div>
+</body>
+<script type="text/javascript">
+/*
+什么是指令：
+  是一种特殊的自定义行间属性
+  指令的职责就是当其表达式的值改变时相应的将某些行为应用到DOM上
+  在Vue中，指令以v-开头
+Vue 中的内置指令
+  v-bind 动态的数据绑定，简写为 :
+  v-on   绑定事件监听器，简写为 @
+  v-text 更新数据，会覆盖已有结构
+  v-html 可以解析数据中的html结构
+  v-show 根据值的真假，切换元素的display属性
+  v-if   根据值的真假，切换元素会被销毁、重建
+  v-else-if  多条件判断，为真则渲染
+  v-else 条件都不符合渲染
+  v-for  基于源数据多次渲染元素或模板块
+  v-model 在表单控件元素上创建双向数据绑定
+  v-pre  跳过元素子元素的编译过程
+  v-once 只渲染一次，随后数据更新不重新渲染
+  v-cloak 隐藏未编译的Mustache语法，css中设置[v-cloak]{display:none}
+*/
+
+  let obj = {
+    message:'hello,Vue',
+    id:'123'
+  }
+  let vm = new Vue({
+    el:"#demo",
+    data:obj
+  })
+</script>
+
+</html>

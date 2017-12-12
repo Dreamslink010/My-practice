@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .red{
+      color: red;
+    }
+    .fontSize{
+      font-size: 50px;
+    }
+    .bg{
+      background: yellow;
+    }
+  </style>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <!-- 模板 -->
+  <!-- <div id="demo">
+    <div v-html = 'html'></div>
+  </div> -->
+  <div id="demo">
+    <!-- <span class="fontSize" :class="{red:addClass}">nihao</span> -->
+    <span>大家好</span>
+  </div>
+</body>
+<script type="text/javascript">
+
+
+/*
+模板分为三大类：html模板   字符串模板    模板-render函数
+
+一、html模板
+    基于DOM的模板，模板都是可解析的有效的html
+  插值
+    文本：使用‘Mustache’语法（双大括号）{{value}}
+          作用：替换实例上的属性值，当值改变时，插值内容处会自动更新
+    原生的html：双大括号输出的是文本，不会解析html
+    属性：使用v-bind进行绑定，可以响应变化
+    使用javascript表达式：写简单的表达式
+
+二、字符串模板
+  template字符串
+    template选项对象的属性
+    模板将会替换挂载的元素。挂载元素的内容都将被忽略
+    根节点只能有一个
+    将html结构写在一对script标签中，设置type = “x-template”
+
+三、模板-render函数
+  render函数
+    render选项对象的属性
+    createElement(标签名，[数据对象]，子元素); (子元素为文本或数组)
+
+  数据对象属性
+  class:{}  绑定class，和‘v-bind:class’一样的一样的API
+  style:{}  绑定样式，和'v-bind:style'一样的API
+  attrs:{}  添加行间属性
+  domProps:{}  Dom 元素属性
+  on:{}  绑定事件
+*/
+
+   let obj = {
+    // html:'<div>hello,Vue</div>'
+    addClass:true
+   }
+  //let str = '<div>cheshuang</div>'
+  let vm = new Vue({
+    el:"#demo",
+    data:obj,
+    //template:str
+    render( createElement ){
+      return createElement(
+        'ul',
+        {
+          class:{  //此处可以添加属性
+            bg:true
+          },
+          style:{
+            fontSize:'50px'
+          },
+          attrs:{
+            name:"che"
+          },
+          domProps:{
+            innerHTML:'<li>我是li</li>'
+          }
+        },
+        [
+          createElement('li',1),
+          createElement('li',2),
+          createElement('li',3)
+        ]
+      )
+    }
+  })
+</script>
+
+</html>
