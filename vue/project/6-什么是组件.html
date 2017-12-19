@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+<!--
+  什么是组件？
+    WEB中的组件其实就是页面组成的一部分，好比是电脑中的每一个原件（如硬盘，键盘，鼠标），它是一个具有独立逻辑和功能的界面，同时又能根据规定的接口规则进行相互融洽，变成一个完整的应用。
+    页面就是由一个个类似这样的部分组成的，比如导航，列表，弹窗，下拉菜单等，页面只不过是这些组件的容器，组件自由组合形成功能完整的界面，当不需要某个组件，或者想要替换某个组件时，可以随时进行替换和删除，而不影响整个应用的运行
+
+    前端组件化的核心思路就是将一个巨大复杂的东西拆分成粒度合理的小东西
+
+    使用组件的好处
+      提高开发效率
+      方便重复使用
+      简化调试步骤
+      提升整个项目的可维护性
+      便于协同开发
+
+  vue中的组件
+    vue中的组件是一个自定标签，vue.js的编译器为他添加特殊功能，vue也可以扩展原生的html元素，封装可重用的代码
+
+    组件的基本组成
+      样式结构
+      行为逻辑
+      数据
+
+  全局注册
+    可以在任何模板中使用，使用之前要先注册
+    语法：使用 Vue.component(组件名,选项对象)
+    组件命名约定：
+      驼峰( camelCase )、烤串( kebab-case )
+    在html中使用组件：
+      使用烤串( kebab-case )命名法
+    例如，注册 Vue.component("my-component",{})
+    使用：<my-component></my-component>
+局部注册
+    在组件实例中通过选项对象注册，只在所注册的作用域中使用
+    {
+        components:{
+            组件名：选项对象
+        }
+    }
+ -->
+  <div id="app">
+      <h2>自定义的下拉框</h2>
+      <custom-select></custom-select>
+      <custom-select></custom-select>
+  </div>
+  <script type="text/javascript">
+      //注册组件
+     Vue.component("custom-select",{
+         template:`
+             <section class="warp">
+                 <div class="searchIpt clearFix">
+                     <div class="clearFix">
+                         <input type="text" class="keyWord" value="" />
+                         <input type="button" value="查询">
+                         <span></span>
+                     </div>
+                     <ul class="list">
+                         <li>html+css</li>
+                         <li>html5+css3</li>
+                         <li>javascript</li>
+                         <li>angular</li>
+                         <li>react</li>
+                         <li>vue</li>
+                         <li>jquery</li>
+                         <li>nodejs</li>
+                     </ul>
+                 </div>
+             </section>
+         `
+     })
+      new Vue({
+          el:"#app"
+      })
+  </script>
+</body>
+</html>

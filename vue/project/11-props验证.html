@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+    <!--
+        组件可以为 props指定验证要求。如果未指定验证要求，Vue会发出警告
+        props:{
+            propsA:Number, //指定类型
+            propsB:[String,Number],//多种类型
+            propsC:{ type:String,required:true },//必传，且为字符串
+            propsD:{ type:Number,default:100 },//字符串类型，默认值为100
+            propsE:{ type:Number,default:function(){ return 1000 }}
+            //自定义验证规则
+            propsF:{ validator:function(value){ return value>10 }}
+            验证类型为原生构造器：String,Number,Function,Object,Boolean,Array
+        }
+     -->
+    <div id="app">
+        <h3>父组件中使用了count</h3>
+        <p>{{count}}</p>
+        <custom-component :newcount = "count" @increment-click = "countHandle"></custom-component>
+    </div>
+</body>
+<script type="text/javascript">
+
+    //全局组件
+    Vue.component('custom-component',{
+        props:{
+            newcount:{
+                /*
+                // type:Number,
+                type:[Number,String], //值的类型也可以设置多个类型，用数组包在一起
+                // default:10 //设置默认值，如果不传参就显示默认值
+                required:true //此项为必传项
+                */
+                validator:function(value){
+                    console.log(value);
+                    return value > 10
+                }
+            }
+        },
+        data(){
+            return {
+                incrementCount:this.newcount //作为局部这个组件的data的初始值
+            }
+        },
+        template:`
+            <div>
+                <h2>我是一个自定义的组件</h2>
+                <input type="button" value = "改变newcount的值" @click = "changeCount"/>
+                {{incrementCount}}
+            </div>
+        `,
+        methods:{
+            changeCount(){
+                this.incrementCount++;
+                //通知父组件 发生了改变
+                this.$emit("increment-click")
+            }
+        }
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            count:20
+        },
+        methods:{
+            countHandle(){
+                // alert("子组件点击了");
+                this.count++;
+            }
+        }
+    })
+</script>
+</html>

@@ -95,7 +95,7 @@
               v-on:keyup.13 = "addTodo(123,$event)"
               v-model="todo"
          />
-        <ul class="task-count" v-show="list.length">
+        <ul class="task-count" v-show="newList.length">
             <li>
               {{
                 noLength
@@ -103,17 +103,17 @@
               个任务未完成
             </li>
             <li class="action">
-                <a class="active" href="#">所有任务</a>
-                <a href="#">未完成的任务</a>
-                <a href="#">完成的任务</a>
+                <a href="#all" :class="{active:visibility === 'all'}">所有任务</a>
+                <a href="#unfinished" :class="{active:visibility === 'unfinished'}">未完成的任务</a>
+                <a href="#finished" :class="{active:visibility === 'finished'}">完成的任务</a>
             </li>
         </ul>
         <h3 class="big-title">任务列表：</h3>
         <div class="tasks">
 
-            <span class="no-task-tip" v-show="!list.length">还没有添加任何任务</span>
+            <span class="no-task-tip" v-show="!newList.length">还没有添加任何任务</span>
             <ul class="todo-list">
-                <li class="todo" v-bind:class="{completed:items.isChecked,editing:items === edtorTodos}" v-for="items in list">
+                <li class="todo" v-bind:class="{completed:items.isChecked,editing:items === edtorTodos}" v-for="items in filteredList">
                     <div class="view">
                         <input
                               class="toggle"

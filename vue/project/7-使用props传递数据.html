@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+<!--
+    组件间的通信
+    父组件要给子组件传递数据，子组件需要将他内部发生的事情告知给父组件。
+
+    父组件》子组件
+        组件实例的作用域是孤立的，不能在子组件中直接用父组件的数据
+        可以在组件上使用自定义属性绑定数据，在组件中需要显示的用props声明自定义属性名。
+    子组件》父组件
+        需要用到自定义事件，父组件用 $on监听自定义事件，$emit触发父组件所关心的自定义事件
+ -->
+  <div id="app">
+      <h2>自定义的下拉框</h2>
+      <custom-select btn-value="查询"></custom-select>
+      <custom-select btn-value="搜索"></custom-select>
+  </div>
+  <script type="text/javascript">
+      //注册组件
+     Vue.component("custom-select",{
+         props:["btnValue"], //此处必须使用驼峰命名法
+         template:`
+             <section class="warp">
+                 <div class="searchIpt clearFix">
+                     <div class="clearFix">
+                         <input type="text" class="keyWord" value="" />
+                         <input type="button" :value="btnValue">
+                         <span></span>
+                     </div>
+                     <ul class="list">
+                         <li>html+css</li>
+                         <li>html5+css3</li>
+                         <li>javascript</li>
+                         <li>angular</li>
+                         <li>react</li>
+                         <li>vue</li>
+                         <li>jquery</li>
+                         <li>nodejs</li>
+                     </ul>
+                 </div>
+             </section>
+         `
+     })
+      new Vue({
+          el:"#app"
+      })
+  </script>
+</body>
+</html>

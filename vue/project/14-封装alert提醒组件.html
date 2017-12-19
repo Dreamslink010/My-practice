@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/fontFace.css">
+    <style>
+			[class*=" m-icon-"], [class^=m-icon-] {
+			    font-family: element-icons!important;
+			    speak: none;
+			    font-style: normal;
+			    font-weight: 400;
+			    font-variant: normal;
+			    text-transform: none;
+			    line-height: 1;
+			    vertical-align: baseline;
+			    display: inline-block;
+			    -webkit-font-smoothing: antialiased;
+			    -moz-osx-font-smoothing: grayscale;
+			}
+			/*基本样式*/
+			.m-alert {
+				width: 100%;
+			    padding: 8px 16px;
+			    margin: 0;
+			    box-sizing: border-box;
+			    border-radius: 4px;
+			    position: relative;
+			    background-color: #fff;
+			    overflow: hidden;
+			    color: #fff;
+			    display: table;
+			    transition: opacity .2s;
+			    margin-top:10px;
+			    border: 1px solid #ccc;
+			}
+			.m-content {
+				display: table-cell;
+				padding: 0 8px;
+			}
+			.m-message {
+				font-size: 13px;
+				line-height: 18px;
+			}
+			/*不同状态样式*/
+			.m-alert-success{
+				background-color:#13ce66;
+			}
+			.m-alert-info{
+				background-color:#50bfff;
+			}
+			.m-alert-warning{
+				background-color:#f7ba2a;
+			}
+			.m-alert-error{
+				background-color:#ff4949;
+			}
+			/*关闭按钮样式*/
+			.m-closebtn {
+			    font-size: 12px;
+			    color: #fff;
+			    opacity: 1;
+			    top: 12px;
+			    right: 15px;
+			    position: absolute;
+			    cursor: pointer;
+			}
+			.m-icon-close:before {
+			    content: "\E60C";
+			}
+			/*小图标样式*/
+			.m-icon {
+			    font-size: 16px;
+			    width: 16px;
+			    display: table-cell;
+			    color: #fff;
+			    vertical-align: middle;
+			}
+			.m-icon-success:before {
+			    content: "\E609";
+			}
+			.m-icon-warning:before {
+			    content: "\E615";
+			}
+			.m-icon-info:before {
+			    content: "\E615";
+			}
+
+			.m-icon-error:before {
+			    content: "\E60B";
+			}
+			/*自定义图标*/
+			.m-icon-message:before {
+			    content: "\E618";
+			}
+
+			.m-icon-menu:before {
+			    content: "\E617";
+			}
+
+			.m-icon-setting:before {
+			    content: "\E61E";
+			}
+
+			#app {
+				width: 500px;
+			}
+</style>
+
+<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+    <!--
+        封装组件
+        每个组件会提供一些标准且简单的应用接口，允许使用者设置和调整参数和属性。
+        可以将不同来源的多个组件有机的结合在一起，快速构成一个符合实际需要的复杂（大型）应用程序
+
+        组件的主要特点：
+            重用性 —— 能够公用和通用
+            可定制性 —— 可设置参数和属性
+            高内聚性 —— 功能完整
+            互操作性 —— 多组件协同工作
+
+        Vue 组件的API来自三部分
+            props参数    传递数据给组件
+            slot 定制模板   外部模板混合子组件模板
+            event 自定义事件   监控子组件交互状态
+     -->
+     <!--
+        alert提醒框有四中状态：
+            info success error warning
+        设置的props：
+            type 提醒框类型，默认为info
+            title 提示信息 “这里有一个消息要提示”
+            closeable 是否禁用关闭，默认为true
+            showIcon 是否显示图标，默认为false
+            style 设置提醒框样式，默认为{}
+        定制模板：
+            slot为iconTmp 定制icon模板
+            slot为titleTmp 定制提示信息结构
+        监控状态变化
+            事件名close-click 点击关闭X触发
+
+      -->
+
+    <div id="app">
+        <c-alert type="error" title="错啦，重新写吧！" v-bind:closeable="true" ></c-alert>
+        <c-alert type="success" title="成功，通过了！" v-bind:closeable="false" ></c-alert>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.component("c-alert",{
+        props:{
+            type:{
+                type:String,
+                default:'info'
+            },
+            title:{
+                type:String,
+                default:"这有一个消息要提示"
+            },
+            closeable:{
+                type:Boolean,
+                default:true
+            }
+
+        },
+        computed:{
+            classes(){
+                return `m-alert-${this.type}`
+            },
+            iconClass(){
+                return `m-icon-${this.type}`
+            }
+        },
+        template:`
+            <div class="m-alert" v-bind:class = "classes">
+                <i class="m-icon" v-bind:class = "iconClass"></i>
+                <div class="m-content">
+                    <span class="m-message">{{title}}</span>
+                    <i class="m-closebtn m-icon-close" v-if="closeable"></i>
+                </div>
+            </div>
+        `
+    })
+    new Vue({
+        el:"#app",
+
+    })
+</script>
+</html>

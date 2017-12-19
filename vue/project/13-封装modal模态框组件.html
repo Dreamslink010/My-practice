@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        p,h4{
+            margin:0;
+        }
+        .modal{
+            width: 500px;
+            background-color: #fff;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: 6px;
+            box-shadow: 0 3px 9px rgba(0,0,0,.5);
+
+        }
+        .modal-header {
+            padding: 15px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .modal-content div {
+            padding: 20px;
+        }
+        .modal-footer {
+            padding: 15px;
+            text-align: right;
+            border-top: 1px solid #e5e5e5;
+        }
+        .btn {
+            padding: 5px 15px;
+            border: none;
+            outline: none;
+        }
+        .blue {
+            color: #fff;
+            background-color: #39f;
+            border-color: #39f;
+        }
+    </style>
+
+    <script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+    <!--
+        封装组件
+        每个组件会提供一些标准且简单的应用接口，允许使用者设置和调整参数和属性。
+        可以将不同来源的多个组件有机的结合在一起，快速构成一个符合实际需要的复杂（大型）应用程序
+
+        组件的主要特点：
+            重用性 —— 能够公用和通用
+            可定制性 —— 可设置参数和属性
+            高内聚性 —— 功能完整
+            互操作性 —— 多组件协同工作
+
+        Vue 组件的API来自三部分
+            props参数    传递数据给组件
+            slot 定制模板   外部模板混合子组件模板
+            event 自定义事件   监控子组件交互状态
+     -->
+     <!--
+         设置的props：
+             modalTitle 提醒信息 默认为这是一个模态框
+         定制模板：
+             slot为modal-content  定制提醒信息模板
+             slot为modal-footer   定制底部模板
+        监控子组件状态变化：
+            事件名 on-ok   点击确定触发
+            事件名 on-cancel  点击取消触发
+      -->
+    <div id="app">
+        <!-- 添加属性传值必须用烤串的形式命名 -->
+        <c-modal modal-title="提醒">
+            <ul slot="modal-content">
+                <li v-for = "items of newList">{{items}}</li>
+            </ul>
+            <input type="button" name="" value="就这样" slot="modal-footer" class="btn blue">
+            <input type="button" name="" value="不，谢谢啦" slot="modal-footer" class="btn">
+            <input type="button" name="" value="返回" slot="modal-footer" class="btn">
+        </c-modal>
+        <c-modal @on-ok="ok" @on-cancel = "cancel"></c-modal>
+
+    </div>
+
+
+</body>
+<script type="text/javascript">
+    Vue.component("c-modal",{
+        props:{
+            modalTitle:{
+                type:String,
+                default:'这里是模态框标题'
+            }
+        },
+        template:`
+            <div class="modal">
+                <div class="modal-header">
+                    <h4>{{modalTitle}}</h4>
+                </div>
+                <div class="modal-content">
+                    <div>
+                        <slot name="modal-content">在这里添加内容</slot>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <slot name="modal-footer">
+                        <input class="btn blue" type="button" name="" value="确定" @click = "okHandle">
+                        <input class="btn" type="button" name="" value="取消" @click = 'cancelHandle'>
+                    </slot>
+                </div>
+                </div>
+            </div>
+        `,
+        methods:{
+            okHandle(){
+                //通知父组件 点了确定
+                this.$emit("on-ok");
+            },
+            cancelHandle(){
+                this.$emit('on-cancel');
+            }
+        }
+    });
+    var list = [...'模态框数据'];
+    new Vue({
+        el:"#app",
+        data:{
+            newList:list
+        },
+        methods:{
+            ok(){
+                alert('改变一个div的样式')
+            },
+            cancel(){
+                alert('我被取消了')
+            }
+        }
+    })
+</script>
+</html>
