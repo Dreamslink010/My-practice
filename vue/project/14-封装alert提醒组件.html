@@ -144,8 +144,25 @@
       -->
 
     <div id="app">
-        <c-alert type="error" title="错啦，重新写吧！" v-bind:closeable="true" ></c-alert>
-        <c-alert type="success" title="成功，通过了！" v-bind:closeable="false" ></c-alert>
+        <c-alert
+            type="error"
+            title="错啦，重新写吧！"
+            v-bind:closeable="true"
+            v-bind:show-icon="true"
+            style="background:pink"
+            @close-click = "close" >
+            <template slot="titleTmp">
+                <p>我是定制的提醒信息</p>
+                <p>我是定制的提醒信息</p>
+                <p>我是定制的提醒信息</p>
+                <p>我是定制的提醒信息</p>
+                <p>我是定制的提醒信息</p>
+            </template>
+            <i class="m-icon m-icon-menu" slot="iconTmp"></i>
+        </c-alert>
+        <c-alert type="success" title="成功，通过了！" v-bind:closeable="false" v-bind:show-icon="true" ></c-alert>
+        <c-alert type="info"  v-bind:closeable="true" v-bind:show-icon="false"></c-alert>
+        <c-alert type="warning"  v-bind:closeable="true" v-bind:show-icon="false"></c-alert>
     </div>
 </body>
 <script type="text/javascript">
@@ -162,7 +179,12 @@
             closeable:{
                 type:Boolean,
                 default:true
-            }
+            },
+            showIcon:{
+                type:Boolean,
+                default:false
+            },
+            style:String  //只验证类型，不传默认值
 
         },
         computed:{
@@ -171,21 +193,35 @@
             },
             iconClass(){
                 return `m-icon-${this.type}`
-            }
+            },
+
         },
         template:`
-            <div class="m-alert" v-bind:class = "classes">
-                <i class="m-icon" v-bind:class = "iconClass"></i>
+            <div class="m-alert" v-bind:class = "classes" style="style">
+                <slot name="iconTmp">
+                    <i class="m-icon" v-bind:class = "iconClass" v-if="showIcon"></i>
+                </slot>
                 <div class="m-content">
-                    <span class="m-message">{{title}}</span>
-                    <i class="m-closebtn m-icon-close" v-if="closeable"></i>
+                    <slot name="titleTmp">
+                        <span class="m-message">{{title}}</span>
+                    </slot>
+                    <i class="m-closebtn m-icon-close" v-if="closeable" @click="closeHandle"></i>
                 </div>
             </div>
-        `
+        `,
+        methods:{
+            closeHandle(){
+                this.$emit("close-click")
+            }
+        }
     })
     new Vue({
         el:"#app",
-
+        methods:{
+            close(){
+                alert("提醒框被关闭了")
+            }
+        }
     })
 </script>
 </html>
